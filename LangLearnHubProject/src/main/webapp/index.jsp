@@ -18,7 +18,7 @@
         헤더
     </header>
     <div class="main_image_division">
-        <img src="pics/before_login_main_p1.jpg" class="main_image">
+        <img src="/pics/before_login_main_p1.JPG" class="main_image">
         <div class="main_image_text">
         <div style="font-size: 24px; margin-top: 50px;">AI 학습, 다양한 학습 커뮤니티까지<br></div>
         함께 성장하는 학습의 시작.<br>
@@ -93,7 +93,7 @@
     <div class="main_function_division">
         <div class="main_function2_box">
             <div class="main_function2_title">
-                <img src="pics/book.png" style="width : 48px; margin : 5px 0px 0px 15px;">
+                <img src="/pics/book.png" style="width : 48px; margin : 5px 0px 0px 15px;">
                 <div class="main_function2_title_text">
                     Study Helper
                 </div>
@@ -113,7 +113,7 @@
                     다음에도 궁금한게 있다면 물어보세요.
                 </div>
                 <div class="main_function2_message_input">
-                    <img src="pics/send.png" class="main_function2_message_send"></img>
+                    <img src="/pics/send.png" class="main_function2_message_send"></img>
                 </div>
             </div>
         </div>
@@ -135,21 +135,21 @@
             나의 단어장 생성
         </div>
         <div class="main_function3_small_text" style="top: 51%;">
-            <img src="pics/cellphone.png" class="main_function3_small_img">
+            <img src="/pics/cellphone.png" class="main_function3_small_img">
             <div style="margin-left : 45px;">
                 내가 만든 단어장들을<br>
                 모바일에서도 확인 가능
             </div>
         </div>
         <div class="main_function3_small_text" style="top: 58%;">
-            <img src="pics/note.png" class="main_function3_small_img">
+            <img src="/pics/note.png" class="main_function3_small_img">
             <div style="margin-left : 45px;">
                 여러 단어들을 조합하여<br>
                 나만의 단어장 생성하기
             </div>
         </div>
         <div class="main_function3_small_text" style="top: 65%;">
-            <img src="pics/exam.png" class="main_function3_small_img">
+            <img src="/pics/exam.png" class="main_function3_small_img">
             <div style="margin-left : 45px;">
                 잘 모르는 단어들을 모아<br>
                 테스트 할 수 있는 기능 포함
@@ -157,7 +157,7 @@
         </div>
         <div class="main_function3_box">
             <div class="main_function3_title">
-                <img src="pics/verb.png" style="width : 48px; margin : 8px 0px 0px 20px;">
+                <img src="/pics/verb.png" style="width : 48px; margin : 8px 0px 0px 20px;">
                 <div class="main_function3_title_text">
                     verb
                 </div>
@@ -238,6 +238,63 @@
                 </div>
                 <div class="main_function3_word_extra" style="top : 92%; left : 52.5%;">
                     <input type="checkbox" style="width : 20px; height : 20px; margin : 20px 0px 0px 265px" >
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main_function_division">
+        <div class="main_function4_title_text">
+            많은 영어전문가들의 추천사이트<br>
+            LangLearnHub.
+        </div>
+        <div>
+            <div class="main_function4_img_star">
+                <img src="/pics/star.png" class="img_star">
+                <img src="/pics/star.png" class="img_star">
+                <img src="/pics/star.png" class="img_star">
+                <img src="/pics/star.png" class="img_star">
+                <img src="/pics/star.png" class="img_star">
+            </div>
+        </div>
+        <div class="main_function4_box_all">
+            <div class="main_function4_box">
+                <div>
+                    <img src="/pics/user_profile.png" class="main_function4_box_img">
+                    <div class="main_function4_box_name">gildong Hong</div>
+                    <div class="main_function4_box_title">공부하기에 좋은 웹사이트</div>
+                    <div class="main_function4_box_text">이 웹사이트에서는 AI 학습 도구, 단어장 커스텀, 다양한 학습 커뮤니티를 통해 영어 학습을 촉진시킬 수 있는 아주 좋은 사이트입니다. 추천합니다.
+                        너무너무 좋아요 계속계속 쓸게요
+                    </div>
+                </div>
+            </div>
+            <div class="main_function4_box">
+                <div>
+                    <img src="/pics/user_profile.png" class="main_function4_box_img">
+                    <div class="main_function4_box_name">gildong Hong</div>
+                    <div class="main_function4_box_title">공부하기에 좋은 웹사이트</div>
+                    <div class="main_function4_box_text">이 웹사이트에서는 AI 학습 도구, 단어장 커스텀, 다양한 학습 커뮤니티를 통해 영어 학습을 촉진시킬 수 있는 아주 좋은 사이트입니다. 추천합니다.
+                        너무너무 좋아요 계속계속 쓸게요
+                    </div>
+                </div>
+            </div>
+            <div class="main_function4_box">
+                <div>
+                    <img src="/pics/user_profile.png" class="main_function4_box_img">
+                    <div class="main_function4_box_name">gildong Hong</div>
+                    <div class="main_function4_box_title">공부하기에 좋은 웹사이트</div>
+                    <div class="main_function4_box_text">이 웹사이트에서는 AI 학습 도구, 단어장 커스텀, 다양한 학습 커뮤니티를 통해 영어 학습을 촉진시킬 수 있는 아주 좋은 사이트입니다. 추천합니다.
+                        너무너무 좋아요 계속계속 쓸게요
+                    </div>
+                </div>
+            </div>
+            <div class="main_function4_box">
+                <div>
+                    <img src="/pics/user_profile.png" class="main_function4_box_img">
+                    <div class="main_function4_box_name">gildong Hong</div>
+                    <div class="main_function4_box_title">공부하기에 좋은 웹사이트</div>
+                    <div class="main_function4_box_text">이 웹사이트에서는 AI 학습 도구, 단어장 커스텀, 다양한 학습 커뮤니티를 통해 영어 학습을 촉진시킬 수 있는 아주 좋은 사이트입니다. 추천합니다.
+                        너무너무 좋아요 계속계속 쓸게요
+                    </div>
                 </div>
             </div>
         </div>
@@ -491,4 +548,46 @@
         border-bottom : 0px;
         border-radius: 15px 15px 0px 0px;
     }
+    .main_function4_title_text{
+        text-align: center;
+        margin-top : 80px;
+        font-size : 40px;
+    }
+    .img_star{
+        width : 60px;
+        margin : 0 5px;
+    }
+    .main_function4_img_star{
+        text-align: center;
+        margin-top: 20px;
+    }
+    .main_function4_box_all{
+        display : inline-block;
+        margin-top : 3%;
+        margin-left: 18%;
+        box-shadow: 0px 0px 5px;
+    }
+    .main_function4_box{
+        background-color: rgb(246, 246, 246);
+        width : 1000px;
+        height : 150px;
+        border-bottom : solid 1px rgb(190,190,190);
+    }
+    .main_function4_box_img{
+        width : 35px;
+        margin : 15px 0px 0px 20px;
+        display: inline;
+    }
+    .main_function4_box_name{
+        display: inline;
+        font-family: 'IBM Plex Sans KR', sans-serif;
+    }
+    .main_function4_box_title{
+        font-size : 15px;
+        margin: 4px 0px 0px 20px;
+    }
+    .main_function4_box_text{
+        font-family: 'IBM Plex Sans KR', sans-serif;
+        margin: 4px 0px 0px 20px;
+    }   
 </style>
