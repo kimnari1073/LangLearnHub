@@ -18,7 +18,7 @@
         헤더
     </header>
     <div class="main_image_division">
-        <img src="pics/before_login_main_p1.JPG" class="main_image">
+        <img src="pics/before_login_main_p1.jpg" class="main_image">
         <div class="main_image_text">
         <div style="font-size: 24px; margin-top: 50px;">AI 학습, 다양한 학습 커뮤니티까지<br></div>
         함께 성장하는 학습의 시작.<br>
