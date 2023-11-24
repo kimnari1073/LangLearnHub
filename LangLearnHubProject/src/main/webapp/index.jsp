@@ -15,7 +15,7 @@
 </head>
 <body>
     <header class="header">
-        헤더//깃테스트
+        헤더//깃테스트 김신영바보
     </header>
     <div class="main_image_division">
         <img src="pics/before_login_main_p1.jpg" class="main_image">
