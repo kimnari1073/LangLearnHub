@@ -11,7 +11,7 @@
 <header class="navbar fixed-top navbar-light bg-light">
    <div class="container">
       <div class="col-md-3 mb-2 mb-md-0">
-        <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+        <a href="index.jsp" class="d-inline-flex link-body-emphasis text-decoration-none">
         <h2>LangLearnHub</h2>
         </a>
       </div>
