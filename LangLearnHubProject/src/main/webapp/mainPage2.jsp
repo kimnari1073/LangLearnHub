@@ -12,43 +12,10 @@
   </head>
   <body>
 <!-- header -->
-<div class="container">
-  <header class="border-bottom lh-1 py-3">
-    <div class="row flex-nowrap justify-content-between align-items-center">
-     <!-- list icon -->
-      <div class="col-4 pt-1">
-        <a class="link-secondary" href="#">
-        	<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-  			<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-			</svg>
-        </a>
-      </div>
-       <!-- logo -->
-      <div class="col-4 text-center">
-        <a class="h3 text-decoration-none" href="#">LangLearnHub</a>
-      </div>
-       <!-- mypage icon -->
-      <div class="col-4 d-flex justify-content-end align-items-center">
-        <a class="link-secondary" href="#" aria-label="Search">
-        	<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-  			<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-  			<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-			</svg>
-        </a>
-      </div>
-    </div>
-  </header>
+<%@include file="header.jsp" %>
 <!-- navigation -->
-  <div class="nav-scroller py-1 mb-3 border-bottom">
-    <nav class="nav nav-underline justify-content-between">
-      <a class="nav-item nav-link link-body-emphasis" href="#"></a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">개인 단어장</a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">챗봇 학습 </a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">스터디 그룹 </a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">과외 모집 </a>
-      <a class="nav-item nav-link link-body-emphasis" href="#"></a>
-    </nav>
-  </div>
+
+
 </div>
 
 <main class="container">
@@ -239,49 +206,7 @@
   </div>
 
 </main>
-
-<div class="container">
-  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
-    <div class="col mb-3">
-      <div class="col-4 text-center">
-        <a class="h3 text-decoration-none" href="#">LangLearnHub</a>
-      </div><br>
-      <p class="text-body-secondary">&copy; 2023</p>
-    </div>
-
-    <div class="col mb-3">
-
-    </div>
-
-    <div class="col mb-3">
-      <h5>영어학습 </h5>
-      <ul class="nav flex-column">
-      	<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">소개 </a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">나의 단어장 </a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">챗봇 학습 </a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">자주 하는 질문 </a></li>
-      </ul>
-    </div>
-
-    <div class="col mb-3">
-      <h5>학습 커뮤니티 </h5>
-      <ul class="nav flex-column">
-      	<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">소개 </a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">스터디 </a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">멘토링(유료/무료)</a></li>
-      </ul>
-    </div>
-    <div class="col mb-3">
-      <h5>게시판 </h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">자유 게시판 </a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">질문 게시판 </a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">홍보 게시판 </a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">공지사항 </a></li>
-      </ul>
-    </div>
-  </footer>
-</div>
+<%@include file="footer.jsp" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap.js"></script>
 
