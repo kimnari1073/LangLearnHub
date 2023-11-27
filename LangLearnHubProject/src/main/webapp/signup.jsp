@@ -38,9 +38,12 @@ top: 13px;
                 alt="Sample photo" class="img-fluid"
                 style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
             </div>
+            
+            <form method="get" action="/LangLearnHubProject/sign.do">
             <div class="col-xl-6">
               <div class="card-body p-md-5 text-black">
                 <h3 class="mb-5 text-uppercase">회원 가입</h3>
+
 
                 <div class="row">
                   <div class="col-md-6 mb-4">
@@ -116,12 +119,13 @@ top: 13px;
               
 
                 <div class="d-flex justify-content-end pt-3">
-                  <button type="button" class="btn btn-light btn-lg">초기화</button>
-                  <button type="button" class="btn btn-warning btn-lg ms-2">회원가입</button>
+                  <button type="reset" class="btn btn-light btn-lg">초기화</button>
+                  <button type="submit" class="btn btn-warning btn-lg ms-2">회원가입</button>
                 </div>
 
               </div>
             </div>
+            </form>
           </div>
         </div>
       </div>
