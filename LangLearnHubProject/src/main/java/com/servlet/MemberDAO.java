@@ -62,7 +62,8 @@ public class MemberDAO {
         boolean flag = false;
         try {
         	conn = JDBCUtil.getConnection();
-            String strQuery = "insert into users values(?,?,?,?,?,?,?)";
+        	System.out.print(conn);
+            String strQuery = "insert into users values(?,?,?,?,?,?)";
             pstmt = conn.prepareStatement(strQuery);
             pstmt.setString(1, mDTO.getId());
             pstmt.setString(2, mDTO.getPassword());
@@ -70,8 +71,6 @@ public class MemberDAO {
             pstmt.setString(4, mDTO.getBirth());
             pstmt.setString(5, mDTO.getEmail());
             pstmt.setString(6, mDTO.getGender());
-            pstmt.setString(7, mDTO.getRole());
-
             int count = pstmt.executeUpdate();
 
             if (count == 1) {
