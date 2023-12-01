@@ -16,7 +16,7 @@ public class MemberDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		conn = JDBCUtil.getConnection();
-		String query = "delete from useres where id = ?";
+		String query = "delete from users where id = ?";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, mDTO.getId());
@@ -60,9 +60,10 @@ public class MemberDAO {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         boolean flag = false;
+    	System.out.print("해결");
+
         try {
         	conn = JDBCUtil.getConnection();
-        	System.out.print(conn);
             String strQuery = "insert into users values(?,?,?,?,?,?)";
             pstmt = conn.prepareStatement(strQuery);
             pstmt.setString(1, mDTO.getId());
