@@ -1,6 +1,7 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,7 +22,13 @@ public class LoginController extends HttpServlet {
 
 		MemberDAO mDao = new MemberDAO();
 		
-		boolean loginCheck = mDao.loginCheck(id,pw);
+		boolean loginCheck = false;
+		try {
+			loginCheck = mDao.loginCheck(id, pw);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	    if(loginCheck){
 	    	request.setAttribute("loginResult", loginCheck);

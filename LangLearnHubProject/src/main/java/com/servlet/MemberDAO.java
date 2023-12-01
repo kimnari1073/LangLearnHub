@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import common.JDBCUtil;
 
@@ -87,26 +88,43 @@ public class MemberDAO {
     }		
     
     //로그인
-    public boolean loginCheck(String id, String pw) {
-    	Connection conn = null;
-        PreparedStatement pstmt = null;
+    public boolean loginCheck(String id, String pw) throws SQLException {
+    	Connection conn = JDBCUtil.getConnection();
+    	String strQuery = "select id, password from users where id = ? and password = ?";
+        PreparedStatement pstmt = conn.prepareStatement(strQuery);
         ResultSet rs = null;
         boolean loginCon = false;
-        try {
-			conn = JDBCUtil.getConnection();
-            String strQuery = "select id, password from users where id = ? and password = ?";
-
-            pstmt = conn.prepareStatement(strQuery);
-            pstmt.setString(1, id);
-            pstmt.setString(2, pw);
-            rs = pstmt.executeQuery();
-            loginCon = rs.next();
-        } catch (Exception ex) {
-            System.out.println("Exception" + ex);
-        } finally {
-        	JDBCUtil.close(rs, pstmt, conn);
-        }
+       
+        pstmt.setString(1, id);
+        pstmt.setString(2, pw);
+        rs = pstmt.executeQuery();
+        loginCon = rs.next();
+        JDBCUtil.close(rs, pstmt, conn); 
         return loginCon;
+
+        
     }	
+    //회원 목록 조회
+    public ArrayList<MemberDTO> selectMemberList() throws SQLException {
+    	String strQuery = "select * from users;";
+    	Connection conn = JDBCUtil.getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(strQuery);
+        ResultSet rs = pstmt.executeQuery();
+        
+        ArrayList<MemberDTO> aList = new ArrayList<MemberDTO>();
+        while(rs.next()) {
+        	MemberDTO rd = new MemberDTO();
+        	rd.setId(rs.getString("id"));
+        	rd.setPassword(rs.getString("password"));
+        	rd.setName(rs.getString("name"));
+        	rd.setBirth(rs.getString("birth"));
+        	rd.setEmail(rs.getString("email"));
+        	rd.setGender(rs.getString("gender"));
+        	rd.setRole(rs.getString("role"));
+        	aList.add(rd);
+        }
+
+    	return aList;
+    }
 
 }
