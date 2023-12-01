@@ -24,21 +24,21 @@
   <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="10000">
-      <img src="images/voca.png" class="d-block w-100" alt="voca">
+      <img src="pics/voca.png" class="d-block w-100" alt="voca">
         <div class="carousel-caption d-none d-md-block">
         <h5>나만의 영어 단어장 만들기 </h5>
         <p>직접 만든 영어 단어장으로 시험을 볼 수 있으며 주차별로 분석할 수 있다. </p>
       </div>
     </div>
     <div class="carousel-item" data-bs-interval="2000">
-      <img src="images/study.png" class="d-block w-100" alt="study">
+      <img src="pics/study.png" class="d-block w-100" alt="study">
          <div class="carousel-caption d-none d-md-block">
         <h5>스터디-함께 공부하는 즐거움 </h5>
         <p>다른 사람의 단어장 공유와 학습 비법 공유 가능하다 .</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="images/chat.png" class="d-block w-100" alt="chat">
+      <img src="pics/chat.png" class="d-block w-100" alt="chat">
          <div class="carousel-caption d-none d-md-block">
         <h5>AI를 이용한 자기주도학습 </h5>
         <p>ai를 나만의 학습도우미로 지정 후 해석 및 문법 교정 가능하다. </p>
