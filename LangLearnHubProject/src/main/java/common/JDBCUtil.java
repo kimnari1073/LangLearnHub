@@ -4,18 +4,24 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 
 public class JDBCUtil {
 	public static Connection getConnection() {
+		Connection con = null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://localhost:3306/jspdb?serverTimezone=UTC&useSSL=false&characterEncoding=utf-8","id","password");
-		} catch (Exception e) {
+			return DriverManager.getConnection("jdbc:mysql://localhost:3306/jspdb?serverTimezone=UTC&useSSL=false&characterEncoding=utf-8","root","Young7008!!");
+			
+		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-
 	public static void close(PreparedStatement stmt, Connection conn) {
 		if (stmt != null) {
 			try {

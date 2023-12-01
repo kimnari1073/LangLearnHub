@@ -1,7 +1,8 @@
+CREATE SCHEMA `llh_rdb` DEFAULT CHARACTER SET utf8mb4 ;
 use llh_rdb;
 
 create table users(
-	id           varchar(100)    not null,
+	id           varchar(20)    not null,
     password     varchar(20)    not null,
     email        varchar(30),
 	name         varchar(15), 
@@ -12,3 +13,4 @@ create table users(
     primary key(id)
 );
 
+select * from users;
