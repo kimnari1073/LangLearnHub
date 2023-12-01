@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,22 +13,23 @@
     </style>
     <link rel="stylesheet" href="css/index.css"/>
 </head>
-<body>
+<body style="font-family: 'Noto Sans KR', sans-serif;">
     <header class="header">
-        <%@include file="header.jsp" %>
+    	<%@include file="header.jsp" %>
     </header>
     
     <div class="main_image_division">
-        <img src="pics/before_login_main_p1.jpg" class="main_image">
         <div class="main_image_text">
-        <div style="font-size: 24px; margin-top: 50px;">AI 학습, 다양한 학습 커뮤니티까지<br></div>
-        함께 성장하는 학습의 시작.<br>
-        LangLearnHub
+            <div>AI 학습, 다양한 학습 커뮤니티까지<br>
+            함께 성장하는 학습의 시작.<br>
+            LangLearnHub
+            </div>
         </div>
         <div class="btn_start">
             시작하기
         </div>
     </div>
+    
     <div class="main_function_division" style="background-color:rgb(253, 253, 255);">
         <div class="main_function1_small_text">수백명의 전문가와 함께 </div>
         <div class="main_function1_text">
@@ -305,5 +305,7 @@
         <%@include file="footer.jsp" %>
     </footer>
 </body>
+
+
 
 </html>
