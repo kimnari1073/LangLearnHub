@@ -28,12 +28,7 @@
        <%
 	String id =(String)session.getAttribute("idKey");
      String log="";
-  	if(id == null) log ="<a href=Login.jsp> 로그인 (모델2)</a>";
-  	else log = "<a href=/2022PolyB/logout.do> 로그아웃 (모델2)</a>";
-
-  	String mem="";
-  	if(id == null) mem ="<a href=Register.jsp> 회원 등록 (모델2) </a>";
-  	else mem = "<a href=#> 회원 수정 </a>";
+  
 	
 	if(id==null){
 	%>
