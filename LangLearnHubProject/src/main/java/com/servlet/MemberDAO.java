@@ -40,7 +40,7 @@ public class MemberDAO {
 			pstmt.setString(1, mDTO.getPassword());
 			pstmt.setString(2, mDTO.getEmail());
 			pstmt.setString(3, mDTO.getName());
-			pstmt.setString(4, mDTO.getPhone());
+			//pstmt.setString(4, mDTO.getPhone());
 			pstmt.setString(5, mDTO.getGender());
 			pstmt.setString(6, mDTO.getBirth());
 			pstmt.setString(7, mDTO.getRole());
