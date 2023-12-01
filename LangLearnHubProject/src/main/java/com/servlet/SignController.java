@@ -21,7 +21,6 @@ public class SignController extends HttpServlet {
 		String birth = rq.getParameter("birth");
 		String email = rq.getParameter("email");
 		String gender = rq.getParameter("gender");
-		String role = rq.getParameter("role");
 
 		MemberDTO mDto = new MemberDTO();
 		mDto.setId(id);
@@ -30,7 +29,6 @@ public class SignController extends HttpServlet {
 		mDto.setBirth(birth);
 		mDto.setEmail(email);
 		mDto.setGender(gender);
-		mDto.setRole(role);
 
 		MemberDAO mDao = new MemberDAO();
 		boolean insertCheck = mDao.memberInsert(mDto);

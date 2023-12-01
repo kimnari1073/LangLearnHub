@@ -40,14 +40,12 @@ public class MemberDAO {
 			pstmt.setString(1, mDTO.getPassword());
 			pstmt.setString(2, mDTO.getEmail());
 			pstmt.setString(3, mDTO.getName());
-			//pstmt.setString(4, mDTO.getPhone());
 			pstmt.setString(5, mDTO.getGender());
 			pstmt.setString(6, mDTO.getBirth());
 			pstmt.setString(7, mDTO.getRole());
 			pstmt.setString(8, mDTO.getId());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			JDBCUtil.close(pstmt, conn);
@@ -60,18 +58,20 @@ public class MemberDAO {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         boolean flag = false;
-    	System.out.print("해결");
 
         try {
         	conn = JDBCUtil.getConnection();
-            String strQuery = "insert into users values(?,?,?,?,?,?)";
+            String strQuery = "insert into users(id,password,name,birth,email,gender)"
+            		+ " values(?,?,?,?,?,?);";
             pstmt = conn.prepareStatement(strQuery);
+
             pstmt.setString(1, mDTO.getId());
             pstmt.setString(2, mDTO.getPassword());
             pstmt.setString(3, mDTO.getName());
             pstmt.setString(4, mDTO.getBirth());
             pstmt.setString(5, mDTO.getEmail());
             pstmt.setString(6, mDTO.getGender());
+    		
             int count = pstmt.executeUpdate();
 
             if (count == 1) {

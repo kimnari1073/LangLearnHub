@@ -53,46 +53,33 @@
 										<div class="row">
 											<div class="col-md-6 mb-4">
 												<div class="form-outline">
-													<input type="text" id="form3Example1m"
-														   class="form-control form-control-lg" /> <label
-														   class="form-label" for="form3Example1m"
-														   name="id">아이디 </label>
+													<input type="text" class="form-control form-control-lg"
+														   name="id" /> <label class="form-label">아이디 </label>
 												</div>
 											</div>
 										</div>
 										<div class="form-outline mb-4">
-											<input type="text" id="form3Example90"
-												class="form-control form-control-lg" /> <label
-												class="form-label" for="form3Example90"
-												name="password">비밀번호</label>
+											<input type="text" class="form-control form-control-lg" 
+												name="password"/> <label class="form-label">비밀번호</label>
 										</div>
-
 										<div class="row">
 											<div class="col-md-6 mb-4">
 												<div class="form-outline">
-													<input type="text" id="form3Example1m1"
-														class="form-control form-control-lg" /> <label
-														class="form-label" for="form3Example1m1"
-														name="name">이름 </label>
+													<input type="text" class="form-control form-control-lg"
+													name="name"/> <label class="form-label">이름 </label>
 												</div>
 											</div>
 											<div class="col-md-6 mb-4">
 												<div class="form-outline">
-													<input type="text" id="form3Example1n1"
-														class="form-control form-control-lg" /> <label
-														class="form-label" for="form3Example1n1"
-														name="birth">생년월일</label>
+													<input type="text" class="form-control form-control-lg" 
+														name="birth"/> <label class="form-label">생년월일</label>
 												</div>
 											</div>
 										</div>
-
 										<div class="form-outline mb-4">
-											<input type="text" id="form3Example8"
-												class="form-control form-control-lg" /> <label
-												class="form-label" for="form3Example8"
-												name="email"> 이메일</label>
+											<input type="text"class="form-control form-control-lg" 
+											name="email"/> <label class="form-label"> 이메일</label>
 										</div>
-
 										<div
 											class="d-md-flex justify-content-start align-items-center mb-4 py-2">
 											<h6 class="mb-0 me-4">성별:</h6>
@@ -107,17 +94,6 @@
 												<label class="form-check-label" for="maleGender">남자</label>
 											</div>
 										</div>
-										<!-- 
-										<div class="row">
-										역할
-											<div class="col-md-6 mb-4">
-												<select class="select">
-													<option value="1">관리자 모드</option>
-													<option value="0">회원 모드</option>
-												</select>
-											</div>
-										</div>
-										 -->
 										<div class="d-flex justify-content-end pt-3">
 											<button type="reset" class="btn btn-light btn-lg">초기화</button>
 											<button type="submit" class="btn btn-warning btn-lg ms-2">회원가입</button>
