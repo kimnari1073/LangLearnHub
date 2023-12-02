@@ -1,5 +1,7 @@
 
+/* 메인이미지 */
     .main_image_division{
+		min-width: 1400px;
         width:100%;
         height: 800px;
         background-image: url("../pics/before_login_main_p1.jpg");
@@ -14,16 +16,21 @@
         font-size:42px;
         font-weight: bold;
     }
-    .btn_start{
+    .btn{
+        width:150px;
+        height:50px;
         min-width: 150px;
         min-height: 50px;
+        position: absolute;
         top: 58%;
         left: 10%;
         background-color: rgb(224, 224, 224);
         border-radius: 5px;
         text-align: center;
+        line-height: 50px;
         border: solid 3px rgb(200, 200, 200);
     }
+    /* 컨텐츠 */
     .main_function1_text{
         position:absolute;
         top: 27%;
@@ -43,18 +50,6 @@
         left: 15%;
         font-size : 26px;
         color : rgb(70,70,70);
-    }
-    .btn_start{
-        position: absolute;
-        top: 58%;
-        left: 10%;
-        background-color: rgb(224, 224, 224);
-        width:12%;
-        height:8%;
-        border-radius: 5px;
-        text-align: center;
-        line-height: 400%;
-        border: solid 3px rgb(200, 200, 200);
     }
     .main_function1_box{
         position: absolute;
