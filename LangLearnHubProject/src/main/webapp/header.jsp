@@ -5,7 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<style>
+header .container{
+    width: 1000px;
+    min-width: 800px;
 
+}
+</style>
 </head>
 
 <body>
@@ -19,41 +25,31 @@
 
     <nav class="nav nav-underline justify-content-between">
       <a class="nav-item nav-link link-body-emphasis" href="#"></a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">개인 단어장</a>
+      <a class="nav-item nav-link link-body-emphasis" href="VocaPage.jsp">개인 단어장</a>
       <a class="nav-item nav-link link-body-emphasis" href="#">챗봇 학습 </a>
       <a class="nav-item nav-link link-body-emphasis" href="#">스터디 그룹 </a>
       <a class="nav-item nav-link link-body-emphasis" href="#">과외 모집 </a>
-      <a class="nav-item nav-link link-body-emphasis" href="#"></a>
     </nav>
       <div class="col-md-3 text-end">
        <%
-	String id =(String)session.getAttribute("idKey");
-     String log="";
-  
+	       	String id =(String)session.getAttribute("idKey");
+	     	String log="";
+	  
+		
+			if(id==null){
+		%>
 	
-	if(id==null){
-	%>
-	
-	<a href="login.jsp">
-        <button type="button" class="btn btn-outline-dark">Login</button>
-    </a>
-    <a href="signup.jsp">
-    <button type="button" class="btn btn-outline-dark">Sign-up</button>
-    </a>	
-	<%	
-	}else{
-	%>
+		<a href="login.jsp"><button class="btn btn-outline-dark">Login</button></a>
+    	<a href="signup.jsp"><button class="btn btn-outline-dark">Sign-up</button></a>	
+		<%	
+			}else{
+		%>
 		<a href="logout.jsp">
-        <button type="button" class="btn btn-outline-dark">Logout</button>
-    </a>
-    <a href="#">
-    <button type="button" class="btn btn-outline-dark">mypage</button>
-    </a>
-	<%
-	}
-	%>
-      
-       
+        <button type="button" class="btn btn-outline-dark">Logout</button></a>
+    	<a href="#"><button type="button" class="btn btn-outline-dark">mypage</button></a>
+		<%
+			}
+		%>
       </div>
   </div>
   </header>
