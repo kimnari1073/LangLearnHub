@@ -50,13 +50,15 @@ integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2
             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
 
 	            <div class="form-outline mb-4">
+	            	<label class="form-label">Email address</label>
 	              <input type="text" class="form-control form-control-lg" name="id" />
-	              <label class="form-label">Email address</label>
+	              
 	            </div>
 	
 	            <div class="form-outline mb-4">
+	            <label class="form-label">Email address</label>
 	              <input type="password" class="form-control form-control-lg" name="password"/>
-	              <label class="form-label" >Password</label>
+	              
 	            </div>
 	
 	            <div class="pt-1 mb-4">

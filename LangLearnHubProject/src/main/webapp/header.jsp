@@ -5,10 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
 </head>
 
 <body>
+
 <header class="navbar fixed-top navbar-light bg-light">
    <div class="container">
       <div class="col-md-3 mb-2 mb-md-0">
@@ -26,34 +26,24 @@
       <a class="nav-item nav-link link-body-emphasis" href="#"></a>
     </nav>
       <div class="col-md-3 text-end">
-       <%
-	String id =(String)session.getAttribute("idKey");
-     String log="";
-  
+      <%
+	       	String id =(String)session.getAttribute("idKey");
+	     	String log="";
+	  
+			if(id==null){
+		%>
 	
-	if(id==null){
-	%>
-	
-	<a href="login.jsp">
-        <button type="button" class="btn btn-outline-dark">Login</button>
-    </a>
-    <a href="signup.jsp">
-    <button type="button" class="btn btn-outline-dark">Sign-up</button>
-    </a>	
-	<%	
-	}else{
-	%>
-		<a href="logout.jsp">
-        <button type="button" class="btn btn-outline-dark">Logout</button>
-    </a>
-    <a href="#">
-    <button type="button" class="btn btn-outline-dark">mypage</button>
-    </a>
-	<%
-	}
-	%>
-      
-       
+		<a href="login.jsp"><button class="btn btn-outline-dark">Login</button></a>
+    	<a href="signup.jsp"><button class="btn btn-outline-dark">Sign-up</button></a>	
+		<%	
+			}else{
+		%>
+		<a href="/LangLearnHubProject/logout.do">
+        <button type="button" class="btn btn-outline-dark">Logout</button></a>
+    	<a href="mypage"><button type="button" class="btn btn-outline-dark">mypage</button></a>
+		<%
+			}
+		%>
       </div>
   </div>
   </header>

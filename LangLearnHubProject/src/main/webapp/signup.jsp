@@ -46,39 +46,45 @@
 									 style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
 							</div>
 							
-							<form method="get" action="/LangLearnHubProject/sign.do">
+							
 								<div class="col-xl-6">
 									<div class="card-body p-md-5 text-black">
+										<form method="get" action="/LangLearnHubProject/sign.do">
 										<h3 class="mb-5 text-uppercase">회원 가입</h3>
 										<div class="row">
 											<div class="col-md-6 mb-4">
 												<div class="form-outline">
+												<label class="form-label">아이디 </label>
 													<input type="text" class="form-control form-control-lg"
-														   name="id" /> <label class="form-label">아이디 </label>
+														   name="id" />
 												</div>
 											</div>
 										</div>
 										<div class="form-outline mb-4">
+										<label class="form-label">비밀번호</label>
 											<input type="text" class="form-control form-control-lg" 
-												name="password"/> <label class="form-label">비밀번호</label>
+												name="password"/> 
 										</div>
 										<div class="row">
 											<div class="col-md-6 mb-4">
 												<div class="form-outline">
+												<label class="form-label">이름 </label>
 													<input type="text" class="form-control form-control-lg"
-													name="name"/> <label class="form-label">이름 </label>
+													name="name"/> 
 												</div>
 											</div>
 											<div class="col-md-6 mb-4">
 												<div class="form-outline">
+												<label class="form-label">생년월일</label>
 													<input type="text" class="form-control form-control-lg" 
-														name="birth"/> <label class="form-label">생년월일</label>
+														name="birth"/> 
 												</div>
 											</div>
 										</div>
 										<div class="form-outline mb-4">
+										<label class="form-label"> 이메일</label>
 											<input type="text"class="form-control form-control-lg" 
-											name="email"/> <label class="form-label"> 이메일</label>
+											name="email"/> 
 										</div>
 										<div
 											class="d-md-flex justify-content-start align-items-center mb-4 py-2">
