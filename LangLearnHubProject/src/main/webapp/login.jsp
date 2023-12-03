@@ -56,7 +56,7 @@ integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2
 	            </div>
 	
 	            <div class="form-outline mb-4">
-	            <label class="form-label">Email address</label>
+	            <label class="form-label">PassWord</label>
 	              <input type="password" class="form-control form-control-lg" name="password"/>
 	              
 	            </div>
