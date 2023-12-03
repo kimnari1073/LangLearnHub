@@ -5,6 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<<<<<<< HEAD
+=======
+<style>
+header .container{
+    width: 1000px;
+    min-width: 800px;
+
+}
+</style>
+>>>>>>> 75ca440ec9496b9010779ff50cb59e3c157a264d
 </head>
 
 <body>
@@ -19,17 +29,24 @@
 
     <nav class="nav nav-underline justify-content-between">
       <a class="nav-item nav-link link-body-emphasis" href="#"></a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">개인 단어장</a>
+      <a class="nav-item nav-link link-body-emphasis" href="VocaPage.jsp">개인 단어장</a>
       <a class="nav-item nav-link link-body-emphasis" href="#">챗봇 학습 </a>
       <a class="nav-item nav-link link-body-emphasis" href="#">스터디 그룹 </a>
       <a class="nav-item nav-link link-body-emphasis" href="#">과외 모집 </a>
-      <a class="nav-item nav-link link-body-emphasis" href="#"></a>
     </nav>
       <div class="col-md-3 text-end">
+<<<<<<< HEAD
       <%
 	       	String id =(String)session.getAttribute("idKey");
 	     	String log="";
 	  
+=======
+       <%
+	       	String id =(String)session.getAttribute("idKey");
+	     	String log="";
+	  
+		
+>>>>>>> 75ca440ec9496b9010779ff50cb59e3c157a264d
 			if(id==null){
 		%>
 	
@@ -38,9 +55,15 @@
 		<%	
 			}else{
 		%>
+<<<<<<< HEAD
 		<a href="/LangLearnHubProject/logout.do">
         <button type="button" class="btn btn-outline-dark">Logout</button></a>
     	<a href="mypage"><button type="button" class="btn btn-outline-dark">mypage</button></a>
+=======
+		<a href="logout.jsp">
+        <button type="button" class="btn btn-outline-dark">Logout</button></a>
+    	<a href="#"><button type="button" class="btn btn-outline-dark">mypage</button></a>
+>>>>>>> 75ca440ec9496b9010779ff50cb59e3c157a264d
 		<%
 			}
 		%>

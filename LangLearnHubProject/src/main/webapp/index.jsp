@@ -2,30 +2,26 @@
     pageEncoding="UTF-8"%>
 
 <html lang="en">
+
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@800&display=swap');
     </style>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500&display=swap');
-    </style>
-    <link rel="stylesheet" href="css/index.css"/>
+	<link rel="stylesheet" href="css/index.css"/>
 </head>
-<body style="font-family: 'Noto Sans KR', sans-serif;">
-    <header>
-    	<%@include file="header.jsp" %>
-    </header>
-    
+<body>
+	<header><%@include file="header.jsp" %></header>
+	<main style="font-family: 'Noto Sans KR', sans-serif;">    
     <div class="main_image_division">
         <div class="main_image_text">
             AI 학습, 다양한 학습 커뮤니티까지<br>
             함께 성장하는 학습의 시작.<br>
             LangLearnHub
         </div>
-        <div class="btn">
+        <div class="button_index">
             시작하기
         </div>
     </div>
@@ -295,6 +291,7 @@
             </div>
         </div>
     </div>
+    </main>
     <footer class="footer">
         <%@include file="footer.jsp" %>
     </footer>
