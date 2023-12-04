@@ -15,14 +15,14 @@
 <style>
 * {margin: 0;padding: 0;font-family: 'Noto Sans KR', sans-serif;font-size: 16px;font-weight: 400;box-sizing: border-box;box-sizing: border-box;}
 body { padding: 20px; background-color: #f5f5f5; } 
-form { max-width: 600px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); } 
+form { max-width: 600px; margin: 50px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); } 
 .input_wrap { margin-bottom: 20px; } 
 .input_list { display: flex; align-items: center; margin-bottom: 10px; } 
 .input_list input[type="text"] { padding:0 10px; height: 45px; border: 1px solid #ddd; border-radius: 4px; flex-grow: 1; } 
-/* .add_field { width: 100%; height: 45px; padding: 0 15px; background-color: #007bff; border: none; border-radius: 4px; color: white; cursor: pointer; transition: background-color 0.3s ease; } 
-.add_field:hover { background-color: #0056b3; }  */
+.input_title{padding:0 10px; height: 90px; border: 1px solid #ddd; border-radius: 4px; flex-grow: 1;width: 100%; margin: 20px 0px;font-size:30px;}
 .remove_field { display: flex; align-items: center; height: 45px; margin-left: 6px; padding:0 15px; background: #ff4d4d; border-radius:4px; color: #fff; cursor: pointer; text-decoration: none; } 
 .remove_field:hover { background: #ff3333; } 
+
 </style>
 
 </head>
@@ -32,8 +32,10 @@ form { max-width: 600px; margin: 40px auto; padding: 20px; background: #fff; bor
 </header>
 
 <form method="get" action="/LangLearnHubProject/voca.do">
+	<input class="input_title" type="text" name="title" placeholder="단어장 이름">
     <div class="input_wrap">
         <div class="input_list">
+        	
             <input type="text" name="voca1" placeholder="입력해주세요." />
             <input type="text" name="voca2" placeholder="입력해주세요." />
             <a href="javascript:void(0);" class="remove_field" tabindex="-1">삭제</a>

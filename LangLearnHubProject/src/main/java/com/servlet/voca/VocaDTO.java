@@ -1,10 +1,12 @@
 package com.servlet.voca;
 
+import java.util.ArrayList;
+
 public class VocaDTO {
 	private String listName;
 	private String userId;
-	private String vocaKey;
-	private String vocaVal;
+	private ArrayList<String> vocaKey;
+	private ArrayList<String> vocaVal;
 	
 	public String getListName() {
 		return listName;
@@ -18,17 +20,17 @@ public class VocaDTO {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public String getVocaKey() {
+	public ArrayList<String> getVocaKey() {
 		return vocaKey;
 	}
 	public void setVocaKey(String vocaKey) {
-		this.vocaKey = vocaKey;
+		this.vocaKey.add(vocaKey);
 	}
-	public String getVocaVal() {
+	public ArrayList<String> getVocaVal() {
 		return vocaVal;
 	}
 	public void setVocaVal(String vocaVal) {
-		this.vocaVal = vocaVal;
+		this.vocaVal.add(vocaVal);
 	}
 	
 

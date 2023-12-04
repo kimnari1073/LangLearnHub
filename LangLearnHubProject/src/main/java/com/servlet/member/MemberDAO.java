@@ -23,7 +23,6 @@ public class MemberDAO {
 			pstmt.setString(1, mDTO.getId());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			JDBCUtil.close(pstmt, conn);
