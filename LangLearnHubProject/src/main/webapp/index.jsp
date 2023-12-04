@@ -7,14 +7,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@800&display=swap');
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
+
 	<link rel="stylesheet" href="css/index.css"/>
 </head>
 <body>
 	<header><%@include file="header.jsp" %></header>
-	<main style="font-family: 'Noto Sans KR', sans-serif;">    
+	<main>    
     <div class="main_image_division">
         <div class="main_image_text">
             AI 학습, 다양한 학습 커뮤니티까지<br>
