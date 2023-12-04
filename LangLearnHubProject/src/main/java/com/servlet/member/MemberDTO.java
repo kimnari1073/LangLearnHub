@@ -1,4 +1,4 @@
-package com.servlet;
+package com.servlet.member;
 
 public class MemberDTO {
 

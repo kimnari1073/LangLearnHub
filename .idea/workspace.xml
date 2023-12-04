@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de028b47-8d5d-451c-872b-f88f737262f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/LangLearnHubProject/build/classes/com/servlet/MemberDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/LangLearnHubProject/build/classes/com/servlet/MemberDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LangLearnHubProject/build/classes/common/JDBCUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/LangLearnHubProject/build/classes/common/JDBCUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LangLearnHubProject/src/main/java/com/servlet/MemberDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/LangLearnHubProject/src/main/java/com/servlet/MemberDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LangLearnHubProject/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/LangLearnHubProject/src/main/webapp/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LangLearnHubProject/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/LangLearnHubProject/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

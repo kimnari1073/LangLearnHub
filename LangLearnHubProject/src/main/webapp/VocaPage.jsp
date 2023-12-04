@@ -31,38 +31,36 @@ form { max-width: 600px; margin: 40px auto; padding: 20px; background: #fff; bor
 <%@include file="header.jsp" %>
 </header>
 
-<form>
+<form method="get" action="/LangLearnHubProject/voca.do">
     <div class="input_wrap">
         <div class="input_list">
-            <input type="text" name="voca" placeholder="입력해주세요." />
-            <input type="text" name="voca" placeholder="입력해주세요." />
+            <input type="text" name="voca1" placeholder="입력해주세요." />
+            <input type="text" name="voca2" placeholder="입력해주세요." />
             <a href="javascript:void(0);" class="remove_field" tabindex="-1">삭제</a>
         </div>
     </div>
     <button id="add_field" class="btn btn-primary">추가하기</button>
     <button type="submit" class="btn btn-success">저장하기</button>
+    <button type="reset" class="btn btn-warning">리셋하기</button>
 </form>
      
 <script>
 const wrapper = $('.input_wrap'); // 입력 필드를 포함하는 컨테이너 선택
 const addButton = $('#add_field'); // 추가 버튼 선택
-const maxFields = 10; // 최대 입력 필드 수 설정
 let fieldCount = 1; // 현재 입력 필드 수
 
 // '추가하기' 버튼 클릭 시 이벤트
 addButton.click(function(e) {
     e.preventDefault(); // 페이지 리로드 방지
-    if (fieldCount < maxFields) { // 최대 필드 수 체크
-        fieldCount++; // 필드 수 증가
-        // 새 입력 필드 추가
-        wrapper.append(`
-            <div class="input_list">
-                <input type="text" name="voca" placeholder="입력해주세요." />
-                <input type="text" name="voca" placeholder="입력해주세요." />
-                <a href="javascript:void(0);" class="remove_field" tabindex="-1">삭제</a>
-            </div>
-        `);
-    }
+    fieldCount++; // 필드 수 증가
+    // 새 입력 필드 추가
+    wrapper.append(`
+        <div class="input_list">
+            <input type="text" name="voca1" placeholder="입력해주세요." />
+            <input type="text" name="voca2" placeholder="입력해주세요." />
+            <a href="javascript:void(0);" class="remove_field" tabindex="-1">삭제</a>
+        </div>
+    `);
 });
 
 // '삭제' 링크 클릭 시 이벤트

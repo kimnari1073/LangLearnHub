@@ -1,4 +1,4 @@
-package com.servlet;
+package com.servlet.member;
 
 import java.io.IOException;
 
@@ -13,13 +13,13 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/logout.do")
 public class LogoutController extends HttpServlet {
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doGet(HttpServletRequest rq, HttpServletResponse rp) throws ServletException, IOException {
 		
-		HttpSession session = request.getSession();
+		HttpSession session = rq.getSession();
 		session.invalidate();
-		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+		RequestDispatcher dispatcher = rq.getRequestDispatcher("index.jsp");
 		
-		dispatcher.forward(request, response); 
+		dispatcher.forward(rq, rp); 
 	}
 
 }
