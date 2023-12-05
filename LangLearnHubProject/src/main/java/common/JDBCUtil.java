@@ -9,8 +9,7 @@ public class JDBCUtil {
 	public static Connection getConnection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://localhost:3306/langlearnhubdb?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=utf-8",
-					"HubAdmin","abc123");
+			return DriverManager.getConnection("jdbc:mysql://localhost:3306/jspdb?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=utf-8","root","panacute73~~");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

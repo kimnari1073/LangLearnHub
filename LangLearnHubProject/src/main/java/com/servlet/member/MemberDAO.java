@@ -54,17 +54,13 @@ public class MemberDAO {
 	}
 	//회원가입
     public boolean memberInsert(MemberDTO mDTO) {
-    	Connection conn = null;
+    	Connection conn = JDBCUtil.getConnection();
         PreparedStatement pstmt = null;
-        ResultSet rs = null;
         boolean flag = false;
 
         try {
-        	conn = JDBCUtil.getConnection();
-            String strQuery = "insert into users(id,password,name,birth,email,gender)"
-            		+ " values(?,?,?,?,?,?);";
-            pstmt = conn.prepareStatement(strQuery);
-
+            pstmt = conn.prepareStatement("insert into users(id,password,name,birth,email,gender)"
+            		+ " values(?,?,?,?,?,?);");
             pstmt.setString(1, mDTO.getId());
             pstmt.setString(2, mDTO.getPassword());
             pstmt.setString(3, mDTO.getName());
@@ -73,16 +69,9 @@ public class MemberDAO {
             pstmt.setString(6, mDTO.getGender());
     		
             int count = pstmt.executeUpdate();
-
-            if (count == 1) {
-                flag = true;
-            }
-
-        } catch (Exception ex) {
-            System.out.println("Exception" + ex);
-        } finally {
-        	JDBCUtil.close(rs, pstmt, conn);
-        }
+            if (count == 1) flag = true;
+        } catch (Exception ex) {System.out.println("Exception" + ex);
+        } finally { JDBCUtil.close(pstmt, conn);}
         return flag;
     }		
     

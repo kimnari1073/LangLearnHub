@@ -1,12 +1,14 @@
 package com.servlet.voca;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class VocaDTO {
 	private String listName;
 	private String userId;
-	private ArrayList<String> vocaKey;
-	private ArrayList<String> vocaVal;
+//	private ArrayList<String> vocaKey;
+//	private ArrayList<String> vocaVal;
+	private HashMap<String,String> vocaHash=new HashMap<>();
 	
 	public String getListName() {
 		return listName;
@@ -20,18 +22,25 @@ public class VocaDTO {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public ArrayList<String> getVocaKey() {
-		return vocaKey;
+	public HashMap<String, String> getVocaHash() {
+		return vocaHash;
 	}
-	public void setVocaKey(String vocaKey) {
-		this.vocaKey.add(vocaKey);
+	public void setVocaHash(String key, String val) {
+		this.vocaHash.put(key,val);
 	}
-	public ArrayList<String> getVocaVal() {
-		return vocaVal;
-	}
-	public void setVocaVal(String vocaVal) {
-		this.vocaVal.add(vocaVal);
-	}
+	
+//	public ArrayList<String> getVocaKey() {
+//		return vocaKey;
+//	}
+//	public void setVocaKey(String vocaKey) {
+//		this.vocaKey.add(vocaKey);
+//	}
+//	public ArrayList<String> getVocaVal() {
+//		return vocaVal;
+//	}
+//	public void setVocaVal(String vocaVal) {
+//		this.vocaVal.add(vocaVal);
+//	}
 	
 
 }

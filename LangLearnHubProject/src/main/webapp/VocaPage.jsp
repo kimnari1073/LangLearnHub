@@ -31,7 +31,7 @@ form { max-width: 600px; margin: 50px auto; padding: 20px; background: #fff; bor
 <%@include file="header.jsp" %>
 </header>
 
-<form method="get" action="/LangLearnHubProject/voca.do">
+<form method="get" action="/LangLearnHubProject/vocasave.do">
 	<input class="input_title" type="text" name="title" placeholder="단어장 이름">
     <div class="input_wrap">
         <div class="input_list">
