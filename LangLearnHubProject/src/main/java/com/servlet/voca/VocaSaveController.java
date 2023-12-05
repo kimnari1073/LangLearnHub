@@ -29,10 +29,11 @@ public class VocaSaveController extends HttpServlet {
 		vDto.setUserId(userId);
 		for(int i=0;i<paramVoca1.length;i++) vDto.setVocaHash(paramVoca1[i], paramVoca2[i]);
 		
+		//voca_index 구하기
+		
 		//DAO
 		VocaDAO vDao = new VocaDAO();
 		boolean saveCheck = vDao.vocaSave(vDto);
-		
 		if(saveCheck) {
 			RequestDispatcher dispatcher = rq.getRequestDispatcher("index.jsp");
 			dispatcher.forward(rq, rp);
