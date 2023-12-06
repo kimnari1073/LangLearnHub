@@ -76,19 +76,20 @@ public class MemberDAO {
     }		
     
     //로그인
-    public boolean loginCheck(String id, String pw) throws SQLException {
+    public boolean loginCheck(MemberDTO mDto) {
     	Connection conn = JDBCUtil.getConnection();
-    	String strQuery = "select id, password from users where id = ? and password = ?";
-        PreparedStatement pstmt = conn.prepareStatement(strQuery);
+        PreparedStatement pstmt =null;
         ResultSet rs = null;
-        boolean loginCon = false;
-       
-        pstmt.setString(1, id);
-        pstmt.setString(2, pw);
-        rs = pstmt.executeQuery();
-        loginCon = rs.next();
-        JDBCUtil.close(rs, pstmt, conn); 
-        return loginCon;
+        boolean flag = false;
+		try {
+			pstmt = conn.prepareStatement("select id, password from users where id = ? and password = ?");
+			pstmt.setString(1, mDto.getId());
+	        pstmt.setString(2, mDto.getPassword());
+	        rs = pstmt.executeQuery();
+	        flag = rs.next();
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { JDBCUtil.close(rs, pstmt, conn); }
+        return flag;
 
         
     }	
