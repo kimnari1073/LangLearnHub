@@ -20,6 +20,7 @@ public class LoginController extends HttpServlet {
 		MemberDTO mDto = new MemberDTO();
 		mDto.setId(rq.getParameter("id")); 
 		mDto.setPassword(rq.getParameter("password"));
+		mDto.setName(rq.getParameter("name"));
 
 		//DAO
 		MemberDAO mDao = new MemberDAO();		
@@ -29,6 +30,11 @@ public class LoginController extends HttpServlet {
 	    if(loginCheck){
 			HttpSession session = rq.getSession();
 			session.setAttribute("id",mDto.getId());
+			session.setAttribute("password", mDto.getPassword());
+			session.setAttribute("name", mDto.getName());
+			session.setAttribute("email", mDto.getEmail());
+			session.setAttribute("birth", mDto.getBirth());
+			session.setAttribute("gender", mDto.getGender());
 			RequestDispatcher dispatcher = rq.getRequestDispatcher("mainPage2.jsp");
 			dispatcher.forward(rq, rp);
 

@@ -96,9 +96,10 @@ public class MemberDAO {
         
     }	
 
+
     //회원 목록 조회
     public ArrayList<MemberDTO> selectMemberList() throws SQLException {
-    	String strQuery = "select * from users;";
+    	String strQuery = "select * from users";
     	Connection conn = JDBCUtil.getConnection();
         PreparedStatement pstmt = conn.prepareStatement(strQuery);
         ResultSet rs = pstmt.executeQuery();

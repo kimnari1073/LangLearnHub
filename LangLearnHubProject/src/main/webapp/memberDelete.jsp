@@ -7,10 +7,6 @@
     <title>Delete Member</title>
 </head>
 <body>
-    <form action="/LangLearnHub/memberDelete.do" method="get">
-        <label for="memberId">Member ID:</label>
-        <input type="text" id="memberId" name="memberId" required>
-        <input type="submit" value="Delete">
-    </form>
+<h1>탈퇴되었습니다.</h1>
 </body>
 </html>

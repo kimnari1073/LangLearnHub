@@ -52,7 +52,7 @@ header .container{
 
 		<a href="/LangLearnHubProject/logout.do">
         <button type="button" class="btn btn-outline-dark">Logout</button></a>
-    	<a href="mypage.jsp"><button type="button" class="btn btn-outline-dark">mypage</button></a>
+    	<a href="/LangLearnHubProject/select.do"><button type="button" class="btn btn-outline-dark">mypage</button></a>
 
 
 		<%

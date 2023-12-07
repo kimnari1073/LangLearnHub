@@ -1,6 +1,8 @@
 package com.servlet.member;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,10 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/sign.do")
-public class SignController extends HttpServlet {
-	@Override
+@WebServlet("/select.do")
+public class MemberSelect extends HttpServlet {
+
 	protected void doGet(HttpServletRequest rq, HttpServletResponse rp) throws ServletException, IOException {
+		MemberDAO mDao = new MemberDAO();
+		
 		rq.setCharacterEncoding("UTF-8");
 		String id = rq.getParameter("id");
 		String password = rq.getParameter("password");
@@ -29,26 +33,17 @@ public class SignController extends HttpServlet {
 		mDto.setBirth(birth);
 		mDto.setEmail(email);
 		mDto.setGender(gender);
-
-		MemberDAO mDao = new MemberDAO();
-		boolean insertCheck = mDao.memberInsert(mDto);
-
-		if (insertCheck) {
-			rq.setAttribute("SignResult", insertCheck);
-			HttpSession session = rq.getSession();
-			session.setAttribute("id", id);
-			session.setAttribute("password", password);
-			session.setAttribute("name", name);
-			session.setAttribute("email", email);
-			session.setAttribute("birth", birth);
-			session.setAttribute("gender", gender);
-			RequestDispatcher dispatcher = rq.getRequestDispatcher("index.jsp");
-			dispatcher.forward(rq, rp);
-
-		} else {
-			rq.setAttribute("joinResult", 0);
-			RequestDispatcher dispatcher = rq.getRequestDispatcher("SignUpFail.jsp");
-			dispatcher.forward(rq, rp);
-		}
+		
+		HttpSession session = rq.getSession();
+		session.setAttribute("id", id);
+		session.setAttribute("password", password);
+		session.setAttribute("name", name);
+		session.setAttribute("email", email);
+		session.setAttribute("birth", birth);
+		session.setAttribute("gender", gender);
+		
+		RequestDispatcher dispatcher=rq.getRequestDispatcher("mypage.jsp");
+		dispatcher.forward(rq, rp);
 	}
+
 }

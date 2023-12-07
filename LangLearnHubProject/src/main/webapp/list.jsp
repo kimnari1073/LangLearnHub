@@ -25,6 +25,7 @@
 		<td>${memberList.password }</td>
 		<td>${memberList.name }</td>
 		<td>${memberList.email }</td>
+		<td>${memberList.gender }</td>
 	</tr>
 </c:forEach>
 

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/select.do")
+@WebServlet("/allSelect.do")
 public class SelectController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest rq, HttpServletResponse rp) throws ServletException, IOException {
