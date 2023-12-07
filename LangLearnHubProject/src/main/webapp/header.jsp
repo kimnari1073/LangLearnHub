@@ -5,10 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-<style>
+<!-- 
 *{
 font-family: 'Noto Sans KR', sans-serif;font-size: 16px;font-weight: 400;}
+ -->
+<style>
+
 header .container{
     width: 1000px;
     min-width: 800px;

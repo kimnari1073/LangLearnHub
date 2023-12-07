@@ -60,7 +60,7 @@ addButton.click(function(e) {
         <div class="input_list">
             <input type="text" name="voca1" placeholder="입력해주세요." />
             <input type="text" name="voca2" placeholder="입력해주세요." />
-            <a href="javascript:void(0);" class="remove_field" tabindex="-1">삭제</a>
+            <a href="javascript:void(0);" class="remove_field" tabindex="-1" ==>삭제</a>
         </div>
     `);
 });
