@@ -95,13 +95,31 @@ public class MemberDAO {
 
         
     }	
+	   // 회원 조회 
+	   public void memberSelect(MemberDTO mDTO) throws SQLException {
+	       Connection conn = null;
+	       PreparedStatement pstmt = null;
+	       conn = JDBCUtil.getConnection();
+	       ResultSet rs = pstmt.executeQuery();
+	       String query = "select * from users where id="+rs.getString("id");
+	       try {
+	           pstmt = conn.prepareStatement(query);
+	           pstmt.setString(1, mDTO.getId());
+	           pstmt.executeQuery();
+	       } catch (SQLException e) {
+	           e.printStackTrace();
+	       } finally {
+	           JDBCUtil.close(rs,pstmt, conn);
+	       }
+	   }
+
 
 
     //회원 목록 조회
     public ArrayList<MemberDTO> selectMemberList() throws SQLException {
     	String strQuery = "select * from users";
     	Connection conn = JDBCUtil.getConnection();
-        PreparedStatement pstmt = conn.prepareStatement(strQuery);
+        PreparedStatement pstmt = conn.prepareStatement(strQuery);     
         ResultSet rs = pstmt.executeQuery();
         
         ArrayList<MemberDTO> aList = new ArrayList<MemberDTO>();
