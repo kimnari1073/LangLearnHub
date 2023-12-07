@@ -76,9 +76,16 @@ public class MemberDAO {
     }		
     
     //로그인
+<<<<<<< HEAD
     public boolean loginCheck(MemberDTO mDto) {
     	Connection conn = JDBCUtil.getConnection();
         PreparedStatement pstmt =null;
+=======
+    public boolean loginCheck(String id, String pw) throws SQLException {
+    	Connection conn = JDBCUtil.getConnection();
+    	String strQuery = "select id, password from users where id = ? and password = ?";
+        PreparedStatement pstmt = conn.prepareStatement(strQuery);
+>>>>>>> parent of 8a8d6eb (회원탈퇴_ing)
         ResultSet rs = null;
         boolean flag = false;
 		try {
