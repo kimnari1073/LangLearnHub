@@ -38,7 +38,7 @@ header .container{
     </nav>
       <div class="col-md-3 text-end">
       <%
-	       	String id =(String)session.getAttribute("idKey");
+	       	String id =(String)session.getAttribute("id");
 	     	String log="";
 	  
 		

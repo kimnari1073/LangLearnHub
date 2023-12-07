@@ -16,23 +16,19 @@ public class LoginController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest rq, HttpServletResponse rp) throws ServletException, IOException {
 		rq.setCharacterEncoding("UTF-8");
-		String id = rq.getParameter("id");
-		String pw = rq.getParameter("password");
-		
+		//값 저장하기
+		MemberDTO mDto = new MemberDTO();
+		mDto.setId(rq.getParameter("id")); 
+		mDto.setPassword(rq.getParameter("password"));
 
-		MemberDAO mDao = new MemberDAO();
-		
-		boolean loginCheck = false;
-		try {
-			loginCheck = mDao.loginCheck(id, pw);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		//DAO
+		MemberDAO mDao = new MemberDAO();		
+		boolean loginCheck = mDao.loginCheck(mDto);
+
 
 	    if(loginCheck){
-	    	rq.setAttribute("loginResult", loginCheck);
 			HttpSession session = rq.getSession();
-			session.setAttribute("idKey", id);
+			session.setAttribute("id",mDto.getId());
 			RequestDispatcher dispatcher = rq.getRequestDispatcher("mainPage2.jsp");
 			dispatcher.forward(rq, rp);
 
