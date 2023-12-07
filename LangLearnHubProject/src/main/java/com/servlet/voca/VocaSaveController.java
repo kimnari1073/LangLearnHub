@@ -16,26 +16,26 @@ public class VocaSaveController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest rq, HttpServletResponse rp) throws ServletException, IOException {
 		rq.setCharacterEncoding("UTF-8");
-		//값 get, Dto
+		//값 가져오기
+		String paramTitle = rq.getParameter("title");
 		String[] paramVoca1 = rq.getParameterValues("voca1");
 		String[] paramVoca2 = rq.getParameterValues("voca2");
 		HttpSession session = rq.getSession();
-		String userId = (String)session.getAttribute("id");
-		
+		String userId = (String)session.getAttribute("idKey");
+
+		//값 저장하기
 		VocaDTO vDto = new VocaDTO();
-		vDto.setListName(rq.getParameter("title"));
+		vDto.setListName(paramTitle);
 		vDto.setUserId(userId);
 		for(int i=0;i<paramVoca1.length;i++) vDto.setVocaHash(paramVoca1[i], paramVoca2[i]);
 		
-		
+		//voca_index 구하기
 		
 		//DAO
 		VocaDAO vDao = new VocaDAO();
 		boolean saveCheck = vDao.vocaSave(vDto);
 		if(saveCheck) {
-			rq.setAttribute("vocaList", vDao.getVocaList(vDto));
-			RequestDispatcher dispatcher = rq.getRequestDispatcher("VocaList.jsp");
-			 //단어장 목록
+			RequestDispatcher dispatcher = rq.getRequestDispatcher("index.jsp");
 			dispatcher.forward(rq, rp);
 			
 		}else {
