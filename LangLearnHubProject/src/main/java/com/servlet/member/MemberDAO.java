@@ -12,46 +12,48 @@ import common.JDBCUtil;
 
 
 public class MemberDAO {
-	// 회원 삭제 
-	public void memberDelete(MemberDTO mDTO) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		conn = JDBCUtil.getConnection();
-		String query = "delete from users where id = ?";
-		try {
-			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, mDTO.getId());
-			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			JDBCUtil.close(pstmt, conn);
-			
-		}
-	}
-	// 회원 수정 
-	public void memberUpdate(MemberDTO mDTO) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		conn = JDBCUtil.getConnection();
-		String query = "update users set password=?, email=?, name=?, phone=?, gender=?, birth=? where id = ?";
-		try {
-			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, mDTO.getPassword());
-			pstmt.setString(2, mDTO.getEmail());
-			pstmt.setString(3, mDTO.getName());
-			pstmt.setString(5, mDTO.getGender());
-			pstmt.setString(6, mDTO.getBirth());
-			pstmt.setString(7, mDTO.getRole());
-			pstmt.setString(8, mDTO.getId());
-			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			JDBCUtil.close(pstmt, conn);
-			
-		}
-	}
+	 // 회원 삭제 
+	   public void memberDelete(MemberDTO mDTO) {
+	      Connection conn = null;
+	      PreparedStatement pstmt = null;
+	      conn = JDBCUtil.getConnection();
+	      String query = "delete from users where id = ?";
+	      try {
+	         pstmt = conn.prepareStatement(query);
+	         pstmt.setString(1, mDTO.getId());
+	         pstmt.executeUpdate();
+	      } catch (SQLException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      }finally {
+	         JDBCUtil.close(pstmt, conn);
+	         
+	      }
+	   }
+
+	   // 회원 수정 
+	   public void memberUpdate(MemberDTO mDTO) {
+	       Connection conn = null;
+	       PreparedStatement pstmt = null;
+	       conn = JDBCUtil.getConnection();
+	       String query = "update users set password=?, email=?, name=?, gender=?, birth=?, role=? where id = ?";
+	       try {
+	           pstmt = conn.prepareStatement(query);
+	           pstmt.setString(1, mDTO.getPassword());
+	           pstmt.setString(2, mDTO.getEmail());
+	           pstmt.setString(3, mDTO.getName());
+	           pstmt.setString(4, mDTO.getGender());
+	           pstmt.setString(5, mDTO.getBirth());
+	           pstmt.setString(6, mDTO.getRole());
+	           pstmt.setString(7, mDTO.getId());
+	           pstmt.executeUpdate();
+	       } catch (SQLException e) {
+	           e.printStackTrace();
+	       } finally {
+	           JDBCUtil.close(pstmt, conn);
+	       }
+	   }
+
 	//회원가입
     public boolean memberInsert(MemberDTO mDTO) {
     	Connection conn = JDBCUtil.getConnection();
