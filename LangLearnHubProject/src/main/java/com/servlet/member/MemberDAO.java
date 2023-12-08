@@ -35,24 +35,59 @@ public class MemberDAO {
 	   public void memberUpdate(MemberDTO mDTO) {
 	       Connection conn = null;
 	       PreparedStatement pstmt = null;
-	       conn = JDBCUtil.getConnection();
-	       String query = "update users set password=?, email=?, name=?, gender=?, birth=?, role=? where id = ?";
+	       
 	       try {
+	    	   conn = JDBCUtil.getConnection();
+		       conn.setAutoCommit(true); // Auto-commit mode로 설정
+		       String query = "update users set password=?, email=?, name=?, gender=?, birth=? where id = ?";
+		       
 	           pstmt = conn.prepareStatement(query);
 	           pstmt.setString(1, mDTO.getPassword());
 	           pstmt.setString(2, mDTO.getEmail());
 	           pstmt.setString(3, mDTO.getName());
 	           pstmt.setString(4, mDTO.getGender());
 	           pstmt.setString(5, mDTO.getBirth());
-	           pstmt.setString(6, mDTO.getRole());
-	           pstmt.setString(7, mDTO.getId());
+	           pstmt.setString(6, mDTO.getId());
 	           pstmt.executeUpdate();
+	           System.out.println("SQL Query: " + pstmt.toString());
 	       } catch (SQLException e) {
 	           e.printStackTrace();
 	       } finally {
 	           JDBCUtil.close(pstmt, conn);
 	       }
 	   }
+	// 회원 수정 <c:set>으로 한 마이페이지 
+	    public MemberDTO memberUpdate1(String memberId) {
+	        Connection conn = null;
+	        PreparedStatement pstmt = null;
+	        ResultSet rs = null;
+	        MemberDTO member = null;
+
+	        try {
+	            conn = JDBCUtil.getConnection();
+	            pstmt = conn.prepareStatement("SELECT * FROM users WHERE id = ?");
+	            pstmt.setString(1, memberId);
+	            rs = pstmt.executeQuery();
+
+	            if (rs.next()) {
+	                member = new MemberDTO();
+	                member.setId(rs.getString("id"));
+	                member.setPassword(rs.getString("password"));
+	                member.setName(rs.getString("name"));
+	                member.setBirth(rs.getString("birth"));
+	                member.setEmail(rs.getString("email"));
+	                member.setGender(rs.getString("gender"));
+	                member.setRole(rs.getString("role"));
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        } finally {
+	            JDBCUtil.close(rs, pstmt, conn);
+	        }
+
+	        return member;
+	    }
+
 
 	//회원가입
     public boolean memberInsert(MemberDTO mDTO) {

@@ -50,11 +50,6 @@ padding-right:550px;
     <%
     
     String uid =(String)session.getAttribute("id");
- 	String password=(String)session.getAttribute("password");
- 	String name =(String)session.getAttribute("name");
- 	String uemail =(String)session.getAttribute("email");
- 	String ubirth =(String)session.getAttribute("birth");
- 	String ugender =(String)session.getAttribute("gender");
  	
     %>
     <form action="/LangLearnHubProject/update.do" method="get">
@@ -71,27 +66,36 @@ padding-right:550px;
       <div class="modal-body">
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">아이디:</label>
-            <input type="text" class="form-control" id="recipient-name" value=${member.id }>
+            <input type="text" class="form-control" id="recipient-name" name="id" value=${member.id }>
           </div>
           <div class="mb-3">
             <label for="message-text" class="col-form-label">비밀번호:</label>
-            <input type="text" class="form-control" id="recipient-name" value=${member.password } >
+            <input type="text" class="form-control" id="recipient-name" name="password" value=${member.password } >
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">이름:</label>
-            <input type="text" class="form-control" id="recipient-name" value=${member.name }>
+            <input type="text" class="form-control" id="recipient-name" name="name" value=${member.name }>
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">이메일:</label>
-            <input type="text" class="form-control" id="recipient-name" value=${member.email }>
+            <input type="text" class="form-control" id="recipient-name" name="email" value=${member.email }>
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">생년월일:</label>
-            <input type="text" class="form-control" id="recipient-name" value=${member.birth } >
+            <input type="text" class="form-control" id="recipient-name" name="birth" value=${member.birth } >
           </div>
           <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">성별:</label>
-            <input type="text" class="form-control" id="recipient-name" value=${member.gender}>
+            <label for="recipient-name" class="col-form-label">성별:</label><br> 
+            <input type="radio" name="gender" id="recipient-name" value="남"
+            <c:if test="${member.gender  eq '0'}">
+            checked
+            </c:if>
+            >  남  &nbsp &nbsp
+            <input type="radio" name="gender"  id="recipient-name" value="남"
+            <c:if test="${member.gender  eq '1'}">
+            checked
+            </c:if>
+            >  여
           </div>
        
       </div>
