@@ -95,24 +95,37 @@ public class MemberDAO {
 
         
     }	
-	   // 회원 조회 
-	   public void memberSelect(MemberDTO mDTO) throws SQLException {
-	       Connection conn = null;
-	       PreparedStatement pstmt = null;
-	       conn = JDBCUtil.getConnection();
-	       ResultSet rs = pstmt.executeQuery();
-	       String query = "select * from users where id="+rs.getString("id");
-	       try {
-	           pstmt = conn.prepareStatement(query);
-	           pstmt.setString(1, mDTO.getId());
-	           pstmt.executeQuery();
-	       } catch (SQLException e) {
-	           e.printStackTrace();
-	       } finally {
-	           JDBCUtil.close(rs,pstmt, conn);
-	       }
-	   }
+ // 회원 조회
+    public MemberDTO getMemberById(String memberId) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        MemberDTO member = null;
 
+        try {
+            conn = JDBCUtil.getConnection();
+            pstmt = conn.prepareStatement("SELECT * FROM users WHERE id = ?");
+            pstmt.setString(1, memberId);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                member = new MemberDTO();
+                member.setId(rs.getString("id"));
+                member.setPassword(rs.getString("password"));
+                member.setName(rs.getString("name"));
+                member.setBirth(rs.getString("birth"));
+                member.setEmail(rs.getString("email"));
+                member.setGender(rs.getString("gender"));
+                member.setRole(rs.getString("role"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(rs, pstmt, conn);
+        }
+
+        return member;
+    }
 
 
     //회원 목록 조회

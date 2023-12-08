@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,6 +58,9 @@ padding-right:550px;
  	
     %>
     <form action="/LangLearnHubProject/update.do" method="get">
+    <%-- <c:if test="%{not empty member}"> --%>
+    <c:set var="memberId" value="<%=uid %>" />
+    
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -67,27 +71,27 @@ padding-right:550px;
       <div class="modal-body">
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">아이디:</label>
-            <input type="text" class="form-control" id="recipient-name" value=<%=uid %>>
+            <input type="text" class="form-control" id="recipient-name" value=${member.id }>
           </div>
           <div class="mb-3">
             <label for="message-text" class="col-form-label">비밀번호:</label>
-            <input type="text" class="form-control" id="recipient-name" value=<%=password %>>
+            <input type="text" class="form-control" id="recipient-name" value=${member.password } >
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">이름:</label>
-            <input type="text" class="form-control" id="recipient-name" value=<%=name %>>
+            <input type="text" class="form-control" id="recipient-name" value=${member.name }>
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">이메일:</label>
-            <input type="text" class="form-control" id="recipient-name" value=<%=uemail %>>
+            <input type="text" class="form-control" id="recipient-name" value=${member.email }>
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">생년월일:</label>
-            <input type="text" class="form-control" id="recipient-name" value=<%=ubirth %> >
+            <input type="text" class="form-control" id="recipient-name" value=${member.birth } >
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">성별:</label>
-            <input type="text" class="form-control" id="recipient-name" value=<%=ugender %>>
+            <input type="text" class="form-control" id="recipient-name" value=${member.gender}>
           </div>
        
       </div>
@@ -98,7 +102,7 @@ padding-right:550px;
     </div>
   </div>
 </div> 
-
+<%-- </c:if> --%>
 </form>
 <script>
 const exampleModal = document.getElementById('exampleModal')

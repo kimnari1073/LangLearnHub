@@ -36,12 +36,13 @@ public class SignController extends HttpServlet {
 		if (insertCheck) {
 			rq.setAttribute("SignResult", insertCheck);
 			HttpSession session = rq.getSession();
-			session.setAttribute("id", id);
-			session.setAttribute("password", password);
-			session.setAttribute("name", name);
-			session.setAttribute("email", email);
-			session.setAttribute("birth", birth);
-			session.setAttribute("gender", gender);
+			session.setAttribute("user", mDto);
+//			session.setAttribute("id", id);
+//			session.setAttribute("password", password);
+//			session.setAttribute("name", name);
+//			session.setAttribute("email", email);
+//			session.setAttribute("birth", birth);
+//			session.setAttribute("gender", gender);
 			RequestDispatcher dispatcher = rq.getRequestDispatcher("index.jsp");
 			dispatcher.forward(rq, rp);
 

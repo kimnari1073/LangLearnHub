@@ -16,20 +16,26 @@ import javax.servlet.http.HttpSession;
 public class MemberSelect extends HttpServlet {
 
 	protected void doGet(HttpServletRequest rq, HttpServletResponse rp) throws ServletException, IOException {
-		HttpSession session = rq.getSession();
-	 	String memberId = (String) session.getAttribute("id");
-	 	
-	 	MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId(memberId);
+		 HttpSession session =rq.getSession();
+	        MemberDTO loggedInMember = (MemberDTO) session.getAttribute("user");
 
+	        // 만약 로그인이 되어 있지 않다면 로그인 페이지로 리다이렉션
+	        if (loggedInMember == null) {
+	            rp.sendRedirect("login.jsp");
+	            return;
+	        }
 
-	    MemberDAO memberDAO = new MemberDAO();
-	    try {
-			memberDAO.memberSelect(memberDTO);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	        // 특정 회원의 ID를 파라미터에서 가져옴
+//	        String memberId = rq.getParameter("id");
+	        String memberId = (String)session.getAttribute("id");
+
+	        // MemberDAO를 사용하여 해당 회원의 정보를 가져옴
+	        MemberDAO memberDAO = new MemberDAO();
+	        MemberDTO member = memberDAO.getMemberById(memberId);
+
+	        // 가져온 회원 정보를 JSP 페이지로 전달
+	        rq.setAttribute("member", member);
+
 	    
 		RequestDispatcher dispatcher=rq.getRequestDispatcher("mypage.jsp");
 		dispatcher.forward(rq, rp);

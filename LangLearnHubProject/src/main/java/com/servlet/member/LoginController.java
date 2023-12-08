@@ -29,12 +29,14 @@ public class LoginController extends HttpServlet {
 
 	    if(loginCheck){
 			HttpSession session = rq.getSession();
+			session.setAttribute("user", mDto);
 			session.setAttribute("id",mDto.getId());
-			session.setAttribute("password", mDto.getPassword());
-			session.setAttribute("name", mDto.getName());
-			session.setAttribute("email", mDto.getEmail());
-			session.setAttribute("birth", mDto.getBirth());
-			session.setAttribute("gender", mDto.getGender());
+//			session.setAttribute("id",mDto.getId());
+//			session.setAttribute("password", mDto.getPassword());
+//			session.setAttribute("name", mDto.getName());
+//			session.setAttribute("email", mDto.getEmail());
+//			session.setAttribute("birth", mDto.getBirth());
+//			session.setAttribute("gender", mDto.getGender());
 			RequestDispatcher dispatcher = rq.getRequestDispatcher("mainPage2.jsp");
 			dispatcher.forward(rq, rp);
 
