@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/update.do")
 public class UpdateController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    		
+  
         
     	HttpSession session = request.getSession();
         MemberDTO loggedInMember = (MemberDTO) session.getAttribute("user");
