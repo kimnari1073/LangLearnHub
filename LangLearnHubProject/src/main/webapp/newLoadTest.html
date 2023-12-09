@@ -1,0 +1,26 @@
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>브라우저 닫기 혹은 새로고침 감지하기</title>
+</head>
+
+<body>
+    <h4>
+        브라우저 닫기 혹은 새로고침 감지하기
+    </h4>
+    <form>
+        <textarea placeholder="글자를 입력해서 페이지를 사용해보세요."></textarea>
+    </form>
+
+    <script type="text/javascript">
+        const entries = performance.getEntriesByType("navigation")[0];
+        if (entries.type==="reload"){
+            console.log('새로고침');
+        }
+    </script>
+</body>
+
+</html>

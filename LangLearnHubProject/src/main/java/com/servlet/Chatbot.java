@@ -18,7 +18,8 @@ public class Chatbot extends HttpServlet {
 	
 	ArrayList<String> chatList;
 	private static final String API_URL = "https://api.openai.com/v1/chat/completions";
-	private static final String API_KEY = "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";
+	private static final String API_KEY = "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";
+
 	public void init(ServletConfig config) throws ServletException {
 		chatList = new ArrayList<String>();
 	}
@@ -29,7 +30,9 @@ public class Chatbot extends HttpServlet {
 			session.setAttribute("res", "");
 
 		String req = request.getParameter("req");
-		chatList.add(req);
+//		System.out.println("req: "+req);
+//		System.out.println("res: "+session.getAttribute("res"));
+//		chatList.add(req);
 		
 	    URL url = new URL(API_URL);
 	    HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
@@ -45,7 +48,8 @@ public class Chatbot extends HttpServlet {
 
 	    JSONObject systemMessage = new JSONObject();
 	    systemMessage.put("role", "system");
-	    systemMessage.put("content", "영어 선생님처럼 말해줘, 대답은 15단어 이하로");
+//	    systemMessage.put("content","한 마디 단어로 대답해");
+	    systemMessage.put("content", "영어 선생님처럼 말해. 대답은 15단어 이하로. 답변에 콤마(,)가 들어가지 않게 대답해");
 	    messages.add(systemMessage);
 
 	    JSONObject userMessage = new JSONObject();
@@ -85,8 +89,7 @@ public class Chatbot extends HttpServlet {
 
 	            String res = (String) messageObject.get("content");
 	            chatList.add(res);
-	            session.setAttribute("res", res);
-	            
+	            session.setAttribute("res", res);   
 	        } catch (ParseException e) {
 	            e.printStackTrace();
 	        }
@@ -94,8 +97,8 @@ public class Chatbot extends HttpServlet {
 	    }
 	    urlConn.disconnect();
 	    session.setAttribute("chatList", chatList);
-	    System.out.println(chatList);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("chatBot.jsp");
+//	    System.out.println(chatList);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("chatBot2.jsp");
 		dispatcher.forward(request, response);
 		
 	    

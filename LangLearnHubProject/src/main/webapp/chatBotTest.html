@@ -1,20 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList" %>
-<%
-	ArrayList<String> chatList = new ArrayList<>();
-	//ArrayList<String> testList = new ArrayList<>();
-	//testList.add("안녕하세요");
-	//testList.add("테스트입니다.");
-	//session.setAttribute("chatList", testList);
-	
-	chatList = (ArrayList<String>)session.getAttribute("chatList");
-  	String s;
-	if(chatList!=null){
-    	s= chatList.get(1);	
-    }
-    
-%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,19 +11,18 @@
     <link rel="stylesheet" href="css/chatBot.css"/>
 </head>
 <body>
-<%@ include file="header.jsp" %>
     <div style="text-align: center;">
         <div class="chatbot">
             <div class="chatbot_header">
                 Chat-Bot
             </div>
             <div class="chatbot_text">
-            <%	
+            <!-- <%	
             	if(chatList != null){
             	for(int i = 0; i < chatList.size(); i++){
             		out.println(chatList.get(i)+"<br>");
             	}}
-            %>
+            %> -->
             
             </div>
 	        <div class="chatbot_submit" >
@@ -52,7 +34,6 @@
             </div>
         </div>
     </div>
-<%@ include file="footer.jsp" %>
 </body>
 </html>
 
