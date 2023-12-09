@@ -20,6 +20,7 @@ body{
 
 <br>
 <h1> 관리자 페이지  </h1>
+
 로그인 여부 : ${loginCheck}
 <c:if test="${loginCheck == null }">
 	<a href=login.jsp> 로그인 </a>
@@ -51,8 +52,8 @@ body{
 			<td>${memberList.password }</td>
 			<td>${memberList.name }</td>
 			<td>${memberList.email }</td>
-			<td>${memberList.gender }</td>
-			<td>${memberList.role }</td>
+			<td><c:if test="${memberList.gender eq '0'}">남자  </c:if><c:if test="${memberList.gender eq '1'}">여자 </c:if></td>
+			<td><c:if test="${memberList.role eq '0'}">일반회원   </c:if><c:if test="${memberList.role eq '1'}">관리자  </c:if></td>
 			   <td>
                     <form action="/LangLearnHubProject/adminDelete.do" method="get">
                         <input type="hidden" name="id" value="${memberList.id}">
