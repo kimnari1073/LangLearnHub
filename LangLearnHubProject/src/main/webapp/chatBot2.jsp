@@ -3,15 +3,9 @@
 <%@ page import="java.util.ArrayList" %>
 <%
 	ArrayList<String> chatList = new ArrayList<>();
-	//ArrayList<String> testList = new ArrayList<>();
-	//testList.add("안녕하세요");
-	//testList.add("테스트입니다.");
-	//session.setAttribute("chatList", testList);
-	
 	chatList = (ArrayList<String>)session.getAttribute("chatList");
   	String s="";
-   	
-	if(chatList != null){
+	if(chatList != null){ //처음 실행할 때는 패스
 		s = chatList.get(chatList.size()-1);
 		System.out.println("layout chatList:"+s);
 	}
@@ -30,7 +24,7 @@
     <link rel="stylesheet" href="css/chatBotTest.css"></script>
   </head>
 <body>
-
+<%@ include file="header.jsp" %>
 
     <div class="chat_window">
         <div class="top_menu">
@@ -64,5 +58,8 @@
         </li>
     </div>
     <script type="text/javascript" src="js/chatbot.js"></script>
+<footer>
+<!-- <%@ include file="footer.jsp" %> -->
+</footer>
 </body>
 </html>
