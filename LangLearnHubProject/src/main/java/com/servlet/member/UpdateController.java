@@ -72,6 +72,9 @@ public class UpdateController extends HttpServlet {
 //	        rq.setAttribute("member", member);
 
     	
+    	MemberDTO memberDTO = new MemberDTO();
+//        HttpSession session = request.getSession();
+//    	String memberId = (String) session.getAttribute("id");
       String password = request.getParameter("password");
       String email = request.getParameter("email");
       String name = request.getParameter("name");
@@ -79,23 +82,36 @@ public class UpdateController extends HttpServlet {
       String birth = request.getParameter("birth");
       String id = request.getParameter("id");
       
-      MemberDAO memberDAO = new MemberDAO();
-//    	HttpSession session = request.getSession();
-//  	 	String memberId = (String) session.getAttribute("id");
-  	 	
-  	 	MemberDTO memberDTO = new MemberDTO();
-  		
+
   		memberDTO.setPassword(password);
   		memberDTO.setName(name);
 		memberDTO.setBirth(birth);
 		memberDTO.setEmail(email);
 		memberDTO.setGender(gender);
 		memberDTO.setId(id);
-    	
-  	    memberDAO.memberUpdate(memberDTO);
+		 MemberDAO memberDAO = new MemberDAO();
+  	  
   	    
-    	    RequestDispatcher dispatcher = request.getRequestDispatcher("select.do");
-    	    dispatcher.forward(request, response); 
+    	// ... existing code ...
+		 HttpSession session =request.getSession();
+		 
+		 String memberId = (String)session.getAttribute("id");
+		 
+		 
+	   
+    	
+	   memberDAO.memberUpdate(memberDTO);	
+
+    	// Get the updated member from the database
+    	MemberDTO updatedMember = memberDAO.getMemberById(memberId);
+
+    	// Set the updated member in the session
+    	session.setAttribute("user", updatedMember);
+
+    	// Forward to the JSP page with the updated member
+    	RequestDispatcher dispatcher = request.getRequestDispatcher("mypage.jsp");
+    	dispatcher.forward(request, response);
+
     	  //response.sendRedirect("memberDelete.jsp");
     	    
 

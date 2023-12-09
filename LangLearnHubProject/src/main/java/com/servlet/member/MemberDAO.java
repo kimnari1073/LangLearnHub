@@ -65,7 +65,7 @@ public class MemberDAO {
 
 	        try {
 	            conn = JDBCUtil.getConnection();
-	            pstmt = conn.prepareStatement("SELECT * FROM users WHERE id = ?");
+	            pstmt = conn.prepareStatement("update users set password=?, email=?, name=?, gender=?, birth=? where id = ?");
 	            pstmt.setString(1, memberId);
 	            rs = pstmt.executeQuery();
 
@@ -104,7 +104,7 @@ public class MemberDAO {
             pstmt.setString(4, mDTO.getBirth());
             pstmt.setString(5, mDTO.getEmail());
             pstmt.setString(6, mDTO.getGender());
-    		
+    		System.out.println(pstmt);
             int count = pstmt.executeUpdate();
             if (count == 1) flag = true;
         } catch (Exception ex) {System.out.println("Exception" + ex);

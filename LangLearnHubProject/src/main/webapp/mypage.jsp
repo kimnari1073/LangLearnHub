@@ -50,7 +50,12 @@ padding-right:550px;
     <%
     
     String uid =(String)session.getAttribute("id");
- 	
+    String upw =(String)session.getAttribute("password");
+    String uname =(String)session.getAttribute("name");
+    String uemail =(String)session.getAttribute("email");
+    String ubirth =(String)session.getAttribute("birth");
+    String ugender =(String)session.getAttribute("gender");
+
     %>
     <form action="/LangLearnHubProject/update.do" method="get">
     <%-- <c:if test="%{not empty member}"> --%>
@@ -74,7 +79,7 @@ padding-right:550px;
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">이름:</label>
-            <input type="text" class="form-control" id="recipient-name" name="name" value=${member.name }>
+            <input type="text" class="form-control" id="recipient-name" name="name" value=${member.name },<%=uname %>>
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">이메일:</label>
