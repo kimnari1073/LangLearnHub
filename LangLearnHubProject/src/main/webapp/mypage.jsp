@@ -79,7 +79,7 @@ padding-right:550px;
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">이름:</label>
-            <input type="text" class="form-control" id="recipient-name" name="name" value=${member.name },<%=uname %>>
+            <input type="text" class="form-control" id="recipient-name" name="name" value=${member.name }>
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">이메일:</label>
@@ -113,26 +113,6 @@ padding-right:550px;
 </div> 
 <%-- </c:if> --%>
 </form>
-<script>
-const exampleModal = document.getElementById('exampleModal')
-if (exampleModal) {
-  exampleModal.addEventListener('show.bs.modal', event => {
-    // Button that triggered the modal
-    const button = event.relatedTarget
-    // Extract info from data-bs-* attributes
-    const recipient = button.getAttribute('data-bs-whatever')
-    // If necessary, you could initiate an Ajax request here
-    // and then do the updating in a callback.
-
-    // Update the modal's content.
-    const modalTitle = exampleModal.querySelector('.modal-title')
-    const modalBodyInput = exampleModal.querySelector('.modal-body input')
-
-    modalTitle.textContent = `New message to ${recipient}`
-    modalBodyInput.value = recipient
-  })
-}
-</script>
     
     <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
       <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">

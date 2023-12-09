@@ -92,24 +92,22 @@ public class UpdateController extends HttpServlet {
 		 MemberDAO memberDAO = new MemberDAO();
   	  
   	    
-    	// ... existing code ...
 		 HttpSession session =request.getSession();
 		 
 		 String memberId = (String)session.getAttribute("id");
-		 
-		 
-	   
     	
 	   memberDAO.memberUpdate(memberDTO);	
 
     	// Get the updated member from the database
-    	MemberDTO updatedMember = memberDAO.getMemberById(memberId);
+    	MemberDTO member = memberDAO.getMemberById(memberId);
 
     	// Set the updated member in the session
-    	session.setAttribute("user", updatedMember);
+//    	session.setAttribute("user", member);
+    	request.setAttribute("member", member);
 
     	// Forward to the JSP page with the updated member
     	RequestDispatcher dispatcher = request.getRequestDispatcher("mypage.jsp");
+//    	RequestDispatcher dispatcher = request.getRequestDispatcher("select.do");
     	dispatcher.forward(request, response);
 
     	  //response.sendRedirect("memberDelete.jsp");

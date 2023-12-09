@@ -56,37 +56,26 @@ public class MemberDAO {
 	           JDBCUtil.close(pstmt, conn);
 	       }
 	   }
-	// 회원 수정 <c:set>으로 한 마이페이지 
-	    public MemberDTO memberUpdate1(String memberId) {
-	        Connection conn = null;
-	        PreparedStatement pstmt = null;
-	        ResultSet rs = null;
-	        MemberDTO member = null;
-
-	        try {
-	            conn = JDBCUtil.getConnection();
-	            pstmt = conn.prepareStatement("update users set password=?, email=?, name=?, gender=?, birth=? where id = ?");
-	            pstmt.setString(1, memberId);
-	            rs = pstmt.executeQuery();
-
-	            if (rs.next()) {
-	                member = new MemberDTO();
-	                member.setId(rs.getString("id"));
-	                member.setPassword(rs.getString("password"));
-	                member.setName(rs.getString("name"));
-	                member.setBirth(rs.getString("birth"));
-	                member.setEmail(rs.getString("email"));
-	                member.setGender(rs.getString("gender"));
-	                member.setRole(rs.getString("role"));
-	            }
-	        } catch (SQLException e) {
-	            e.printStackTrace();
-	        } finally {
-	            JDBCUtil.close(rs, pstmt, conn);
-	        }
-
-	        return member;
-	    }
+	// 관리자 부
+	   public void adminUpdate(MemberDTO mDTO) {
+	       Connection conn = null;
+	       PreparedStatement pstmt = null;
+	       
+	       try {
+	    	   conn = JDBCUtil.getConnection();
+		       conn.setAutoCommit(true); // Auto-commit mode로 설정
+		       String query = "update users set role='1' where id = ?";
+		       
+	           pstmt = conn.prepareStatement(query);
+	           pstmt.setString(1, mDTO.getId());
+	           pstmt.executeUpdate();
+	           System.out.println("SQL Query: " + pstmt.toString());
+	       } catch (SQLException e) {
+	           e.printStackTrace();
+	       } finally {
+	           JDBCUtil.close(pstmt, conn);
+	       }
+	   }
 
 
 	//회원가입
