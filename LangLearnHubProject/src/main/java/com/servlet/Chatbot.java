@@ -18,7 +18,8 @@ public class Chatbot extends HttpServlet {
 	
 	ArrayList<String> chatList;
 	private static final String API_URL = "https://api.openai.com/v1/chat/completions";
-	private static final String API_KEY = "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";
+	//키 발급 -> 커밋 시 초기화
+	private static final String API_KEY = "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";
 
 	public void init(ServletConfig config) throws ServletException {
 		chatList = new ArrayList<String>();
@@ -49,7 +50,7 @@ public class Chatbot extends HttpServlet {
 	    JSONObject systemMessage = new JSONObject();
 	    systemMessage.put("role", "system");
 //	    systemMessage.put("content","한 마디 단어로 대답해");
-	    systemMessage.put("content", "영어 선생님처럼 말해. 답변에 콤마(,)가 들어가지 않게 대답해. 답변은 3문장을 넘기지 마.");
+	    systemMessage.put("content", "comma(,)를 쓰지 말고 말해. 답변은 3문장을 넘기지 마.");
 	    messages.add(systemMessage);
 
 	    JSONObject userMessage = new JSONObject();

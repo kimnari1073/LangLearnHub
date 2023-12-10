@@ -1,16 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList" %>
-<%
-	ArrayList<String> chatList = new ArrayList<>();
-	chatList = (ArrayList<String>)session.getAttribute("chatList");
-  	String s="";
-	if(chatList != null){ //처음 실행할 때는 패스
-		s = chatList.get(chatList.size()-1);
-		System.out.println("layout chatList:"+s);
-	}
-%>
-    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,13 +11,18 @@
     <link rel="stylesheet" href="css/chatBotTest.css"></script>
   </head>
 <body>
-<%@ include file="header.jsp" %>
 
     <div class="chat_window">
         <div class="top_menu">
-            <div class="title">Chat</div>
+            <!-- <div class="buttons">
+                <div class="button close"></div>
+                <div class="button minimize"></div>
+                <div class="button maximize"></div>
+            </div> -->
+            <div class="title">English ChatBot</div>
         </div>
-        <ul class="messages"></ul>
+        <ul class="messages">
+        </ul>
         <div class="bottom_wrapper clearfix">
           <form method="post" action="/LangLearnHubProject/chat.do">
             <div class="message_input_wrapper">
