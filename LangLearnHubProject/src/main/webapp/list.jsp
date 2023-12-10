@@ -20,12 +20,11 @@ body{
 
 <br>
 <h1> 관리자 페이지  </h1>
-
 로그인 여부 : ${loginCheck}
-<c:if test="${loginCheck == null }">
+<c:if test="${loginCheck != null }">
 	<a href=login.jsp> 로그인 </a>
 </c:if>
-<c:if test="${loginCheck != null }">
+<c:if test="${loginCheck == null }">
 	<a href=logout.do> 로그아웃 </a>
 </c:if><br>
 <table>

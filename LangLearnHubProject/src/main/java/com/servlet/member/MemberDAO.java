@@ -56,7 +56,7 @@ public class MemberDAO {
 	           JDBCUtil.close(pstmt, conn);
 	       }
 	   }
-	// 관리자 부
+	// 관리자 부여 
 	   public void adminUpdate(MemberDTO mDTO) {
 	       Connection conn = null;
 	       PreparedStatement pstmt = null;
@@ -113,12 +113,12 @@ public class MemberDAO {
 	        pstmt.setString(2, mDto.getPassword());
 	        rs = pstmt.executeQuery();
 	        flag = rs.next();
+	        System.out.println("SQL Query: " + pstmt.toString());
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { JDBCUtil.close(rs, pstmt, conn); }
         return flag;
-
-        
-    }	
+    }
+    
  // 회원 조회
     public MemberDTO getMemberById(String memberId) {
         Connection conn = null;

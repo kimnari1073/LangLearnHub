@@ -17,14 +17,19 @@ public class LoginController extends HttpServlet {
 	protected void doGet(HttpServletRequest rq, HttpServletResponse rp) throws ServletException, IOException {
 		rq.setCharacterEncoding("UTF-8");
 		//값 저장하기
+		String id=rq.getParameter("id");
 		MemberDTO mDto = new MemberDTO();
-		mDto.setId(rq.getParameter("id")); 
+		mDto.setId(id); 
 		mDto.setPassword(rq.getParameter("password"));
-		mDto.setName(rq.getParameter("name"));
+		mDto.setRole(rq.getParameter("role"));
 
 		//DAO
 		MemberDAO mDao = new MemberDAO();		
 		boolean loginCheck = mDao.loginCheck(mDto);
+		
+		 MemberDTO member = mDao.getMemberById(id);
+		 
+		
 
 
 	    if(loginCheck){
@@ -37,9 +42,16 @@ public class LoginController extends HttpServlet {
 //			session.setAttribute("email", mDto.getEmail());
 //			session.setAttribute("birth", mDto.getBirth());
 //			session.setAttribute("gender", mDto.getGender());
-			RequestDispatcher dispatcher = rq.getRequestDispatcher("mainPage2.jsp");
-			dispatcher.forward(rq, rp);
-
+			
+			String role=member.getRole();
+			if(role.equals("0")) {
+				RequestDispatcher dispatcher = rq.getRequestDispatcher("mainPage2.jsp");
+				dispatcher.forward(rq, rp);
+				
+			}else if(role.equals("1")) {
+				RequestDispatcher dispatcher = rq.getRequestDispatcher("allSelect.do");
+				dispatcher.forward(rq, rp);
+			}
 		}else{
 		      rp.sendRedirect("SignUpFail.jsp");
 		}
