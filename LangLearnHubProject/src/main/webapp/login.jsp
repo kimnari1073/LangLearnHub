@@ -46,17 +46,17 @@ integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2
 
           <form style="width: 23rem;" method="get" action="/LangLearnHubProject/login.do">
 
-            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
+            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Login</h3>
 
 	            <div class="form-outline mb-4">
-	            	<label class="form-label">Email address</label>
-	              <input type="text" class="form-control form-control-lg" name="id" />
+	            	<label class="form-label">ID</label>
+	              <input type="text" class="form-control form-control-lg border border-success p-2 border-opacity-25" name="id" />
 	              
 	            </div>
 	
 	            <div class="form-outline mb-4">
-	            <label class="form-label">PassWord</label>
-	              <input type="password" class="form-control form-control-lg" name="password"/>
+	            <label class="form-label">PASSWORD</label>
+	              <input type="password" class="form-control form-control-lg border border-success p-2 border-opacity-25" name="password"/>
 	              
 	            </div>
 	

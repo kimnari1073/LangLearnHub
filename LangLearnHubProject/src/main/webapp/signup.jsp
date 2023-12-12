@@ -55,35 +55,35 @@
 											<div class="col-md-6 mb-4">
 												<div class="form-outline">
 												<label class="form-label">아이디 </label>
-													<input type="text" class="form-control form-control-lg"
+													<input type="text" class="form-control form-control-lg border"
 														   name="id" />
 												</div>
 											</div>
 										</div>
-										<div class="form-outline mb-4">
+										<div class="col-md-6 mb-4">
 										<label class="form-label">비밀번호</label>
-											<input type="text" class="form-control form-control-lg" 
+											<input type="text" class="form-control form-control-lg border" 
 												name="password"/> 
 										</div>
 										<div class="row">
 											<div class="col-md-6 mb-4">
 												<div class="form-outline">
 												<label class="form-label">이름 </label>
-													<input type="text" class="form-control form-control-lg"
+													<input type="text" class="form-control form-control-lg border"
 													name="name"/> 
 												</div>
 											</div>
 											<div class="col-md-6 mb-4">
 												<div class="form-outline">
 												<label class="form-label">생년월일</label>
-													<input type="text" class="form-control form-control-lg" 
+													<input type="text" class="form-control form-control-lg border"
 														name="birth"/> 
 												</div>
 											</div>
 										</div>
-										<div class="form-outline mb-4">
+										<div class="col-md-6 mb-4">
 										<label class="form-label"> 이메일</label>
-											<input type="text"class="form-control form-control-lg" 
+											<input type="text"class="form-control form-control-lg border" 
 											name="email"/> 
 										</div>
 										<div
@@ -101,6 +101,7 @@
 											</div>
 										</div>
 										<div class="d-flex justify-content-end pt-3">
+											<a href="index.jsp"><button type=text class="btn btn-light btn-lg">뒤로가기 </button></a>
 											<button type="reset" class="btn btn-light btn-lg">초기화</button>
 											<button type="submit" class="btn btn-warning btn-lg ms-2">회원가입</button>
 										</div>
