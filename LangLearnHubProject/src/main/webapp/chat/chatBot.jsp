@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="css/chatBot.css"/>
 </head>
 <body>
-<%@ include file="header.jsp" %>
+<%@ include file="../include/header.jsp" %>
     <div style="text-align: center;">
         <div class="chatbot">
             <div class="chatbot_header">
@@ -52,7 +52,7 @@
             </div>
         </div>
     </div>
-<%@ include file="footer.jsp" %>
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>
 

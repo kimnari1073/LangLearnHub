@@ -28,7 +28,7 @@ form { max-width: 600px; margin: 50px auto; padding: 20px; background: #fff; bor
 </head>
 <body>
 <header>
-<%@include file="header.jsp" %>
+<%@include file="../include/header.jsp" %>
 </header>
 
 <form method="get" action="/LangLearnHubProject/vocasave.do">

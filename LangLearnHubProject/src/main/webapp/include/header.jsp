@@ -29,8 +29,8 @@ header .container{
 
     <nav class="nav nav-underline justify-content-between">
       <a class="nav-item nav-link link-body-emphasis" href="#"></a>
-      <a class="nav-item nav-link link-body-emphasis" href="VocaPage.jsp">개인 단어장</a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">챗봇 학습 </a>
+      <a class="nav-item nav-link link-body-emphasis" href="voca/VocaPage.jsp">개인 단어장</a>
+      <a class="nav-item nav-link link-body-emphasis" href="chat/chatBot2.jsp">챗봇 학습</a>
       <a class="nav-item nav-link link-body-emphasis" href="#">스터디 그룹 </a>
       <a class="nav-item nav-link link-body-emphasis" href="#">과외 모집 </a>
     </nav>
@@ -44,17 +44,13 @@ header .container{
 			if(id==null){
 		%>
 	
-		<a href="login.jsp"><button class="btn btn-outline-dark">Login</button></a>
-    	<a href="signup.jsp"><button class="btn btn-outline-dark">Sign-up</button></a>	
+		<a href="user/login.jsp"><button class="btn btn-outline-dark">Login</button></a>
+    	<a href="user/signup.jsp"><button class="btn btn-outline-dark">Sign up</button></a>	
 		<%	
 			}else{
 		%>
-
-		<a href="/LangLearnHubProject/logout.do">
-        <button type="button" class="btn btn-outline-dark">Logout</button></a>
-    	<a href="/LangLearnHubProject/select.do"><button type="button" class="btn btn-outline-dark">mypage</button></a>
-
-
+		<a href="/LangLearnHubProject/logout.do"><button type="button" class="btn btn-outline-dark">Logout</button></a>
+    	<a href="/LangLearnHubProject/select.do"><button type="button" class="btn btn-outline-dark">Mypage</button></a>
 		<%
 			}
 		%>

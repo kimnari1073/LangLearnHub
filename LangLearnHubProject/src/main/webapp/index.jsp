@@ -2,30 +2,30 @@
 <%@page import="java.util.HashMap" %>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+  	<meta charset="UTF-8">
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/index.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
 </head>
 <body>
-	<header><%@include file="header.jsp" %></header>
+	<header><%@include file="../include/header.jsp" %></header>
 	<main>    
     <div class="main_image_division">
-        <div class="main_image_text">
-            AI 학습, 다양한 학습 커뮤니티까지<br>
-            함께 성장하는 학습의 시작.<br>
-            LangLearnHub
-        </div>
-        <div class="button_index">
-            시작하기
-        </div>
+      <div class="main_image_text">
+        AI 학습, 다양한 학습 커뮤니티까지<br>
+        함께 성장하는 학습의 시작.<br>
+        LangLearnHub<br>
+        <button class="btn btn-outline-light btn-lg btn-block"
+        				onclick="location.href='user/signup.jsp'" >
+          Let's Start
+        </button>
+      </div>
     </div>
-    
     <div class="main_function_division">
         <div class="main_function1_small_text">수백명의 전문가와 함께 </div>
-        <div class="main_function1_text">
-            영어 개고수들의 <br>
-            꿀팁 나눔
+        <div class="main_function1_text">영어 개고수들의 <br> 꿀팁 나눔
         </div>
         <div class="main_function1_box" style="top : 10%; left: 50%;">
             <img src="pics/user_profile.png" class="main_function1_box_img">
@@ -288,7 +288,7 @@
     </div>
     </main>
     <footer class="footer">
-        <%@include file="footer.jsp" %>
+        <%@include file="../include/footer.jsp" %>
     </footer>
 </body>
 

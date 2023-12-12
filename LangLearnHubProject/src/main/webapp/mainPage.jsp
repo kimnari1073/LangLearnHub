@@ -12,7 +12,7 @@
   </head>
   <body>
 <!-- header -->
-<%@include file="header.jsp" %>
+<%@include file="../include/header.jsp" %>
 <!-- navigation -->
 
 
@@ -206,7 +206,7 @@
   </div>
 
 </main>
-<%@include file="footer.jsp" %>
+<%@include file="../include/footer.jsp" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap.js"></script>
 
