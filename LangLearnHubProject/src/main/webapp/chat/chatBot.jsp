@@ -3,56 +3,62 @@
 <%@ page import="java.util.ArrayList" %>
 <%
 	ArrayList<String> chatList = new ArrayList<>();
-	//ArrayList<String> testList = new ArrayList<>();
-	//testList.add("안녕하세요");
-	//testList.add("테스트입니다.");
-	//session.setAttribute("chatList", testList);
-	
 	chatList = (ArrayList<String>)session.getAttribute("chatList");
-  	String s;
-	if(chatList!=null){
-    	s= chatList.get(1);	
-    }
-    
+  	String s="";
+	if(chatList != null){ //처음 실행할 때는 패스
+		s = chatList.get(chatList.size()-1);
+		System.out.println("layout chatList:"+s);
+	}
 %>
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@800&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500&display=swap');
-    </style>
-    <link rel="stylesheet" href="css/chatBot.css"/>
-</head>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>   
+        <script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js
+"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="../css/chatBotTest.css">
+  </head>
 <body>
-<%@ include file="../include/header.jsp" %>
-    <div style="text-align: center;">
-        <div class="chatbot">
-            <div class="chatbot_header">
-                Chat-Bot
+<%@ include file="../include/header.jsp" %> 
+
+<div class="chat_window">
+        <div class="top_menu">
+            <div class="title">English ChatBot</div>
+        </div>
+        <ul class="messages">
+          
+        </ul>
+        <div class="bottom_wrapper clearfix">
+          <form method="post" action="/LangLearnHubProject/chat.do">
+            <div class="message_input_wrapper">
+              <input class="message_input" placeholder="Type your message here..." name="req"/>
+              <input class="message_output" type="hidden" value= "<%= s %>" >
             </div>
-            <div class="chatbot_text">
-            <%	
-            	if(chatList != null){
-            	for(int i = 0; i < chatList.size(); i++){
-            		out.println(chatList.get(i)+"<br>");
-            	}}
-            %>
-            
+            <div class="send_message">
+              <div class="icon"></div>
+              <div class="text">Send</div>
             </div>
-	        <div class="chatbot_submit" >
-	            <form method="post" action="/LangLearnHubProject/chat.do" style="width : 100%; height : 100%;">
-	                <input type="text" placeholder="입력하세요" class="chatbot_input" name="req" value="">
-	                <img src="pics/send.png" class="chatbot_send_img"  >
-	                <input type="submit" class="invisible_btn" value="">
-	            </form>
-            </div>
+           </form>
         </div>
     </div>
-<%@ include file="../include/footer.jsp" %>
+    <div class="message_template">
+      <li class="message">
+        <div class="avatar"></div>
+          <div class="text_wrapper">
+            <button type="button" class="bookmark" style="border:0;background-color:transparent">
+              <div class="text"></div>
+            </button>
+            </div>
+        </li>
+  </div>
+    <script type="text/javascript" src="../js/chatbot.js"></script>
 </body>
 </html>
-

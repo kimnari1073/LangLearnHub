@@ -4,13 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 </head>
+<script>
+  // window.onload = function(){bookMarkInsert();}
+  const bookList = [];
+  function bookMarkInsert(){
+      var jsonObject ={"idx":"1","title":"test","Q":"testQ","A":"testA"};
+      bookList.push(jsonObject);
+
+      for(var i=0; i<bookList.length; i++){
+        var json = JSON.parse(JSON.stringify(bookList[i]));
+        var idx=json.idx;
+        var title=json.title;
+        var q=json.Q;
+        var a=json.A;
+        console.log("Json: "+idx);
+        var insertTr;
+        insertTr = 
+        '<form>'+
+          '<div class="col">'+
+            '<div class="card border-dark mb-3" style="max-width: 18rem;">'+
+              '<div class="card-header">'+title+
+                '<button><img src="../pics/star.png"></button>'+
+                '</div>'+
+              '<div class="card-body text-dark">'+
+                '<h5 class="card-title">Question</h5>'+
+                '<p class="card-text">'+q+'</p>'+
+                '<h5 class="card-title">Answer</h5>'+
+                '<p class="card-text">'+a+'</p>'+
+              '</div>'+
+            '</div>'+
+          '</div>'+
+        '<form>';
+        console.log(insertTr);
+        $(".row").append(insertTr);
+      }
+  }
+</script>
+<style>
+  button{
+    border:0px;
+    background-color: transparent;
+  }
+  button img{
+    border: 1px solid black;
+    width: 30px;
+  }
+</style>
 <body>
+  <button><img src="../pics/star.png"></button>
     <div class="container">
         <div class="row row-cols-3">
-          <div class="col">
+          <!-- <button><img src="../pics/star.png"></button> -->
+          <!-- inset -->
+          <!-- <div class="col">
+            <div class="card border-dark mb-3" style="max-width: 18rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body text-dark">
+                  <h5 class="card-title">Question</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <h5 class="card-title">Question</h5>
+                
+                </div>
+              </div>
+          </div> -->
+          <!-- <div class="col">
             <div class="card border-dark mb-3" style="max-width: 18rem;">
                 <div class="card-header">Header</div>
                 <div class="card-body text-dark">
@@ -36,16 +97,7 @@
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
               </div>
-          </div>
-          <div class="col">
-            <div class="card border-dark mb-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body text-dark">
-                  <h5 class="card-title">Dark card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-          </div>
+          </div> -->
         </div>
       </div>
 </body>

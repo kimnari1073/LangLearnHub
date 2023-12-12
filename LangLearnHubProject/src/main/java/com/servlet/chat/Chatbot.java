@@ -1,4 +1,4 @@
-package com.servlet.chatbot;
+package com.servlet.chat;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -19,7 +19,7 @@ public class Chatbot extends HttpServlet {
 	ArrayList<String> chatList;
 	private static final String API_URL = "https://api.openai.com/v1/chat/completions";
 	//키 발급 -> 커밋 시 초기화
-	private static final String API_KEY = "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";
+	private static final String API_KEY = "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";
 
 	public void init(ServletConfig config) throws ServletException {
 		chatList = new ArrayList<String>();
@@ -102,7 +102,7 @@ public class Chatbot extends HttpServlet {
 //	    System.out.println(chatList);
 //		RequestDispatcher dispatcher = request.getRequestDispatcher("chatBot2.jsp");
 //		dispatcher.forward(request, response);
-		response.sendRedirect("chatBot2.jsp");
+		response.sendRedirect("chat/chatBot.jsp");
 		
 	    
 	    

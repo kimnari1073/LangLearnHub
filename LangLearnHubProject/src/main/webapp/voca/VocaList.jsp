@@ -27,7 +27,7 @@ HashMap<String,Integer> vocaList =(HashMap)request.getAttribute("vocaList");
     	function tableInsert() {
 			<%	int i =0;
 				for(Entry<String, Integer> entry: vocaList.entrySet()) {
-					%>var jsonObject = {"idx": "<%= ++i %>", "title":"<%= entry.getKey() %>", "total": "<%= entry.getValue()%>"}
+					%>var jsonObject = {"idx": "<%= ++i %>", "title":"<%= entry.getKey() %>", "total": "<%= entry.getValue()%>"};
 					tableList.push(jsonObject);
 					<%
 				}
@@ -77,6 +77,7 @@ HashMap<String,Integer> vocaList =(HashMap)request.getAttribute("vocaList");
 			</tr>
 		</thead>
 		<tbody id="dyn_tbody">
+			<!-- insert -->
 		</tbody>
 	</table>
 </body>

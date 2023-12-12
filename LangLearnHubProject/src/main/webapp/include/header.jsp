@@ -30,7 +30,7 @@ header .container{
     <nav class="nav nav-underline justify-content-between">
       <a class="nav-item nav-link link-body-emphasis" href="#"></a>
       <a class="nav-item nav-link link-body-emphasis" href="voca/VocaPage.jsp">개인 단어장</a>
-      <a class="nav-item nav-link link-body-emphasis" href="chat/chatBot2.jsp">챗봇 학습</a>
+      <a class="nav-item nav-link link-body-emphasis" href="chat/chatBot.jsp">챗봇 학습</a>
       <a class="nav-item nav-link link-body-emphasis" href="#">스터디 그룹 </a>
       <a class="nav-item nav-link link-body-emphasis" href="#">과외 모집 </a>
     </nav>

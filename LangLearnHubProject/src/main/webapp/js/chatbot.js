@@ -28,11 +28,13 @@ function Message(arg){
     Swal.fire({
       title: "해당 내용을 저장 할까요?",
       html:
-      '<form action="SignUpFail.jsp">' +
+      '<form action="/LangLearnHubProject/chatsave">' +
       '  <label>Q: '+swal_textQ+'</label><br>' +
+      '  <input type="hidden" name="Q" value="'+swal_textQ+'"'+
       '  <label>A: '+swal_textA+'</label><br>' +
+      '  <input type="hidden" name="A" value="'+swal_textA+'"'+
       '  <label>북마크 이름을 입력하세요.<br><br>'+
-      '  <input type="text" class="form-control form-control-lg" placeholder="Untitled"><br>'+
+      '  <input type="text" name="bookMarkTitle" class="form-control form-control-lg" placeholder="Untitled"><br>'+
       '  <button class="btn btn-outline-success">save</button>'+
       '</form>'+
       '  <input type="button" class="btn btn-outline-danger" value="cancel" onClick="window.location.reload()"></input>',
