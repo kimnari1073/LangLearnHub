@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="de028b47-8d5d-451c-872b-f88f737262f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LangLearnHubProject/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/LangLearnHubProject/src/main/webapp/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LangLearnHubProject/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/LangLearnHubProject/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LangLearnHubProject/src/main/java/com/servlet/Chatbot.java" beforeDir="false" afterPath="$PROJECT_DIR$/LangLearnHubProject/src/main/java/com/servlet/Chatbot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
