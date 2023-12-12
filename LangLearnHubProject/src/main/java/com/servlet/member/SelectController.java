@@ -23,7 +23,7 @@ public class SelectController extends HttpServlet {
 			ArrayList<MemberDTO> mList = mDao.selectMemberList();
 			HttpSession session = rq.getSession();
 			session.setAttribute("vlist", mList);
-			RequestDispatcher dispatcher=rq.getRequestDispatcher("list.jsp");
+			RequestDispatcher dispatcher=rq.getRequestDispatcher("user/list.jsp");
 			dispatcher.forward(rq, rp);
 		
 			

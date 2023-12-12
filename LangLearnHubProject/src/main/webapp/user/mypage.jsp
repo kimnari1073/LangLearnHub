@@ -71,7 +71,7 @@ padding-right:550px;
       <div class="modal-body">
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">아이디:</label>
-            <input type="text" class="form-control" id="recipient-name" name="id" value=${member.id }>
+            <input type="text" class="form-control" id="recipient-name" name="id" value=${member.id } readonly>
           </div>
           <div class="mb-3">
             <label for="message-text" class="col-form-label">비밀번호:</label>
@@ -96,7 +96,7 @@ padding-right:550px;
             checked
             </c:if>
             >  남  &nbsp &nbsp
-            <input type="radio" name="gender"  id="recipient-name" value="남"
+            <input type="radio" name="gender"  id="recipient-name" value="여"
             <c:if test="${member.gender  eq '1'}">
             checked
             </c:if>

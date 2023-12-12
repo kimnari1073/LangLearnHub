@@ -50,7 +50,7 @@ header .container{
 			}else{
 		%>
 		<a href="/LangLearnHubProject/logout.do"><button type="button" class="btn btn-outline-dark">Logout</button></a>
-    	<a href="/LangLearnHubProject/select.do"><button type="button" class="btn btn-outline-dark">Mypage</button></a>
+    	<a href="/LangLearnHubProject/memselect.do"><button type="button" class="btn btn-outline-dark">Mypage</button></a>
 		<%
 			}
 		%>

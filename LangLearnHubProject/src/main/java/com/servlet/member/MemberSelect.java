@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/select.do")
+@WebServlet("/memselect.do")
 public class MemberSelect extends HttpServlet {
 
 	protected void doGet(HttpServletRequest rq, HttpServletResponse rp) throws ServletException, IOException {
@@ -21,7 +21,7 @@ public class MemberSelect extends HttpServlet {
 
 	        // 만약 로그인이 되어 있지 않다면 로그인 페이지로 리다이렉션
 	        if (loggedInMember == null) {
-	            rp.sendRedirect("login.jsp");
+	            rp.sendRedirect("user/login.jsp");
 	            return;
 	        }
 
@@ -37,7 +37,7 @@ public class MemberSelect extends HttpServlet {
 	        rq.setAttribute("member", member);
 
 	    
-		RequestDispatcher dispatcher=rq.getRequestDispatcher("mypage.jsp");
+		RequestDispatcher dispatcher=rq.getRequestDispatcher("user/mypage.jsp");
 		dispatcher.forward(rq, rp);
 	}
 

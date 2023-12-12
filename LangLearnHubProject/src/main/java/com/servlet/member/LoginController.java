@@ -45,7 +45,7 @@ public class LoginController extends HttpServlet {
 			
 			String role=member.getRole();
 			if(role.equals("0")) {
-				RequestDispatcher dispatcher = rq.getRequestDispatcher("mainPage2.jsp");
+				RequestDispatcher dispatcher = rq.getRequestDispatcher("mainPage.jsp");
 				dispatcher.forward(rq, rp);
 				
 			}else if(role.equals("1")) {
@@ -53,7 +53,7 @@ public class LoginController extends HttpServlet {
 				dispatcher.forward(rq, rp);
 			}
 		}else{
-		      rp.sendRedirect("SignUpFail.jsp");
+		      rp.sendRedirect("user/SignUpFail.jsp");
 		}
 		   
 

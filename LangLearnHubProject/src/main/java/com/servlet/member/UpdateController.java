@@ -89,7 +89,8 @@ public class UpdateController extends HttpServlet {
 		memberDTO.setEmail(email);
 		memberDTO.setGender(gender);
 		memberDTO.setId(id);
-		 MemberDAO memberDAO = new MemberDAO();
+		System.out.println(gender);
+		MemberDAO memberDAO = new MemberDAO();
   	  
   	    
 		 HttpSession session =request.getSession();
@@ -106,7 +107,7 @@ public class UpdateController extends HttpServlet {
     	request.setAttribute("member", member);
 
     	// Forward to the JSP page with the updated member
-    	RequestDispatcher dispatcher = request.getRequestDispatcher("mypage.jsp");
+    	RequestDispatcher dispatcher = request.getRequestDispatcher("user/mypage.jsp");
 //    	RequestDispatcher dispatcher = request.getRequestDispatcher("select.do");
     	dispatcher.forward(request, response);
 

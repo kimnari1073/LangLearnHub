@@ -45,7 +45,10 @@ public class MemberDAO {
 	           pstmt.setString(1, mDTO.getPassword());
 	           pstmt.setString(2, mDTO.getEmail());
 	           pstmt.setString(3, mDTO.getName());
-	           pstmt.setString(4, mDTO.getGender());
+	           String temGender="";
+	           if(mDTO.getGender().equals("여")) temGender="1";
+	           else if(mDTO.getGender().equals("남")) temGender="0";
+	           pstmt.setString(4, temGender);
 	           pstmt.setString(5, mDTO.getBirth());
 	           pstmt.setString(6, mDTO.getId());
 	           pstmt.executeUpdate();
