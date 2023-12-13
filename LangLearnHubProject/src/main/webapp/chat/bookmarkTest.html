@@ -27,9 +27,12 @@
         '<form>'+
           '<div class="col">'+
             '<div class="card border-dark mb-3" style="max-width: 18rem;">'+
-              '<div class="card-header">'+title+
-                '<button><img src="../pics/star.png"></button>'+
-                '</div>'+
+              '<div class="card-header">'+
+                '<form>'+
+                  '<input type="hidden" name="bookIdx" value="'+idx+'">'+
+                  '<button><img src="../pics/star.png"></button>'+title+
+                '</form>'+
+              '</div>'+
               '<div class="card-body text-dark">'+
                 '<h5 class="card-title">Question</h5>'+
                 '<p class="card-text">'+q+'</p>'+
@@ -50,19 +53,32 @@
     background-color: transparent;
   }
   button img{
-    border: 1px solid black;
-    width: 30px;
+    /* border: 1px solid black; */
+    width: 20px;
+  }
+  .card-header{
+    /* border: 1px solid black; */
+    padding-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 </style>
 <body>
-  <button><img src="../pics/star.png"></button>
+  <!-- <button><img src="../pics/star.png"></button> -->
     <div class="container">
         <div class="row row-cols-3">
-          <!-- <button><img src="../pics/star.png"></button> -->
+          
           <!-- inset -->
-          <!-- <div class="col">
+          <div class="col">
             <div class="card border-dark mb-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
+                <div class="card-header">
+                  <form>
+                    <input type="hidden" name="" value="">
+                    <button><img src="../pics/star.png"></button>
+                    Header
+                  </form>
+                </div>
                 <div class="card-body text-dark">
                   <h5 class="card-title">Question</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -70,7 +86,7 @@
                 
                 </div>
               </div>
-          </div> -->
+          </div>
           <!-- <div class="col">
             <div class="card border-dark mb-3" style="max-width: 18rem;">
                 <div class="card-header">Header</div>
