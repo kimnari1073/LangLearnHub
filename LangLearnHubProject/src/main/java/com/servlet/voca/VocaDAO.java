@@ -10,17 +10,16 @@ import java.util.Map.Entry;
 import common.JDBCUtil;
 
 public class VocaDAO {
-	//vocaList(Json) 구하기
+	//vocaList(HashMap) 구하기
 	public HashMap<String,Integer> getVocaList(VocaDTO vDto) {
 		Connection conn = JDBCUtil.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String id=vDto.getUserId();
 		HashMap<String,Integer> vocaList = new HashMap<>();
 		try {
 			pstmt = conn.prepareStatement
 					("select list_name,count(*) from voca where user_id=? group by list_name;");
-			pstmt.setString(1, id);
+			pstmt.setString(1, vDto.getUserId());
 			rs = pstmt.executeQuery();
 			while(rs.next()) vocaList.put(rs.getString(1), rs.getInt(2));
 		} catch (SQLException e) {e.printStackTrace();
