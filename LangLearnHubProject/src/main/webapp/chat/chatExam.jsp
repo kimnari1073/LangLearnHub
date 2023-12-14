@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.*"%>
+<%@ page import="com.servlet.chat.*" %>
 <!DOCTYPE html>
 <html lang="en">
+<%
+	ArrayList<ChatExamDTO> eDTO = (ArrayList<ChatExamDTO>)session.getAttribute("quesList");
+%>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +27,11 @@
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <%
+    	for(int i = 0; i < eDTO.size() ; i++){
+    		out.print(eDTO.get(i).getTitle());
+    	}
+    %>
     <div class="chat_exams" >
         <div class="card" style="width: 15rem; height : 14rem; display: inline-block; margin : 1.5%; text-align: center;">
             <div class="card-body">
