@@ -13,7 +13,7 @@ public class ChatDAO {
 	public ArrayList<String[]> chatSelect(ChatDTO cDto) {
 		Connection conn = JDBCUtil.getConnection();
 		PreparedStatement pstmt = null;
-		ArrayList<String[]> ans = null;
+		ArrayList<String[]> ans= new ArrayList<>();
 		ResultSet rs = null;
 		
 		try {

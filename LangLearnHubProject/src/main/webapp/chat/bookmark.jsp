@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import ="java.util.ArrayList" %>
+<%
+request.setCharacterEncoding("utf-8");
+ArrayList<String[]> bookList = (ArrayList<String[]>)request.getAttribute("bookList");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,25 +14,23 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 </head>
-<!-- <script>
+<script>
   window.onload = function(){bookMarkInsert();}
+  //const bookList = [];
   const bookList = [];
   function bookMarkInsert(){
-      var jsonObject ={"idx":"1", "title": "testTitle","Q":"과일 영어단어 3가지만 말해줘일",
-    				"A":"당연히, 여기 세 가지 과일 영어 단어가 있습니다:1. Apple (사과)2. Banana (바나나)3. Orange (오렌지)다른 질문이 있거나 도움이 필요하시면 언제든지 말씀해주세요!"};
-      // console.log(before_jsonObject);
-      // var jsonObject = before_jsonObject.replace(/\\n/g, '\\n');
-      // JSON.parse(jsonObject);
-      console.log(jsonObject);
-
-      bookList.push(jsonObject);
+      <% int i=0;
+      	for(String[] arr : bookList){
+    		%>var jsonObject = {"idx":"<%= ++i %>", "title": "<%= arr[0] %>","Q":"<%= arr[1] %>",
+    				"A":"<%= arr[2]%>"};
+    		bookList.push(jsonObject);<%
+      }%>
+      
+	  //var jsonObject ={"idx":"1","title":"test","Q":"testQ","A":"testA"};
+      //bookList.push(jsonObject);
 
       for(var i=0; i<bookList.length; i++){
         var json = JSON.parse(JSON.stringify(bookList[i]));
-        // var json = JSON.parse(bookList[i]);
-
-        console.log(bookList[i]);
-        console.log(json);
         var idx=json.idx;
         var title=json.title;
         var q=json.Q;
@@ -40,7 +44,7 @@
               '<div class="card-header">'+
                 '<form>'+
                   '<input type="hidden" name="bookIdx" value="'+idx+'">'+
-                  '<button><img src="../pics/star.png"></button>'+title+
+                  '<button><img src="pics/star.png"></button>'+title+
                 '</form>'+
               '</div>'+
               '<div class="card-body text-dark">'+
@@ -51,12 +55,12 @@
               '</div>'+
             '</div>'+
           '</div>'+
-        '<form>';
+        '</form>';
         console.log(insertTr);
         $(".row").append(insertTr);
       }
   }
-</script> -->
+</script>
 <style>
   button{
     border:0px;
@@ -80,11 +84,8 @@
         <div class="row row-cols-3">
           
           <!-- inset -->
-          <form><div class="col"><div class="card border-dark mb-3" style="max-width: 18rem;"><div class="card-header"><form><input type="hidden" name="bookIdx" value="4"><button><img src="../pics/star.png"></button></form></div><div class="card-body text-dark"><h5 class="card-title">Question</h5><p class="card-text">무슨 의미야?</p><h5 class="card-title">Answer</h5><p class="card-text">It means 'Apple, banana, orange.'</p></div></div></div></form>
-          <form><div class="col"><div class="card border-dark mb-3" style="max-width: 18rem;"><div class="card-header"><form><input type="hidden" name="bookIdx" value="4"><button><img src="../pics/star.png"></button></form></div><div class="card-body text-dark"><h5 class="card-title">Question</h5><p class="card-text">무슨 의미야?</p><h5 class="card-title">Answer</h5><p class="card-text">It means 'Apple, banana, orange.'</p></div></div></div></form>
-          <form><div class="col"><div class="card border-dark mb-3" style="max-width: 18rem;"><div class="card-header"><form><input type="hidden" name="bookIdx" value="4"><button><img src="../pics/star.png"></button></form></div><div class="card-body text-dark"><h5 class="card-title">Question</h5><p class="card-text">무슨 의미야?</p><h5 class="card-title">Answer</h5><p class="card-text">It means 'Apple, banana, orange.'</p></div></div></div></form>
-          <form><div class="col"><div class="card border-dark mb-3" style="max-width: 18rem;"><div class="card-header"><form><input type="hidden" name="bookIdx" value="4"><button><img src="../pics/star.png"></button></form></div><div class="card-body text-dark"><h5 class="card-title">Question</h5><p class="card-text">무슨 의미야?</p><h5 class="card-title">Answer</h5><p class="card-text">It means 'Apple, banana, orange.'</p></div></div></div></form>
-          <!-- <div class="col">
+          <!-- 
+          <div class="col">
             <div class="card border-dark mb-3" style="max-width: 18rem;">
                 <div class="card-header">
                   <form>
@@ -100,7 +101,9 @@
                 
                 </div>
               </div>
-          </div> -->
+          </div>
+           -->
+          
         </div>
       </div>
 </body>

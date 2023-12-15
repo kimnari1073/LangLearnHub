@@ -28,8 +28,8 @@ public class ChatSelectController extends HttpServlet {
 		ArrayList<String[]> bookList = cDao.chatSelect(cDto);
 		
 		rq.setAttribute("bookList",bookList);
-		System.out.println("bookList: "+bookList);
-		RequestDispatcher dispatcher = rq.getRequestDispatcher("bookmark.jsp");
+		System.out.println("bookList: "+bookList.toString());
+		RequestDispatcher dispatcher = rq.getRequestDispatcher("chat/bookmark.jsp");
 		dispatcher.forward(rq, rp);
 	}
 

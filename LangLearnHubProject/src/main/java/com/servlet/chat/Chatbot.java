@@ -19,7 +19,7 @@ public class Chatbot extends HttpServlet {
 	ArrayList<String> chatList;
 	private static final String API_URL = "https://api.openai.com/v1/chat/completions";
 	//키 발급 -> 커밋 시 초기화
-	private static final String API_KEY = "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";
+	private static final String API_KEY = "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";
 
 	public void init(ServletConfig config) throws ServletException {
 		chatList = new ArrayList<String>();
@@ -51,7 +51,7 @@ public class Chatbot extends HttpServlet {
 	    JSONObject systemMessage = new JSONObject();
 	    systemMessage.put("role", "system");
 //	    systemMessage.put("content","한 마디 단어로 대답해");
-	    systemMessage.put("content", "답변을 할 때는 큰 따옴표를 쓰지 마. 너는 영어 선생님이고, 사용자는 영어와 관련된 질문을 할 거야.");
+	    systemMessage.put("content", "영어 선생님처럼 대답해. 답변은 짧고 간결하게 해");
 	    messages.add(systemMessage);
 
 	    JSONObject userMessage = new JSONObject();
@@ -90,6 +90,8 @@ public class Chatbot extends HttpServlet {
 	            JSONObject messageObject = (JSONObject) firstChoice.get("message");
 
 	            String res = (String) messageObject.get("content");
+	            res= res.replace("\"", "'");
+	            res=res.replace("\n", "\\n");
 	            chatList.add(res);
 	            session.setAttribute("res", res);   
 	        } catch (ParseException e) {
