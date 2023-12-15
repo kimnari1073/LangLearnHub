@@ -27,7 +27,7 @@ body{
 <c:if test="${loginCheck == null }">
 	<a href=logout.do> 로그아웃 </a>
 </c:if><br>
-<a href="approvelist.do" style="color:black; text-decoration:none;"><button>신청자 목록 조회 </button></a><br>
+<a href="allSelect.do" style="color:black; text-decoration:none;"><button>전체 회원 목록 조회  </button></a><br>
 <table>
 <br>
 	 <h2>회원 관리</h2>
@@ -46,7 +46,7 @@ body{
             </tr>
           </thead>
           <tbody>
-          <c:forEach items="${vlist }" var="memberList">
+          <c:forEach items="${alist }" var="memberList">
 			<tr>
 			<td>${memberList.id }</td>
 			<td>${memberList.password }</td>

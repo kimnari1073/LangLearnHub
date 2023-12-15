@@ -9,6 +9,7 @@ public class MemberDTO {
     private String email;
     private String gender;
     private String role;
+    private String approve;
     
 	public String getId() {
 		return id;
@@ -51,6 +52,12 @@ public class MemberDTO {
 	}
 	public void setRole(String role) {
 		this.role = role;
+	}
+	public String getApprove() {
+		return approve;
+	}
+	public void setApprove(String approve) {
+		this.approve=approve;
 	}
 
     

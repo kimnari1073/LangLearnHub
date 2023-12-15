@@ -79,6 +79,26 @@ public class MemberDAO {
 	           JDBCUtil.close(pstmt, conn);
 	       }
 	   }
+	   //관리자 신청 
+	   public void approveUpdate(MemberDTO mDTO) {
+	       Connection conn = null;
+	       PreparedStatement pstmt = null;
+	       
+	       try {
+	    	   conn = JDBCUtil.getConnection();
+		       conn.setAutoCommit(true); // Auto-commit mode로 설정
+		       String query = "update users set approve='1' where id = ?";
+		       
+	           pstmt = conn.prepareStatement(query);
+	           pstmt.setString(1, mDTO.getId());
+	           pstmt.executeUpdate();
+	           System.out.println("SQL Query: " + pstmt.toString());
+	       } catch (SQLException e) {
+	           e.printStackTrace();
+	       } finally {
+	           JDBCUtil.close(pstmt, conn);
+	       }
+	   }
 
 
 	//회원가입
@@ -155,7 +175,7 @@ public class MemberDAO {
     }
 
 
-    //회원 목록 조회
+    //회원 전체 목록 조회
     public ArrayList<MemberDTO> selectMemberList() throws SQLException {
     	String strQuery = "select * from users";
     	Connection conn = JDBCUtil.getConnection();
@@ -172,6 +192,30 @@ public class MemberDAO {
         	rd.setEmail(rs.getString("email"));
         	rd.setGender(rs.getString("gender"));
         	rd.setRole(rs.getString("role"));
+        	rd.setRole(rs.getString("approve"));
+        	aList.add(rd);
+        }
+
+    	return aList;
+    }
+  //관리자 신청 목록 조회
+    public ArrayList<MemberDTO> approverList() throws SQLException {
+    	String strQuery = "select * from users where approve='1' AND role='0'";
+    	Connection conn = JDBCUtil.getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(strQuery);     
+        ResultSet rs = pstmt.executeQuery();
+        
+        ArrayList<MemberDTO> aList = new ArrayList<MemberDTO>();
+        while(rs.next()) {
+        	MemberDTO rd = new MemberDTO();
+        	rd.setId(rs.getString("id"));
+        	rd.setPassword(rs.getString("password"));
+        	rd.setName(rs.getString("name"));
+        	rd.setBirth(rs.getString("birth"));
+        	rd.setEmail(rs.getString("email"));
+        	rd.setGender(rs.getString("gender"));
+        	rd.setRole(rs.getString("role"));
+        	rd.setRole(rs.getString("approve"));
         	aList.add(rd);
         }
 

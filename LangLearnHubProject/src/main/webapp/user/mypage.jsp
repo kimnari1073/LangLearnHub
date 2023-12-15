@@ -125,13 +125,30 @@ padding-right:550px;
     </a>
     <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true" >
       <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
-      <div class="d-flex gap-2 w-100 justify-content-between">
+      <div class="d-flex gap-2 w-100 justify-content-between" data-bs-toggle="modal" data-bs-target="#exampleModal1">
         <div class="text">
           <h6 class="mb-0">관리자 신청  </h6>
         </div>
         <small class="opacity-50 text-nowrap">></small>
       </div>
     </a>
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">신청 성공하셨습니다.</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        승인 여부는 3일 안으로 처리됩니다. 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기 </button>
+      </div>
+    </div>
+  </div>
+</div>
 
     <a href="/LangLearnHubProject/logout.do" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
       <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
