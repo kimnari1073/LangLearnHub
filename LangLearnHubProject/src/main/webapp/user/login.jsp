@@ -32,7 +32,7 @@ height: 100%;
 integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
 </head>
 <body>
-<section class="vh-100">
+<section class="vh-100"  style="background-color:#ececec;">
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-6 text-black">
@@ -63,7 +63,7 @@ integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2
 	            <div class="pt-1 mb-4">
 	              <button class="btn btn-info btn-lg btn-block" type="submit">Login</button>
 	            </div>
-            <p>Don't have an account? <a href="#!" class="link-info">Register here</a></p>
+            <p>Don't have an account? <a href="signup.jsp" class="link-info">Register here</a></p>
 
           </form>
 

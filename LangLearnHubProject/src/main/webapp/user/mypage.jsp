@@ -144,7 +144,7 @@ padding-right:550px;
         승인 여부는 3일 안으로 처리됩니다. 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기 </button>
+        <a href="/LangLearnHubProject/approve.do"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기 </button></a>
       </div>
     </div>
   </div>
