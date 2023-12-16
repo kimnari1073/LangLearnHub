@@ -121,21 +121,28 @@ window.onload = function(){
   console.log("onload");
   console.log(sessionStorage.getItem("question"));
   if(sessionStorage.getItem("question")!=null){//저장 돼 있을 때만
-    var array_tem;
-    var send_message;
+    var array_tem=sessionStorage.getItem("question");
     const entries = performance.getEntriesByType("navigation")[0];
+    var tem;
+    
     if (entries.type==="reload"){ //새로고침 눌렀을 때
       console.log("새로고침 클릭");
-      array_tem=sessionStorage.getItem("question");
+      tem=array_tem;
       
     }else{ //재로딩 
       console.log("re_onload");
-      array_tem=sessionStorage.getItem("question")+',"'+getMessageText(false)+'"';
-      sessionStorage.setItem("question",array_tem);
+      tem=array_tem+',"'+getMessageText(false)+'"';
+      split_tem = tem.split(",");
+      if(split_tem.length%2==1){
+		  console.log("홀수");
+	  }else{
+		  sessionStorage.setItem("question",tem);
+		  console.log("짝수");
+	  }
+      
     }
-    array_tem = array_tem.split(",");
-    send_message = array_tem;
-    return sendMessage(send_message,true);
+    array_tem = tem.split(",");
+    return sendMessage(array_tem,true);
   }
 }
 

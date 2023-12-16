@@ -7,6 +7,9 @@
   	String s="";
 	if(chatList != null){ //처음 실행할 때는 패스
 		s = chatList.get(chatList.size()-1);
+		//if(s.equals(chatList.get(chatList.size()-2))){
+			//s="";
+		//}
 		System.out.println("layout chatList:"+s);
 	}
 %>

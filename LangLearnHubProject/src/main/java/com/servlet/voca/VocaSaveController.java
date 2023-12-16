@@ -34,7 +34,7 @@ public class VocaSaveController extends HttpServlet {
 		boolean saveCheck = vDao.vocaSave(vDto);
 		if(saveCheck) {
 			rq.setAttribute("vocaList", vDao.getVocaList(vDto));
-			RequestDispatcher dispatcher = rq.getRequestDispatcher("VocaList.jsp");
+			RequestDispatcher dispatcher = rq.getRequestDispatcher("voca/VocaList.jsp");
 			 //단어장 목록
 			dispatcher.forward(rq, rp);
 			

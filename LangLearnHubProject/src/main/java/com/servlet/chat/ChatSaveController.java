@@ -35,8 +35,9 @@ public class ChatSaveController extends HttpServlet {
 		
 		//
 		if(saveCheck) {
-			RequestDispatcher dispatcher = rq.getRequestDispatcher("chatselect");
-			dispatcher.forward(rq, rp);
+			rp.sendRedirect("chatselect");
+			//RequestDispatcher dispatcher = rq.getRequestDispatcher("chatselect");
+			//dispatcher.forward(rq, rp);
 		}else {
 			RequestDispatcher dispatcher = rq.getRequestDispatcher("user/SignUpFail.jsp");
 			dispatcher.forward(rq, rp);

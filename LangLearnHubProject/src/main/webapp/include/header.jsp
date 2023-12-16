@@ -11,26 +11,28 @@
 font-family: 'Noto Sans KR', sans-serif;font-size: 16px;font-weight: 400;}
 header .container{
     width: 1000px;
-    min-width: 800px;
-
+    min-width: 900px;
+}
+.hidden{
+	height: 100px;
 }
 </style>
 </head>
 
 <body>
-
+<div class='hidden'></div>
 <header class="navbar fixed-top navbar-light bg-light">
    <div class="container">
       <div class="col-md-3 mb-2 mb-md-0">
-        <a href="index.jsp" class="d-inline-flex link-body-emphasis text-decoration-none">
+        <a href="/LangLearnHubProject/index.jsp" class="d-inline-flex link-body-emphasis text-decoration-none">
         <h2>LangLearnHub</h2>
         </a>
       </div>
 
     <nav class="nav nav-underline justify-content-between">
       <a class="nav-item nav-link link-body-emphasis" href="#"></a>
-      <a class="nav-item nav-link link-body-emphasis" href="voca/VocaPage.jsp">개인 단어장</a>
-      <a class="nav-item nav-link link-body-emphasis" href="chat/chatBot.jsp">챗봇 학습</a>
+      <a class="nav-item nav-link link-body-emphasis" href="/LangLearnHubProject/voca/VocaPage.jsp">개인 단어장</a>
+      <a class="nav-item nav-link link-body-emphasis" href="/LangLearnHubProject/chat/chatBot.jsp">챗봇 학습</a>
       <a class="nav-item nav-link link-body-emphasis" href="#">스터디 그룹 </a>
       <a class="nav-item nav-link link-body-emphasis" href="#">과외 모집 </a>
     </nav>
@@ -44,8 +46,8 @@ header .container{
 			if(id==null){
 		%>
 	
-		<a href="user/login.jsp"><button class="btn btn-outline-dark">Login</button></a>
-    	<a href="user/signup.jsp"><button class="btn btn-outline-dark">Sign up</button></a>	
+		<a href="/LangLearnHubProject/user/login.jsp"><button class="btn btn-outline-dark">Login</button></a>
+    	<a href="/LangLearnHubProject/user/signup.jsp"><button class="btn btn-outline-dark">Sign up</button></a>	
 		<%	
 			}else{
 		%>

@@ -78,8 +78,10 @@ ArrayList<String[]> bookList = (ArrayList<String[]>)request.getAttribute("bookLi
     text-overflow: ellipsis;
   }
 </style>
+<header>
+	<%@include file="../include/header.jsp" %>
+</header>
 <body>
-  <!-- <button><img src="../pics/star.png"></button> -->
     <div class="container">
         <div class="row row-cols-3">
           
