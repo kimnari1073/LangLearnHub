@@ -16,13 +16,9 @@ public class ChatSaveController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest rq, HttpServletResponse rp) throws ServletException, IOException {
 		rq.setCharacterEncoding("UTF-8");
-		
+		//DTO
 		HttpSession session = rq.getSession();
 		String userId = (String)session.getAttribute("id");
-//		String title = rq.getParameter("bookMarkTitle");
-//		String q = rq.getParameter("Q");
-//		String a = rq.getParameter("A");
-		
 		ChatDTO cDto = new ChatDTO();
 		cDto.setUserId(userId);
 		cDto.setTitle(rq.getParameter("bookMarkTitle"));

@@ -19,7 +19,7 @@ public class Chatbot extends HttpServlet {
 	ArrayList<String> chatList;
 	private static final String API_URL = "https://api.openai.com/v1/chat/completions";
 	//키 발급 -> 커밋 시 초기화
-	private static final String API_KEY = "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";
+	private static final String API_KEY = "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";
 
 	public void init(ServletConfig config) throws ServletException {
 		chatList = new ArrayList<String>();
