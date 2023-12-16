@@ -5,10 +5,15 @@ public class ChatExamDTO {
 	private int num;
 	private String title; 
 	private String ques;
+	private String examparse; 
+	private String examtype;
+	private String color; 
+	
 	
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -31,6 +36,23 @@ public class ChatExamDTO {
 		this.ques = ques;
 	}
 	 
-	
+	public String getExamparse() {
+		return examparse;
+	}
+	public void setExamparse(String examparse) {
+		this.examparse = examparse;
+	}
+	public String getExamtype() {
+		return examtype;
+	}
+	public void setExamtype(String examtype) {
+		this.examtype = examtype;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
 	
 }

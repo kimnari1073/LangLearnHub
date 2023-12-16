@@ -15,10 +15,13 @@ public class ChatExamDAO {
 		int result= 0;
 		try {
 			pstmt = conn.prepareStatement(
-					"insert into chatexam(id,title,ques) values(?,?,?);");
+					"insert into chatexam(id,title,ques,examparse,examtype,color) values(?,?,?,?,?,?);");
 			pstmt.setString(1, eDTO.getId());
 			pstmt.setString(2, eDTO.getTitle());
 			pstmt.setString(3, eDTO.getQues());
+			pstmt.setString(4, eDTO.getExamparse());
+			pstmt.setString(5, eDTO.getExamtype());
+			pstmt.setString(6, "lightgrey");
 			result = pstmt.executeUpdate();
 			System.out.println("SQL: "+pstmt.toString());
 		} catch (SQLException e) {
@@ -44,6 +47,9 @@ public class ChatExamDAO {
 				dto.setId(rs.getString(2));
 				dto.setTitle(rs.getString(3));
 				dto.setQues(rs.getString(4));
+				dto.setExamparse(rs.getString(5));
+				dto.setExamtype(rs.getString(6));
+				dto.setColor(rs.getString(7));
 				quesList.add(dto);
 			}
 			

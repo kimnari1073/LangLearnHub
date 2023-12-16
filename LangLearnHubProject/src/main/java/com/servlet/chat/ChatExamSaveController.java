@@ -22,10 +22,15 @@ public class ChatExamSaveController extends HttpServlet {
 		int res;
 		String title = request.getParameter("title");
 		String ques = request.getParameter("ques");
+		String examparse = request.getParameter("examparse");
+		String examtype = request.getParameter("examtype");
 		
 		eDTO.setId("tester1");
 		eDTO.setTitle(title);
 		eDTO.setQues(ques);
+		eDTO.setExamparse(examparse);
+		eDTO.setExamtype(examtype);
+		eDTO.setColor("lightgrey");
 		
 		res = eDAO.chatExamInsert(eDTO);
 		
@@ -33,7 +38,7 @@ public class ChatExamSaveController extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("chat/chatExamTest.jsp");
 			dispatcher.forward(request, response);
 		}else {
-			//에러 발생 
+			System.out.println("Error");
 		}
 	}
 

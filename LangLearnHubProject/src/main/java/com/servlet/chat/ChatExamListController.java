@@ -16,10 +16,11 @@ import javax.servlet.http.HttpSession;
 public class ChatExamListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	ArrayList<ChatExamDTO> quesList = new ArrayList<>();
+	
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		ArrayList<ChatExamDTO> quesList = new ArrayList<>();
 		HttpSession session = request.getSession();	
 		ChatExamDAO edao = new ChatExamDAO();
 		quesList = edao.chatSelect("tester1");
