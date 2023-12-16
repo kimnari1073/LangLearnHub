@@ -37,9 +37,9 @@ padding-right:550px;
 <h1>마이페이지 </h1>
 <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
   <div class="list-group">
-    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
       <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
-      <div class="d-flex gap-2 w-100 justify-content-between" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+      <div class="d-flex gap-2 w-100 justify-content-between">
         <div class="text">
           <h6 class="mb-0">나의 프로필 보기 / 수정  </h6>
         </div>
@@ -114,7 +114,7 @@ padding-right:550px;
 <%-- </c:if> --%>
 </form>
     
-    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+    <a href="/LangLearnHubProject/voca/VocaPage.jsp" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
       <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
       <div class="d-flex gap-2 w-100 justify-content-between">
         <div class="text">

@@ -24,7 +24,7 @@ public class ApproveController extends HttpServlet {
     MemberDAO memberDAO = new MemberDAO();
     memberDAO.approveUpdate(memberDTO);
     
-    RequestDispatcher dispatcher = request.getRequestDispatcher("user/mypage.jsp");
+    RequestDispatcher dispatcher = request.getRequestDispatcher("memselect.do");
     dispatcher.forward(request, response); 
     
     }

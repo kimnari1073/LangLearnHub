@@ -30,7 +30,7 @@ body{
 <a href="allSelect.do" style="color:black; text-decoration:none;"><button>전체 회원 목록 조회  </button></a><br>
 <table>
 <br>
-	 <h2>회원 관리</h2>
+	 <h2>관리자 신청 목록 </h2>
       <div class="table-responsive small">
         <table class="table table-striped table-sm">
      	<thead>
@@ -41,7 +41,7 @@ body{
               <th scope="col">Email</th>
               <th scope="col">Gender</th>
               <th scope="col">Role</th>
-              <th scope="col">Del</th>
+              <th scope="col">Delete</th>
               <th scope="col">Accept</th>
             </tr>
           </thead>
@@ -53,40 +53,21 @@ body{
 			<td>${memberList.name }</td>
 			<td>${memberList.email }</td>
 			<td><c:if test="${memberList.gender eq '0'}">남자  </c:if><c:if test="${memberList.gender eq '1'}">여자 </c:if></td>
-			<td><c:if test="${memberList.role eq '0'}">일반회원   </c:if><c:if test="${memberList.role eq '1'}">관리자  </c:if></td>
+			<td><c:if test="${memberList.role eq '0'}">일반회원</c:if><c:if test="${memberList.role eq '1'}">관리자</c:if></td>
 			   <td>
-                    <form action="/LangLearnHubProject/adminDelete.do" method="get">
+                    <form action="/LangLearnHubProject/approveUpdate.do" method="get">
                         <input type="hidden" name="id" value="${memberList.id}">
                         <input type="submit" name="action" value="delete">
                     </form>
                 </td>
 			<td>
-			<form action="/LangLearnHubProject/adminDelete.do" method="get">
+			<form action="/LangLearnHubProject/approveUpdate.do" method="get">
                         <input type="hidden" name="id" value="${memberList.id}">
                         <input type="submit" name="action" value="approve">
                     </form>
 			</td>
 			</tr>
 			</c:forEach>
-			<!-- Button trigger modal -->
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        성공적으로 삭제되었습니다. 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기 </button>
-      </div>
-    </div>
-  </div>
-</div>
 	 	</tbody>
         </table>
       </div>

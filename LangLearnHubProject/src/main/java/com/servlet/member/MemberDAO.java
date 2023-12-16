@@ -192,7 +192,7 @@ public class MemberDAO {
         	rd.setEmail(rs.getString("email"));
         	rd.setGender(rs.getString("gender"));
         	rd.setRole(rs.getString("role"));
-        	rd.setRole(rs.getString("approve"));
+        	rd.setApprove(rs.getString("approve"));
         	aList.add(rd);
         }
 
@@ -200,7 +200,7 @@ public class MemberDAO {
     }
   //관리자 신청 목록 조회
     public ArrayList<MemberDTO> approverList() throws SQLException {
-    	String strQuery = "select * from users where approve='1' AND role='0'";
+    	String strQuery = "select * from users where approve='1' AND NOT role='1'";
     	Connection conn = JDBCUtil.getConnection();
         PreparedStatement pstmt = conn.prepareStatement(strQuery);     
         ResultSet rs = pstmt.executeQuery();
@@ -215,7 +215,7 @@ public class MemberDAO {
         	rd.setEmail(rs.getString("email"));
         	rd.setGender(rs.getString("gender"));
         	rd.setRole(rs.getString("role"));
-        	rd.setRole(rs.getString("approve"));
+        	rd.setApprove(rs.getString("approve"));
         	aList.add(rd);
         }
 
