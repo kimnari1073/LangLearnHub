@@ -19,7 +19,7 @@ public class Chatbot extends HttpServlet {
 	ArrayList<String> chatList;
 	private static final String API_URL = "https://api.openai.com/v1/chat/completions";
 	//키 발급 -> 커밋 시 초기화
-	private static final String API_KEY = "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";
+	private static final String API_KEY = "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";
 
 	public void init(ServletConfig config) throws ServletException {
 		chatList = new ArrayList<String>();
@@ -34,7 +34,7 @@ public class Chatbot extends HttpServlet {
 		String req = request.getParameter("req");
 //		System.out.println("req: "+req);
 //		System.out.println("res: "+session.getAttribute("res"));
-//		chatList.add(req);
+		chatList.add(req);
 		
 	    URL url = new URL(API_URL);
 	    HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();

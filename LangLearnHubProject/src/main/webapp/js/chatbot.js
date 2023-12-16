@@ -2,7 +2,8 @@ var Message;
 var message_side = 'right';
 var $message_input = $('.message_input');
 var $message_output = $('.message_output');
-var jsChatList = '<%= s %>';
+//var jsChatList = '<%= s %>';
+// console.log("jsChatList: "+jsChatList);
 function Message(arg){
   this.text = arg.text // 텍스트
   this.message_side = arg.message_side; //왼쪽, 오른쪽
