@@ -22,11 +22,12 @@
         }
 
         .chat_exams {
-            width: 66.5vw;
-            margin-left: 16.75vw;
+            width: 87vw;
+            margin-left: 6.75vw;
             padding: 1rem;
+            padding-left : 1rem;
             background-color: rgb(244, 244, 244);
-            margin-top: 10vh;
+
             height: 80vh;
             overflow: scroll;
         }
@@ -45,12 +46,10 @@
         .chat_exams::-webkit-scrollbar {
             display: none; /* Chrome, Safari, Opera*/
         }
-
-        .card::-webkit-scrollbar {
+        .card-text::-webkit-scrollbar {
             display: none; /* Chrome, Safari, Opera*/
         }
 
-        /* custom.css */
         .modal-title.text-center {
             text-align: center !important;
         }
@@ -59,25 +58,84 @@
 </head>
 <body >
     <%@ include file="../include/header.jsp" %>
-
-        <div class="title"> 문제 풀기 <%=chatExamRes %></div>
     <div class="chat_exams" style="float: left;">
+    <div class="title"> 문제 풀기 
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">문제 생성</button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <form method="post" action="/LangLearnHubProject/chatExamSave.do">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">문제 생성</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">제목</label>
+                            <input type="text" class="form-control" id="recipient-name" name="title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">문제로 만들 내용 </label>
+                            <textarea class="form-control" id="message-text" name="ques"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">문제 생성 방식 </label><br>
+                            <input type="radio" name="examparse" id="chat" checked="checked" value="chat" onclick="toggleExamTypeSection('show')"> 챗봇 생성 
+                            <input type="radio" name="examparse" id="human" value="human" onclick="toggleExamTypeSection('hide')"> 내용 그대로 생성
+                        </div>
+                        <div class="mb-3" id="examtypeSection">
+                            <label for="message-text" class="col-form-label">문제 유형 </label><br>
+                            <input type="radio" name="examtype" id="sub" checked="checked" value="sub"> 주관식
+                            <span>
+                                <input type="radio" name="examtype" id="multi" value="multi"> 객관식
+                                <input type="radio" name="examtype" id="short" value="short"> 단답형
+                            </span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">문제 저장</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function toggleExamTypeSection(action) {
+            var examtypeSection = document.getElementById('examtypeSection');
+            if (action === 'hide') {
+                examtypeSection.style.display = 'none';
+            } else {
+                examtypeSection.style.display = 'block';
+            }
+        }
+    </script>
+    </div>
         <%
             for(int i = 0; i < eDTO.size(); i++){
         %>
-        <form method="post" action="/LangLearnHubProject/chatexamsend.do">
-            <div class="card" style="width: 15rem; height: 14rem; background-color : skyblue; float: left; margin: 1.5%; text-align: center; box-shadow: 0px 0px 3px; position: relative; overflow: scroll; ">
-                <div class="card-body" style="height: 7rem;">
-                    <h5 class="card-title" style=" padding : -5px;"><%=eDTO.get(i).getTitle() %></h5>
-                    <p class="card-text"><%=eDTO.get(i).getQues() %></p>
+        
+            <div class="card" style="width: 26rem; height: 28rem; background-color : <%=eDTO.get(i).getColor() %>; float: left; margin: 1.5%; margin-left: 2.5%;text-align: left; box-shadow: 0px 0px 3px; position: relative; overflow: hidden;  ">
+                <div class="card-body" style="height: 7rem; padding : 8%; position : realative;">
+                    <h3 class="card-title" style="text-align : center; padding : -5px;"><b style="font-size : 90%;"><%=eDTO.get(i).getTitle() %></b></h3>
+                    <p class="card-text" style=" height : 80%; overflow : scroll; margin-bottom : 25%;"><%=eDTO.get(i).getQues() %></p>
+                    <form method="post" action="/LangLearnHubProject/examdelete.do">
+                    	<input type="text" name="num" value="<%=eDTO.get(i).getNum() %>" style="display : none;">
+                    	<img src="pics/close_btn.png" style="position : absolute; top : 5%; right : 5%; width : 2vw;">
+                    	<input type="submit" style="position : absolute; top : 5%; right : 5%; width : 2vw; background-color : #0000; border : 0px;" value="">
+                    </form>
                 </div>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_<%=i%>" data-bs-whatever="@mdo" style="position: sticky; bottom: 5%; width: 45%; margin-left: 27.5%;">문제풀기</button>
-                
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_<%=i%>" data-bs-whatever="@mdo" style="position: absolute; bottom: 5%; width: 45%; margin-left: 27.5%;">문제풀기</button>
+                <form method="post" action="/LangLearnHubProject/examupdate.do">
                 <div class="modal fade" id="exampleModal_<%=i%>" tabindex="-1" aria-labelledby="exampleModalLabel_<%=i%>" aria-hidden="true" >
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel_<%=i%>" ><%=eDTO.get(i).getTitle() %></h1>
+                            	<input type="text" value="<%=eDTO.get(i).getNum() %>" name="num" style="display : none;">
+                            	<input type="text" value="<%=eDTO.get(i).getQues().replace("<br>", " ").replace("\"","") %>" name="ques" style="display : none;">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel_<%=i%>"  ><%=eDTO.get(i).getTitle() %></h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -94,14 +152,16 @@
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
                                 <button type="submit" class="btn btn-primary">확인</button>
                             </div>
-                        </div>
-                    </div>
+                        </div> 
+                    </div>   
                 </div>
+                </form>
             </div>
-        </form>
+        
         <%
             }
         %>
     </div>
+    
 </body>
 </html>

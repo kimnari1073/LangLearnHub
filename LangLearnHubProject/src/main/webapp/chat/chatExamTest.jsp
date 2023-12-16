@@ -53,7 +53,6 @@
     </div>
 
     <script>
-        // 문제 생성 방식에 따라 문제 유형 부분을 동적으로 처리
         function toggleExamTypeSection(action) {
             var examtypeSection = document.getElementById('examtypeSection');
             if (action === 'hide') {

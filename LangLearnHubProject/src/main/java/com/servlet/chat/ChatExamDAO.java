@@ -61,4 +61,35 @@ public class ChatExamDAO {
 		
 		return quesList;
 	}
+	public void deleteExam(int num) {
+		Connection conn=JDBCUtil.getConnection();
+		PreparedStatement pstmt = null;
+
+		try {
+			pstmt = conn.prepareStatement(
+					"delete from chatexam where num = ?;");
+			pstmt.setInt(1, num);
+            pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(pstmt, conn);
+		}
+	}
+	public void updateColor(int num, String color) {
+		Connection conn=JDBCUtil.getConnection();
+		PreparedStatement pstmt = null;
+
+		try {
+			pstmt = conn.prepareStatement(
+					"update chatexam set color = ? where num = ?;");
+			pstmt.setString(1, color);
+			pstmt.setInt(2, num);
+            pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(pstmt, conn);
+		}
+	}
 }

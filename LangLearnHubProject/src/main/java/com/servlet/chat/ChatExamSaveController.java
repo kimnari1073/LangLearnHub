@@ -19,11 +19,12 @@ public class ChatExamSaveController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		ChatExamDTO eDTO = new ChatExamDTO();
 		ChatExamDAO eDAO = new ChatExamDAO();
-		int res;
+		int res = 0;
 		String title = request.getParameter("title");
 		String ques = request.getParameter("ques");
 		String examparse = request.getParameter("examparse");
 		String examtype = request.getParameter("examtype");
+		String afterques = "";
 		
 		eDTO.setId("tester1");
 		eDTO.setTitle(title);
@@ -31,11 +32,21 @@ public class ChatExamSaveController extends HttpServlet {
 		eDTO.setExamparse(examparse);
 		eDTO.setExamtype(examtype);
 		eDTO.setColor("lightgrey");
+		if(examparse.equals("chat")) {
+			if(examtype.equals("multi")) { examtype = "5지선다형";}
+			else if(examtype.equals("short")) { examtype = "단답형";}
+			else{ examtype = "주관식";}
+			afterques = ChatConnect.chatConnect("너는 TOEIC 시험 출제자야", 
+					 "문제 출력 이외의 내용은 언급하지 말고, 문제의 답도 알려주지 말고, 한 문제를 생성해주십시오. 문제의 내용은 "+ques+"를 기반으로 만들어주시고, 문제 형식은 "+examtype+"으로, 답변은 영어로 해주십시오. ");
+			eDTO.setQues(afterques);
+			res = eDAO.chatExamInsert(eDTO);
+		}else {
+			res = eDAO.chatExamInsert(eDTO);
+		}
 		
-		res = eDAO.chatExamInsert(eDTO);
 		
 		if(res != 0) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("chat/chatExamTest.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/chatExamList.do");
 			dispatcher.forward(request, response);
 		}else {
 			System.out.println("Error");
