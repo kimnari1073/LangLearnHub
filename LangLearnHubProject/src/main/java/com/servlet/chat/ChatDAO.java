@@ -19,11 +19,11 @@ public class ChatDAO {
 		
 		try {
 			pstmt = conn.prepareStatement(
-					"select title,q,a from bookmark where user_id=?");
+					"select bookmark_index,title,q,a from bookmark where user_id=?");
 			pstmt.setString(1,cDto.getUserId());
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
-				String []arr = {rs.getString(1),rs.getString(2),rs.getString(3)};
+				String []arr = {rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)};
 				ans.add(arr);
 			}
 			
@@ -69,5 +69,23 @@ public class ChatDAO {
 		}
 		return flag;
 	}
-
+	//delete
+	public boolean chatDelete(ChatDTO cDto) {
+		boolean flag=false;
+	      Connection conn = null;
+	      PreparedStatement pstmt = null;
+	      conn = JDBCUtil.getConnection();
+	      try {
+	         pstmt = conn.prepareStatement("delete from bookmark where user_id = ? and bookmark_index = ?;");
+	         pstmt.setString(1, cDto.getUserId());
+	         pstmt.setInt(2, cDto.getBookmarkIndex());
+	         pstmt.executeUpdate();
+	         flag=true;
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      }finally {
+	         JDBCUtil.close(pstmt, conn);
+	      }
+		return flag;
+	}
 }

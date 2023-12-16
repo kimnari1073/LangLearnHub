@@ -16,18 +16,15 @@ ArrayList<String[]> bookList = (ArrayList<String[]>)request.getAttribute("bookLi
 </head>
 <script>
   window.onload = function(){bookMarkInsert();}
-  //const bookList = [];
   const bookList = [];
   function bookMarkInsert(){
-      <% int i=0;
+      <%
       	for(String[] arr : bookList){
-    		%>var jsonObject = {"idx":"<%= ++i %>", "title": "<%= arr[0] %>","Q":"<%= arr[1] %>",
-    				"A":"<%= arr[2]%>"};
+    		%>var jsonObject = {"idx":"<%=arr[0] %>", "title": "<%= arr[1] %>","Q":"<%= arr[2] %>",
+    				"A":"<%= arr[3]%>"};
     		bookList.push(jsonObject);<%
       }%>
-      
-	  //var jsonObject ={"idx":"1","title":"test","Q":"testQ","A":"testA"};
-      //bookList.push(jsonObject);
+     
 
       for(var i=0; i<bookList.length; i++){
         var json = JSON.parse(JSON.stringify(bookList[i]));
@@ -38,13 +35,12 @@ ArrayList<String[]> bookList = (ArrayList<String[]>)request.getAttribute("bookLi
         console.log("Json: "+idx);
         var insertTr;
         insertTr = 
-        '<form>'+
           '<div class="col">'+
             '<div class="card border-dark mb-3" style="max-width: 18rem;">'+
               '<div class="card-header">'+
-                '<form>'+
-                  '<input type="hidden" name="bookIdx" value="'+idx+'">'+
-                  '<button><img src="pics/star.png"></button>'+title+
+                '<form action="/LangLearnHubProject/deletechat" method="post" >'+
+                  '<input type="hidden" name="bookmark_index" value="'+idx+'">'+
+                  '<button type="submit"><img src="pics/star.png"></button>'+title+
                 '</form>'+
               '</div>'+
               '<div class="card-body text-dark">'+
@@ -54,8 +50,7 @@ ArrayList<String[]> bookList = (ArrayList<String[]>)request.getAttribute("bookLi
                 '<p class="card-text">'+a+'</p>'+
               '</div>'+
             '</div>'+
-          '</div>'+
-        '</form>';
+          '</div>';
         console.log(insertTr);
         $(".row").append(insertTr);
       }
@@ -85,26 +80,7 @@ ArrayList<String[]> bookList = (ArrayList<String[]>)request.getAttribute("bookLi
     <div class="container">
         <div class="row row-cols-3">
           
-          <!-- inset -->
-          <!-- 
-          <div class="col">
-            <div class="card border-dark mb-3" style="max-width: 18rem;">
-                <div class="card-header">
-                  <form>
-                    <input type="hidden" name="" value="">
-                    <button><img src="../pics/star.png"></button>
-                    Header
-                  </form>
-                </div>
-                <div class="card-body text-dark">
-                  <h5 class="card-title">Question</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <h5 class="card-title">Question</h5>
-                
-                </div>
-              </div>
-          </div>
-           -->
+          <!-- insetTr -->
           
         </div>
       </div>

@@ -2,6 +2,7 @@ package com.servlet.chat;
 
 public class ChatDTO {
 	private String userId;
+	private int bookmarkIndex;
 	private String title;
 	private String Q;
 	private String A;
@@ -10,6 +11,13 @@ public class ChatDTO {
 	}
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+	
+	public int getBookmarkIndex() {
+		return bookmarkIndex;
+	}
+	public void setBookmarkIndex(int bookmarkIndex) {
+		this.bookmarkIndex = bookmarkIndex;
 	}
 	public String getTitle() {
 		return title;
