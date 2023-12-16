@@ -23,7 +23,6 @@ HashMap<String,Integer> vocaList =(HashMap)request.getAttribute("vocaList");
 	<script>
     	window.onload = function() { tableInsert(); };
     	const tableList = [];
-
     	function tableInsert() {
 			<%	int i =0;
 				for(Entry<String, Integer> entry: vocaList.entrySet()) {

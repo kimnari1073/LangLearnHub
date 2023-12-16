@@ -3,7 +3,10 @@
 <%@ page import="java.util.ArrayList" %>
 <%
 	ArrayList<String> chatList = new ArrayList<>();
-
+	//chatList.add("input 안녕");
+	//chatList.add("output 하세요");
+	//chatList.add("input 반가워");
+	//chatList.add("output 그래");
 	chatList = (ArrayList<String>)session.getAttribute("chatList");
 	int i =0;
 %>
@@ -138,14 +141,13 @@ window.onload = function(){
   var index = 0;
   //jsp반복문 chatList 에 있는 값 만큼
   <% 
-  if(chatList!=null){
   for(String text: chatList){
   	%>text = "<%= text %>";
   	  index = <%=i %>;
   	  sessionStorage.setItem(index,text);
   	  sendMessage(text,index);
   	  <%i=i+1;
-  }}%>
+  }%>
  	
 }
 $message_input.keyup(function (e) {
