@@ -19,19 +19,20 @@ public class VocaSelectController extends HttpServlet {
 		if(userId == null) {
 			System.out.println("userId : null");
 			rp.sendRedirect("index.jsp");
+		}else {
+			//DTO
+			VocaDTO vDto = new VocaDTO();
+			vDto.setUserId(userId);
+			
+			//DAO
+			//[Listindex, title, total]
+			VocaDAO vDao = new VocaDAO();
+			ArrayList<String[]> vocaList = vDao.vocaListSelect(vDto);
+			rq.setAttribute("vocaList", vocaList);
+			
+			RequestDispatcher dispatcher = rq.getRequestDispatcher("voca/VocaList.jsp");
+			dispatcher.forward(rq, rp);
 		}
-		//DTO
-		VocaDTO vDto = new VocaDTO();
-		vDto.setUserId(userId);
-		
-		//DAO
-		//[Listindex, title, total]
-		VocaDAO vDao = new VocaDAO();
-		ArrayList<String[]> vocaList = vDao.vocaListSelect(vDto);
-		rq.setAttribute("vocaList", vocaList);
-		
-		RequestDispatcher dispatcher = rq.getRequestDispatcher("voca/VocaList.jsp");
-		dispatcher.forward(rq, rp);
 	}
 
 	

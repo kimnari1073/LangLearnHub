@@ -87,10 +87,10 @@ public class VocaDAO {
 		
 		try {
 			//delete 단어장 수정 시 필요한 로직, 기존에 있던 단어장 저장내용 삭제
-			//pstmt = conn.prepareStatement("delete from voca where user_id=? and list_name=?");
-			//pstmt.setString(1, vDto.getUserId());
-			//pstmt.setString(2, vDto.getListName());
-			//pstmt.executeUpdate();
+			pstmt = conn.prepareStatement("delete from voca where user_id=? and list_name=?");
+			pstmt.setString(1, vDto.getUserId());
+			pstmt.setString(2, vDto.getListName());
+			pstmt.executeUpdate();
 			
 			//voca_index 구하기
 			pstmt = conn.prepareStatement(
