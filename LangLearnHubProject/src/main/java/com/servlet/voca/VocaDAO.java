@@ -29,6 +29,32 @@ public class VocaDAO {
 		
 		return vocaList;
 	}
+	//revise voca [userid,title]
+	public ArrayList<String[]> vocaRevise(VocaDTO vDto){
+		ArrayList<String[]> ans= new ArrayList<>();
+		Connection conn = JDBCUtil.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt= conn.prepareStatement(
+					"select list_name,voca_key,voca_val from voca where user_id=? and list_name=? ORDER BY voca_index;");
+			pstmt.setString(1, vDto.getUserId());
+			pstmt.setString(2, vDto.getListName());
+			rs=pstmt.executeQuery();
+			System.out.println("SQL Query: " + pstmt.toString());
+			while(rs.next()) {
+				String[] arr = {rs.getString(1),rs.getString(2),rs.getString(3)};
+				ans.add(arr);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JDBCUtil.close(rs, pstmt,conn);
+		}
+		return ans;
+	}
+	
 	//select vocalist
 	public ArrayList<String[]> vocaListSelect(VocaDTO vDto){
 		ArrayList<String[]> ans= new ArrayList<>();

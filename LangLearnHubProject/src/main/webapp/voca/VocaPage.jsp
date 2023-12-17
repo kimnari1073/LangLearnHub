@@ -1,6 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
+    pageEncoding="UTF-8" import ="java.util.ArrayList"%>
+<%
+	request.setCharacterEncoding("utf-8");
+	boolean revise = false;
+	ArrayList<String[]> reviseList = new ArrayList<>();
+	String[] tem = {"0","0","0"};
+	reviseList.add(0, tem);	
+	Object test =request.getAttribute("clickRevise");
+	if(test!=null){
+		revise = (boolean)request.getAttribute("clickRevise");
+		reviseList = (ArrayList)request.getAttribute("reviseList");
+	}
+	
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -34,12 +46,14 @@ form { max-width: 600px; margin: 50px auto; padding: 20px; background: #fff; bor
 <form method="get" action="/LangLearnHubProject/vocasave.do">
 	<input class="input_title" type="text" name="title" placeholder="단어장 이름">
     <div class="input_wrap">
+    <!-- 
         <div class="input_list">
         	
             <input type="text" name="voca1" placeholder="입력해주세요." />
             <input type="text" name="voca2" placeholder="입력해주세요." />
             <a href="javascript:void(0);" class="remove_field" tabindex="-1">삭제</a>
         </div>
+         -->
     </div>
     
      
@@ -61,6 +75,7 @@ form { max-width: 600px; margin: 50px auto; padding: 20px; background: #fff; bor
 <script>
 const wrapper = $('.input_wrap'); // 입력 필드를 포함하는 컨테이너 선택
 const addButton = $('#add_field'); // 추가 버튼 선택
+const title = $('.input_title');
 let fieldCount = 1; // 현재 입력 필드 수
 
 // '추가하기' 버튼 클릭 시 이벤트
@@ -83,6 +98,32 @@ wrapper.on('click', '.remove_field', function(e) {
     $(this).parent('.input_list').remove(); // 필드 제거
     fieldCount--; // 필드 수 감소
 });
+if(<%=revise%>){
+	title.val("<%=reviseList.get(0)[0]%>");
+	const vocaList = [];
+	<%
+		for(String[] arr:reviseList){
+			%>var jsonObject = {"voca_key": "<%= arr[1] %>", "voca_val":"<%= arr[2] %>"};
+			vocaList.push(jsonObject);
+			<%
+		}
+	%>
+	for(var i=0; i<vocaList.length;i++){
+		var jsonObject = JSON.parse(JSON.stringify(vocaList[i]));
+		var key = jsonObject.voca_key;
+		var val = jsonObject.voca_val;
+		 wrapper.append(`
+			        <div class="input_list">
+			            <input type="text" name="voca1" placeholder="입력해주세요." value="`+key+`"/>
+			            <input type="text" name="voca2" placeholder="입력해주세요." value="`+val+`"/>
+			            <a href="javascript:void(0);" class="remove_field" tabindex="-1">삭제</a>
+			        </div>
+			    `);
+	}
+	
+
+	
+}
 </script>
 </body>
 </html>
