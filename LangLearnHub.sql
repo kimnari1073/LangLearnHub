@@ -30,3 +30,13 @@ CREATE TABLE `bookmark` (
   `a` VARCHAR(300) not null,
   PRIMARY KEY (`user_id`,`q`,`a`));
 
+create TABLE chatexam (
+    num INT NOT NULL AUTO_INCREMENT,
+    id VARCHAR(20) NOT NULL,
+    title TEXT,
+    ques TEXT,
+    examparse varchar(5),
+    examtype varchar(5),
+    color varchar(9),
+    PRIMARY KEY (num, id)
+);
