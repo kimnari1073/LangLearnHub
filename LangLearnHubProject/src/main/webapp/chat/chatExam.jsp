@@ -5,16 +5,16 @@
 <html lang="en">
 <%
     ArrayList<ChatExamDTO> eDTO = (ArrayList<ChatExamDTO>)session.getAttribute("quesList");
-    String chatExamRes = (String)request.getAttribute("chatExamRes");
-    if(chatExamRes == null) { chatExamRes = "hi"; }
+    String answer = (String)request.getAttribute("answer");
+    
 %>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></script>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></script>
+	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <style>
         body {
             margin: auto;
@@ -54,14 +54,71 @@
             text-align: center !important;
         }
     </style>
+	<script>
+	  document.addEventListener("DOMContentLoaded", function () {
 
+	    var chatExamRes = "<%= answer %>";
+	    if (chatExamRes !== "null") {
+	      showAnswerModal();
+	    }
+	  });
+	
+	  function showAnswerModal() {
+	    var modal = new bootstrap.Modal(document.getElementById('exampleModalAnswer'));
+	    modal.show();
+	  }
+	</script>
 </head>
 <body >
     <%@ include file="../include/header.jsp" %>
+    <div class="modal fade" id="exampleModalAnswer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h1 class="modal-title fs-5" id="exampleModalLabel">답안</h1>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        <form>
+	          <div class="mb-3">
+	          <%
+	          	if(answer != null && answer.equals("O")){
+	          %>
+	          <img src="pics/right.png" width="50%" style="margin-left : 25%;">
+	          <%
+	          	}else if(answer != null){
+	          %>
+	          <img src="pics/wrong.png  width="50%" style="margin-left : 25%;">
+	          <%} %>
+	          </div>
+	          <div class="mb-3">
+	          <%
+	          	if(answer != null && answer.equals("O")){
+	          %>
+	          <h1 style="text-align : center; font-weight : bold;"> 정답입니다! </h1>
+	          <%
+	          	}else if(answer != null&& !answer.equals("O")){
+	          %>
+	          <h1 style="text-align : center; font-weight : bold;"> 틀렸습니다! </h1>
+	          <%=answer %>
+	          <%} %>
+	          </div>
+	        </form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+	      </div>
+	    </div>
+	  </div>
+	</div>
     <div class="chat_exams" style="float: left;">
     <div class="title"> 문제 풀기 
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">문제 생성</button>
-
+	    <input type="radio" name="sortcolor" value="all" onclick="filterCards('all')"> 전체
+	    <input type="radio" name="sortcolor" value="lightgrey" onclick="filterCards('lightgrey')"> lightgrey
+	    <input type="radio" name="sortcolor" value="tomato" onclick="filterCards('tomato')"> tomato
+	    <input type="radio" name="sortcolor" value="aqua" onclick="filterCards('aqua')"> aqua
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <form method="post" action="/LangLearnHubProject/chatExamSave.do">
             <div class="modal-dialog">
@@ -103,6 +160,28 @@
     </div>
 
     <script>
+    $(document).ready(function () {
+        $('#exampleModalAnswer').modal('show');
+    });
+	    function filterCards(color) {
+	        console.log('Filtering cards by color:', color);
+	        var cards = document.querySelectorAll('.card');
+	        
+	        for (var i = 0; i < cards.length; i++) {
+	            var cardColor = cards[i].getAttribute('data-color');
+	            if (color === 'all' || cardColor === color) {
+	                cards[i].style.display = 'block';
+	                var cardText = cards[i].querySelector('.card-body .card-text');
+	                if (cardText) {
+	                    cardText.style.height = '665%';
+	                    
+	                }
+	            } else {
+	                cards[i].style.display = 'none';
+	            }
+	        }
+	    }
+
         function toggleExamTypeSection(action) {
             var examtypeSection = document.getElementById('examtypeSection');
             if (action === 'hide') {
@@ -117,7 +196,7 @@
             for(int i = 0; i < eDTO.size(); i++){
         %>
         
-            <div class="card" style="width: 26rem; height: 28rem; background-color : <%=eDTO.get(i).getColor() %>; float: left; margin: 1.5%; margin-left: 2.5%;text-align: left; box-shadow: 0px 0px 3px; position: relative; overflow: hidden;  ">
+            <div class="card" data-color="<%=eDTO.get(i).getColor() %>" style="width: 26rem; height: 28rem; background-color: <%=eDTO.get(i).getColor() %>; float: left; margin: 1.5%; margin-left: 2.5%; text-align: left; box-shadow: 0px 0px 3px; position: relative; overflow: hidden;">
                 <div class="card-body" style="height: 7rem; padding : 8%; position : realative;">
                     <h3 class="card-title" style="text-align : center; padding : -5px;"><b style="font-size : 90%;"><%=eDTO.get(i).getTitle() %></b></h3>
                     <p class="card-text" style=" height : 80%; overflow : scroll; margin-bottom : 25%;"><%=eDTO.get(i).getQues() %></p>

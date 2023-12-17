@@ -14,7 +14,7 @@ import org.json.simple.parser.ParseException;
 
 public class ChatConnect {
 	private static final String URL = "https://api.openai.com/v1/chat/completions";
-	private static final String KEY = "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";
+	private static final String KEY = "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";
 	public static String chatConnect(String examtype, String ques) throws IOException {
 		String res = "";
 	    URL url = new URL(URL);

@@ -30,8 +30,7 @@ public class ChatExamUpdateColor extends HttpServlet {
 		if(res.equals("O")) { eDAO.updateColor(n, "aqua");}
 		else {eDAO.updateColor(n, "tomato");}
 		request.setAttribute("answer", res);
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("chat/chatExamAnswer.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("chat/chatExam.jsp");
 		dispatcher.forward(request, response);
 		
 	}
