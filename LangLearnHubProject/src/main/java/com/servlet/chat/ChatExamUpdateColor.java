@@ -25,12 +25,13 @@ public class ChatExamUpdateColor extends HttpServlet {
 		System.out.println(q);
 		int n = Integer.parseInt(s);
 		String res = ChatConnect.chatConnect("너는 영어 선생님이야.", 
-				"문제가 "+q+"이고, 답이 "+a+"일 때, 해당 답이 맞으면 O라고 대답해줘, 틀렸으면"+q+"에 대한 설명을 대답해줘");
+				"문제가 "+q+"이고, 답이 "+a+"일 때, 해당 답이 맞으면 O라고 대답해줘, 틀렸으면 X 라고 대답해줘 ");
 		
 		if(res.equals("O")) { eDAO.updateColor(n, "aqua");}
 		else {eDAO.updateColor(n, "tomato");}
 		request.setAttribute("answer", res);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("chat/chatExam.jsp");
+		System.out.println(res);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/chatExamList.do");
 		dispatcher.forward(request, response);
 		
 	}

@@ -70,11 +70,11 @@ public class ChatExamSendController extends HttpServlet {
 		        JSONArray choicesArray = (JSONArray) jsonObject.get("choices");
 		        JSONObject firstChoice = (JSONObject) choicesArray.get(0);
 		        JSONObject messageObject = (JSONObject) firstChoice.get("message");
-
+		        
 
 		        String res = (String) messageObject.get("content");
 		        request.setAttribute("chatExamRes", res);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("chat/chatExam.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("chat/chatExamList.do");
 				dispatcher.forward(request, response);
 
 		    } catch (ParseException e) {

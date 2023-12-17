@@ -20,7 +20,7 @@ public class ChatExamListController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("UTF-8");
 		ArrayList<ChatExamDTO> quesList = new ArrayList<>();
 		HttpSession session = request.getSession();	
 		ChatExamDAO edao = new ChatExamDAO();
@@ -32,7 +32,7 @@ public class ChatExamListController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

@@ -4,7 +4,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <%
-    ArrayList<ChatExamDTO> eDTO = (ArrayList<ChatExamDTO>)session.getAttribute("quesList");
+	ArrayList<ChatExamDTO> eDTO = (ArrayList<ChatExamDTO>)session.getAttribute("quesList");
+
     String answer = (String)request.getAttribute("answer");
     
 %>
@@ -76,7 +77,9 @@
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <h1 class="modal-title fs-5" id="exampleModalLabel">답안</h1>
-	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	        <form method="post" action="/LangLearnHubProject/chatExamList.do">
+	        <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	        </form>
 	      </div>
 	      <div class="modal-body">
 	        <form>
@@ -84,11 +87,11 @@
 	          <%
 	          	if(answer != null && answer.equals("O")){
 	          %>
-	          <img src="pics/right.png" width="50%" style="margin-left : 25%;">
+	          <img src="pics/right.png" width="50%" style="margin-left : 25%;" />
 	          <%
-	          	}else if(answer != null){
+	          	}else if(answer != null && !answer.equals("O")){
 	          %>
-	          <img src="pics/wrong.png  width="50%" style="margin-left : 25%;">
+	          <img src="pics/wrong.png" width="50%" style="margin-left : 25%;" />
 	          <%} %>
 	          </div>
 	          <div class="mb-3">
@@ -100,14 +103,14 @@
 	          	}else if(answer != null&& !answer.equals("O")){
 	          %>
 	          <h1 style="text-align : center; font-weight : bold;"> 틀렸습니다! </h1>
-	          <%=answer %>
 	          <%} %>
 	          </div>
 	        </form>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
+	      <form method="post" action="/LangLearnHubProject/chatExamList.do">
+	        <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+		  </form>
 	      </div>
 	    </div>
 	  </div>
