@@ -41,10 +41,22 @@ form { max-width: 600px; margin: 50px auto; padding: 20px; background: #fff; bor
             <a href="javascript:void(0);" class="remove_field" tabindex="-1">삭제</a>
         </div>
     </div>
-    <button id="add_field" class="btn btn-primary">추가하기</button>
-    <button type="submit" class="btn btn-success">저장하기</button>
-    <button type="reset" class="btn btn-warning">리셋하기</button>
-</form>
+    
+     
+    <div class="btn-group" role="group" aria-label="Basic example">
+          <button id="add_field" class="btn btn-secondary">Add</button>
+    <button type="submit" class="btn btn-secondary">Save</button>
+    <button type="reset" class="btn btn-secondary">Reset</button>
+    </form>
+  	 <button type="button" onclick="location.href='/LangLearnHubProject/vocaselect'" class="btn btn-secondary">List</button>
+	</div>
+	 
+<!--
+    <button id="add_field" class="btn btn-primary">Add</button>
+    <button type="submit" class="btn btn-success">Save</button>
+    <button type="reset" class="btn btn-warning">Reset</button>
+     --> 
+
      
 <script>
 const wrapper = $('.input_wrap'); // 입력 필드를 포함하는 컨테이너 선택

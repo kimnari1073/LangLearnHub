@@ -14,7 +14,7 @@ header .container{
     min-width: 900px;
 }
 .hidden{
-	height: 100px;
+	height: 60px;
 }
 </style>
 </head>

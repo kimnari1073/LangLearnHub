@@ -26,21 +26,19 @@ public class VocaSaveController extends HttpServlet {
 		vDto.setListName(rq.getParameter("title"));
 		vDto.setUserId(userId);
 		for(int i=0;i<paramVoca1.length;i++) vDto.setVocaHash(paramVoca1[i], paramVoca2[i]);
-		
-		
+	
 		
 		//DAO
 		VocaDAO vDao = new VocaDAO();
 		boolean saveCheck = vDao.vocaSave(vDto);
 		if(saveCheck) {
-			rq.setAttribute("vocaList", vDao.getVocaList(vDto));
-			RequestDispatcher dispatcher = rq.getRequestDispatcher("voca/VocaList.jsp");
-			 //단어장 목록
-			dispatcher.forward(rq, rp);
+			//rq.setAttribute("vocaList", vDao.getVocaList(vDto));
+			rp.sendRedirect("vocaselect");
 			
 		}else {
-			RequestDispatcher dispatcher = rq.getRequestDispatcher("SignUpFail.jsp");
-			dispatcher.forward(rq, rp);
+			System.out.println("VocaSave : false");
+			rp.sendRedirect("mainPage.jsp");
+		
 		}
 		
 		//response
