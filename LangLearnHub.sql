@@ -11,8 +11,6 @@ CREATE TABLE `users` (
   `gender` TINYINT(1) NULL,
   `role` TINYINT(1) NULL DEFAULT '0',
   `approve`TINYINT(1) NULL DEFAULT '0',
-  
-  
   PRIMARY KEY (`id`));
   
   drop table if exists voca;
@@ -43,3 +41,8 @@ create TABLE chatexam (
     color varchar(9),
     PRIMARY KEY (num, id)
 );
+
+select * from users;
+select * from voca;
+select * from bookmark;
+select * from chatexam;
