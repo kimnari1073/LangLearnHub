@@ -9,7 +9,10 @@ CREATE TABLE `users` (
   `birth` DATE NULL,
   `email` VARCHAR(50) NULL,
   `gender` TINYINT(1) NULL,
-  `role` TINYINT(1) NULL default 0,
+  `role` TINYINT(1) NULL DEFAULT '0',
+  `approve`TINYINT(1) NULL DEFAULT '0',
+  
+  
   PRIMARY KEY (`id`));
   
   drop table if exists voca;
