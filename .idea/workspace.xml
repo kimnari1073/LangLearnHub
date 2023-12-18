@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de028b47-8d5d-451c-872b-f88f737262f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/LangLearnHubProject/src/main/java/com/servlet/Chatbot.java" beforeDir="false" afterPath="$PROJECT_DIR$/LangLearnHubProject/src/main/java/com/servlet/Chatbot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LangLearnHubProject/build/classes/com/servlet/chat/ChatConnect.class" beforeDir="false" afterPath="$PROJECT_DIR$/LangLearnHubProject/build/classes/com/servlet/chat/ChatConnect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LangLearnHubProject/build/classes/com/servlet/chat/ChatExamSaveController.class" beforeDir="false" afterPath="$PROJECT_DIR$/LangLearnHubProject/build/classes/com/servlet/chat/ChatExamSaveController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LangLearnHubProject/build/classes/com/servlet/chat/ChatExamUpdateColor.class" beforeDir="false" afterPath="$PROJECT_DIR$/LangLearnHubProject/build/classes/com/servlet/chat/ChatExamUpdateColor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LangLearnHubProject/build/classes/com/servlet/chat/Chatbot.class" beforeDir="false" afterPath="$PROJECT_DIR$/LangLearnHubProject/build/classes/com/servlet/chat/Chatbot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LangLearnHubProject/src/main/java/com/servlet/chat/Chatbot.java" beforeDir="false" afterPath="$PROJECT_DIR$/LangLearnHubProject/src/main/java/com/servlet/chat/Chatbot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
