@@ -29,6 +29,7 @@ ArrayList<String[]> vocaList =(ArrayList)request.getAttribute("vocaList");
   }
   .button-container{
 	margin-left: auto;
+	margin-bottom:5px;
  }
   .table {
     width: 80%;
@@ -58,7 +59,8 @@ ArrayList<String[]> vocaList =(ArrayList)request.getAttribute("vocaList");
 				<th scope="col">Index</th>
 				<th scope="col">Title</th>
 				<th scope="col">Total Voca</th>
-				<th scope="col"></th>
+				<th scope="col">Delete</th>
+				<th scope="col">Revise</th>
 			</tr>
 		</thead>
 		<tbody id="dyn_tbody">
@@ -92,8 +94,8 @@ ArrayList<String[]> vocaList =(ArrayList)request.getAttribute("vocaList");
 					insertTr += "<th scope='row'>" + idx + "</th>";
 					insertTr += "<td><input type='hidden' name='tableTitle' value='" + title + "'>" + title + "</td>";
 					insertTr += "<td>" + total + "</td>";
-					insertTr += "<td><button type='button' onclick='deleteRow("+i+")' class='btn btn-outline-danger'>delete</button>";
-					insertTr += "<button type='button' onclick='editRow("+i+")'  class='btn btn-outline-info'>revise</button></td>";
+					insertTr += "<td><button type='button' onclick='deleteRow("+i+")' class='btn btn-outline-danger'>delete</button></td>";
+					insertTr += "<td><button type='button' onclick='editRow("+i+")'  class='btn btn-outline-info'>revise</button></td>";
 					insertTr += "</form></tr>";    
 
 					$("#dyn_tbody").append(insertTr); 		

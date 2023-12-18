@@ -27,7 +27,7 @@
 	<style>
 		* {margin: 0;padding: 0;font-family: 'Noto Sans KR', sans-serif;font-size: 16px;font-weight: 400;box-sizing: border-box;box-sizing: border-box;}
 		body { padding: 20px; background-color: #f5f5f5; } 
-		form { max-width: 800px; margin: 50px auto; padding: 50px; background: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); } 
+		form { max-width: 1000px; min-width: 700px; margin: 50px auto; padding: 50px; background: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); } 
 		.input_wrap { margin-bottom: 20px; } 
 		.input_list { display: flex; align-items: center; margin-bottom: 10px; } 
 		.input_list input[type="text"] { padding:0 10px; height: 45px; border: 1px solid #ddd; border-radius: 4px; flex-grow: 1; } 
