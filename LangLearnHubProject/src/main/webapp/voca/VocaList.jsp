@@ -52,7 +52,7 @@ ArrayList<String[]> vocaList =(ArrayList)request.getAttribute("vocaList");
 					insertTr += "<th scope='row'>" + idx + "</th>";
 					insertTr += "<td><input type='hidden' name='tableTitle' value='" + title + "'>" + title + "</td>";
 					insertTr += "<td>" + total + "</td>";
-					insertTr += "<td><button type='button' onclick='deleteRow()' class='btn btn-outline-danger'>delete</button>";
+					insertTr += "<td><button type='button' onclick='deleteRow("+i+")' class='btn btn-outline-danger'>delete</button>";
 					insertTr += "<button type='button' onclick='editRow("+i+")'  class='btn btn-outline-info'>revise</button></td>";
 					insertTr += "</form></tr>";    
 
@@ -60,9 +60,25 @@ ArrayList<String[]> vocaList =(ArrayList)request.getAttribute("vocaList");
 				}
     	}
 
-		function deleteRow() {
-			$("form").attr("action", "");
-			$("form").submit();
+		function deleteRow(index) {
+		    var formData = {
+			        tableTitle: tableList[index].title
+			    };
+
+			    var form = $("<form>")
+			        .attr("action", "/LangLearnHubProject/vocadelete")
+			        .attr("method", "post")
+			        .appendTo("body");
+
+			    for (var key in formData) {
+			        $("<input>")
+			            .attr("type", "hidden")
+			            .attr("name", key)
+			            .attr("value", formData[key])
+			            .appendTo(form);
+			    }
+
+			    form.submit();
 		}
 		function editRow(index) {
 		    var formData = {

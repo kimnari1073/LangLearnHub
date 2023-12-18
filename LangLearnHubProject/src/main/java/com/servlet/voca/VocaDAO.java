@@ -12,23 +12,23 @@ import common.JDBCUtil;
 
 public class VocaDAO {
 	//vocaList(HashMap) 구하기
-	public HashMap<String,Integer> getVocaList(VocaDTO vDto) {
-		Connection conn = JDBCUtil.getConnection();
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		HashMap<String,Integer> vocaList = new HashMap<>();
-		try {
-			pstmt = conn.prepareStatement
-					("select list_name,count(*) from voca where user_id=? group by list_name;");
-			pstmt.setString(1, vDto.getUserId());
-			rs = pstmt.executeQuery();
-			while(rs.next()) vocaList.put(rs.getString(1), rs.getInt(2));
-		} catch (SQLException e) {e.printStackTrace();
-		} finally { JDBCUtil.close(rs, pstmt, conn); }
-		
-		
-		return vocaList;
-	}
+//	public HashMap<String,Integer> getVocaList(VocaDTO vDto) {
+//		Connection conn = JDBCUtil.getConnection();
+//		PreparedStatement pstmt = null;
+//		ResultSet rs = null;
+//		HashMap<String,Integer> vocaList = new HashMap<>();
+//		try {
+//			pstmt = conn.prepareStatement
+//					("select list_name,count(*) from voca where user_id=? group by list_name;");
+//			pstmt.setString(1, vDto.getUserId());
+//			rs = pstmt.executeQuery();
+//			while(rs.next()) vocaList.put(rs.getString(1), rs.getInt(2));
+//		} catch (SQLException e) {e.printStackTrace();
+//		} finally { JDBCUtil.close(rs, pstmt, conn); }
+//		
+//		
+//		return vocaList;
+//	}
 	//revise voca [userid,title]
 	public ArrayList<String[]> vocaRevise(VocaDTO vDto){
 		ArrayList<String[]> ans= new ArrayList<>();
@@ -87,7 +87,7 @@ public class VocaDAO {
 		
 		try {
 			//delete 단어장 수정 시 필요한 로직, 기존에 있던 단어장 저장내용 삭제
-			pstmt = conn.prepareStatement("delete from voca where user_id=? and list_name=?");
+			pstmt = conn.prepareStatement("delete from voca where user_id=? and list_name=?;");
 			pstmt.setString(1, vDto.getUserId());
 			pstmt.setString(2, vDto.getListName());
 			pstmt.executeUpdate();
@@ -123,5 +123,26 @@ public class VocaDAO {
 		}
 		return flag;
 	}
-
+	public boolean vocaDelete(VocaDTO vDto) {
+		Connection conn=JDBCUtil.getConnection();
+		PreparedStatement pstmt = null;
+		boolean flag = false;
+		
+		try {
+			pstmt = conn.prepareStatement("delete from voca where user_id=? and list_name=?;");
+			pstmt.setString(1, vDto.getUserId());
+			pstmt.setString(2, vDto.getListName());
+			int isSuccess = pstmt.executeUpdate();
+			if(isSuccess>0) {
+				flag=true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(pstmt, conn);
+		}
+		
+		return flag;
+		
+	}
 }

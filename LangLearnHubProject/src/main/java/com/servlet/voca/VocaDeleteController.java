@@ -1,18 +1,14 @@
 package com.servlet.voca;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-@WebServlet("/vocaselect")
-public class VocaSelectController extends HttpServlet {
+@WebServlet("/vocadelete")
+public class VocaDeleteController extends HttpServlet {
 	protected void doGet(HttpServletRequest rq, HttpServletResponse rp) throws ServletException, IOException {
 		rq.setCharacterEncoding("UTF-8");
 		HttpSession session = rq.getSession();
@@ -21,22 +17,20 @@ public class VocaSelectController extends HttpServlet {
 			System.out.println("userId : null");
 			rp.sendRedirect("index.jsp");
 		}else {
-			//DTO
 			VocaDTO vDto = new VocaDTO();
 			vDto.setUserId(userId);
+			vDto.setListName(rq.getParameter("tableTitle"));
 			
-			//DAO
-			//[Listindex, title, total]
 			VocaDAO vDao = new VocaDAO();
-			ArrayList<String[]> vocaList = vDao.vocaListSelect(vDto);
-			rq.setAttribute("vocaList", vocaList);
-			
-			RequestDispatcher dispatcher = rq.getRequestDispatcher("voca/VocaList.jsp");
-			dispatcher.forward(rq, rp);
+			boolean checkDelete = vDao.vocaDelete(vDto);
+			if(checkDelete) {
+				rp.sendRedirect("vocaselect");
+			}else {
+				System.out.println("checkDelete = "+checkDelete);
+			}
 		}
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
