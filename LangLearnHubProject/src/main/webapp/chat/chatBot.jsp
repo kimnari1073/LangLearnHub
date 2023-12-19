@@ -32,15 +32,15 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js
           
         </ul>
         <div class="bottom_wrapper clearfix">
-          <form method="post" action="/LangLearnHubProject/chat.do">
+          <form method="post" action="/LangLearnHubProject/chat.do" id='chat'>
             <div class="message_input_wrapper">
               <input class="message_input" placeholder="Type your message here..." name="req"/>
 
             </div>
-            <div class="send_message">
+            <button type="button" class="send_message">
               <div class="icon"></div>
               <div class="text">Send</div>
-            </div>
+            </button>
            </form>
         </div>
     </div>
@@ -64,7 +64,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js
   var $messages = $('.messages');
   var message_side = 'right';
   var $message_input = $('.message_input');
-  // var $message_output = $('.message_output');
+
   function Message(arg){
     this.text = arg.text // 텍스트
     this.message_side = arg.message_side; //왼쪽, 오른쪽
@@ -82,12 +82,9 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js
           var swal_textQ,swal_textA,idx;
           idx = arg.idx;
           if(arg.idx%2==0){
-			      console.log("click idx: "+idx);
-			      console.log("after: "+sessionStorage.getItem(idx+1));
 			      swal_textQ=arg.text;		
 			      swal_textA=sessionStorage.getItem(idx+1); //index+1
 		      }else{
-			      console.log("click idx: "+idx);
 			      swal_textQ=sessionStorage.getItem(idx-1); //index-1
 			      swal_textA=arg.text;
 		      } 
@@ -120,7 +117,6 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js
 
 function sendMessage(text,index){
   $('.message_input').val('');
-  console.log("index: <%=i%>");
   var message = 
     new Message({
       text: text,
@@ -128,8 +124,6 @@ function sendMessage(text,index){
       idx: index //chatList 인덱스
     });  
   console.log("i"+<%=i%>);
-  	console.log("click: "+message.idx);
-  	console.log("after: "+message.after);
     message_side = (message_side === 'left') ? 'right' : 'left';
     message.draw();
     return $messages.scrollTop($messages.prop('scrollHeight'));
@@ -149,6 +143,7 @@ window.onload = function(){
   }}%>
  	
 }
+
 $message_input.keyup(function (e) {
   if (e.which === 13) { // 13 == 엔터
     if($message_input.val()!='') { //입력 돼 있으면
@@ -156,5 +151,13 @@ $message_input.keyup(function (e) {
     }
     return sendMessage(input_message,0);
   }
-});	
+});
+
+$('.send_message').click(function () {
+	if($message_input.val()!='') { //입력 돼 있으면
+	      input_message = $message_input.val(); 
+	    }
+	$('#chat').submit(); 
+	 return sendMessage(input_message,0);
+});
 </script>
