@@ -78,7 +78,6 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js
         $message = $($('.message_template').clone().html());
         //북마크 
         $message.find('.bookmark').click(function(){
-          console.log("bookmark");  
           var swal_textQ,swal_textA,idx;
           idx = arg.idx;
           if(arg.idx%2==0){
@@ -98,8 +97,8 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js
           '  <input type="hidden" name="A" value="'+swal_textA+'"><br>'+
           '  <input type="text" name="bookMarkTitle" class="form-control form-control-lg" placeholder="Untitled"><br>'+
           '  <button class="btn btn-outline-success">save</button>'+
-          '</form>'+
-          '  <input type="button" class="btn btn-outline-danger" value="cancel" onClick="window.location.reload()"></input>',
+          '  <input type="button" class="btn btn-outline-danger" value="cancel" onClick="window.location.reload()"></input>'+
+          '</form>',
           showConfirmButton: false
           });
         });
@@ -123,13 +122,11 @@ function sendMessage(text,index){
       message_side: message_side,
       idx: index //chatList 인덱스
     });  
-  console.log("i"+<%=i%>);
     message_side = (message_side === 'left') ? 'right' : 'left';
     message.draw();
     return $messages.scrollTop($messages.prop('scrollHeight'));
 }
 window.onload = function(){
-  console.log("onload");
   var index = 0;
   //jsp반복문 chatList 에 있는 값 만큼
   <% 
