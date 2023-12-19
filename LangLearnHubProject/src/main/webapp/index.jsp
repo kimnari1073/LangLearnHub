@@ -17,16 +17,22 @@
         AI 학습, 다양한 학습 커뮤니티까지<br>
         함께 성장하는 학습의 시작.<br>
         LangLearnHub<br>
-        <button class="btn btn-outline-light btn-lg btn-block"
-        				onclick="location.href='user/signup.jsp'" >
+        <button type="button" class="btn btn-light" 
+        style="margin-top:100px; padding: 15px 20px; font-size: 18px; text-align: center;" onclick="location.href='user/signup.jsp'" >
           Let's Start
         </button>
       </div>
     </div>
-    <div class="main_function_division">
+    <div class="main_function_division" style="background-color: rgb(253, 253, 255)">
         <div class="main_function1_small_text">수백명의 전문가와 함께 </div>
-        <div class="main_function1_text">영어 개고수들의 <br> 꿀팁 나눔
+        <div class="main_function1_text">영어 개고수들의 <br> 꿀팁 나눔<br>
+        <button type="button"  style="margin-top:80px; padding: 15px 20px; font-size: 18px; text-align: center;" 
+        class="btn btn-light" onclick="location.href='user/signup.jsp'" >
+          Let's Start
+        </button>
+        
         </div>
+        
         <div class="main_function1_box" style="top : 10%; left: 50%;">
             <img src="pics/user_profile.png" class="main_function1_box_img">
             <div class="main_function1_box_name">
@@ -112,7 +118,13 @@
         </div>
         <div class="main_function2_text">
             AI의 도움을 통한<br>
-            자기주도 학습
+            자기주도 학습<br>
+            <button type="button" class="btn btn-light" 
+             style="margin-top:80px; padding: 15px 20px;
+      									font-size: 18px;
+      									text-align: center;" onclick="location.href='user/signup.jsp'" >
+          Let's Start
+        </button>
         </div>
     </div>
     <div class="main_function_division" style="background-color: rgb(250, 250, 255);">
@@ -142,7 +154,7 @@
                 테스트 할 수 있는 기능 포함
             </div>
         </div>
-        <div class="main_function3_box">
+        <div class="main_function3_box" style="margin-left:-80px;">
             <div class="main_function3_title">
                 <img src="pics/verb.png" style="width : 48px; margin : 8px 0px 0px 20px;">
                 <div class="main_function3_title_text">
