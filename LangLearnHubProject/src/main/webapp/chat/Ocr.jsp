@@ -6,6 +6,12 @@
 <title>File Upload Example</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <style>
+.question{
+background-color: #c7eafc;
+}
+.answer{
+background-color:#ffe6cb;
+}
 
        .card::-webkit-scrollbar {
             display: none; 
@@ -31,9 +37,15 @@
         
         <div class="texts">
                 <% if(request.getAttribute("textResult")!=null){ %>
-                <p class="card-text" style="width : 60%; text-align : center; margin-left : 20%;">            
+               
+                <p class="card-text" style="width : 60%; text-align : center; margin-left : 20%;"> 
+                <h5>문제 </h5>
+                 <div class="question">
+                            
                     <%=request.getAttribute("textResult")%>
+                    </div>
                 </p>
+                
                 <% }else{ %>
                 <p class="card-text">
                 </p>
@@ -42,7 +54,11 @@
                 
                 <% if(request.getAttribute("chatResult")!=null){ %>
                     <p class="card-text" style="width : 100%; text-align : center; ">
+                    <h5>해답  </h5>
+                    <div class="answer">
+                    
                     <%=request.getAttribute("chatResult")%>
+                    </div>
                     </p>
                 <% }else{ %>
                     <p class="card-text" >

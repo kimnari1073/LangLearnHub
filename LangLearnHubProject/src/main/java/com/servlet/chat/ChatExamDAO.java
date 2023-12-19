@@ -83,7 +83,7 @@ public class ChatExamDAO {
 
 		try {
 			pstmt = conn.prepareStatement(
-					"update chatexam set color = ? where num = ? id = ?;");
+					"update chatexam set color = ? where num = ? AND id = ?;");
 			pstmt.setString(1, color);
 			pstmt.setInt(2, num);
 			pstmt.setString(3, id);

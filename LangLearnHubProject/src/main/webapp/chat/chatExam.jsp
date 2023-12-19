@@ -19,6 +19,7 @@
         body {
             margin: auto;
             width: 100vw;
+            position : relative;
         }
 
         .chat_exams {
@@ -27,19 +28,26 @@
             padding: 1rem;
             padding-left : 1rem;
             background-color: rgb(244, 244, 244);
-            height: 80vh;
+            height: 90vh;
             overflow: scroll;
+            border-radius : 5px;
         }
 
         .title {
             font-size: 2vw;
             text-align: center;
-            background-color: skyblue;
+           	background-color: #c7eafc;
             margin: -1rem;
             margin-bottom: 0px;
             padding: 10px;
-
-
+            padding-left : 5vw;
+			border-radius : 5px;
+            font-weight : bold;
+        }
+        .func{
+        	margin-top : 1.5vh;
+        	margin-bottom : -1vh;
+        	text-align : center;
         }
 
         .chat_exams::-webkit-scrollbar {
@@ -49,9 +57,6 @@
             display: none; /* Chrome, Safari, Opera*/
         }
 
-        .modal-title.text-center {
-            text-align: center !important;
-        }
     </style>
 	<script>
 	  document.addEventListener("DOMContentLoaded", function () {
@@ -78,8 +83,6 @@
 <body >
     <%@ include file="../include/header.jsp" %>
 
-
-<!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -123,51 +126,11 @@
   </div>
 </div>
     <div class="chat_exams" style="float: left;">
-    <div class="title"> 문제 풀기 
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">문제 생성</button>
-	    <input type="radio" name="sortcolor" value="all" onclick="filterCards('all')"> 전체
-	    <input type="radio" name="sortcolor" value="lightgrey" onclick="filterCards('lightgrey')"> 안품
-	    <input type="radio" name="sortcolor" value="tomato" onclick="filterCards('tomato')"> 틀림
-	    <input type="radio" name="sortcolor" value="aqua" onclick="filterCards('aqua')"> 맞음
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <form method="post" action="/LangLearnHubProject/chatExamSave.do">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">문제 생성</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">제목</label>
-                            <input type="text" class="form-control" id="recipient-name" name="title">
-                        </div>
-                        <div class="mb-3">
-                            <label for="message-text" class="col-form-label">문제로 만들 내용 </label>
-                            <textarea class="form-control" id="message-text" name="ques"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="message-text" class="col-form-label">문제 생성 방식 </label><br>
-                            <input type="radio" name="examparse" id="chat" checked="checked" value="chat" onclick="toggleExamTypeSection('show')"> 챗봇 생성 
-                            <input type="radio" name="examparse" id="human" value="human" onclick="toggleExamTypeSection('hide')"> 내용 그대로 생성
-                        </div>
-                        <div class="mb-3" id="examtypeSection">
-                            <label for="message-text" class="col-form-label">문제 유형 </label><br>
-                            <input type="radio" name="examtype" id="sub" checked="checked" value="sub"> 주관식
-                            <span>
-                                <input type="radio" name="examtype" id="multi" value="multi"> 객관식
-                                <input type="radio" name="examtype" id="short" value="short"> 단답형
-                            </span>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">문제 저장</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
+    <div style="position : sticky; top : -2.31%; z-index  : 999;">
+    <div class="title"> 문제집
+
+  		        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" style="float : right; margin-top : 1vh;" >문제 생성</button>
+	
 
     <script>
     $(document).ready(function () {
@@ -202,6 +165,54 @@
         }
     </script>
     </div>
+        <div class="func">
+		<span style="margin-left : 70vw;">
+		<input type="radio" name="sortcolor" value="all" onclick="filterCards('all')"> 전체
+	    <input type="radio" name="sortcolor" value="lightgrey" onclick="filterCards('lightgrey')"> 안품
+	    <input type="radio" name="sortcolor" value="tomato" onclick="filterCards('tomato')"> 틀림
+	    <input type="radio" name="sortcolor" value="aqua" onclick="filterCards('aqua')"> 맞음
+		</span>
+    </div>
+    </div>
+    		    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+			        <form method="post" action="/LangLearnHubProject/chatExamSave.do">
+			            <div class="modal-dialog" style="z-index : 9999;">
+			                <div class="modal-content" >
+			                    <div class="modal-header">
+			                        <h1 class="modal-title fs-5" id="exampleModalLabel">문제 생성</h1>
+			                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			                    </div>
+			                    <div class="modal-body">
+			                        <div class="mb-3">
+			                            <label for="recipient-name" class="col-form-label">제목</label>
+			                            <input type="text" class="form-control" id="recipient-name" name="title">
+			                        </div>
+			                        <div class="mb-3">
+			                            <label for="message-text" class="col-form-label">문제로 만들 내용 </label>
+			                            <textarea class="form-control" id="message-text" name="ques"></textarea>
+			                        </div>
+			                        <div class="mb-3">
+			                            <label for="message-text" class="col-form-label">문제 생성 방식 </label><br>
+			                            <input type="radio" name="examparse" id="chat" checked="checked" value="chat" onclick="toggleExamTypeSection('show')"> 챗봇 생성 
+			                            <input type="radio" name="examparse" id="human" value="human" onclick="toggleExamTypeSection('hide')"> 내용 그대로 생성
+			                        </div>
+			                        <div class="mb-3" id="examtypeSection">
+			                            <label for="message-text" class="col-form-label">문제 유형 </label><br>
+			                            <input type="radio" name="examtype" id="sub" checked="checked" value="sub"> 주관식
+			                            <span>
+			                                <input type="radio" name="examtype" id="multi" value="multi"> 객관식
+			                                <input type="radio" name="examtype" id="short" value="short"> 단답형
+			                            </span>
+			                        </div>
+			                    </div>
+			                    <div class="modal-footer">
+			                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			                        <button type="submit" class="btn btn-primary">문제 저장</button>
+			                    </div>
+			                </div>
+			            </div>
+			        </form>
+			    </div>
         <%
             for(int i = 0; i < eDTO.size(); i++){
         %>
