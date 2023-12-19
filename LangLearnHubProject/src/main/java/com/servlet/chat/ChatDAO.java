@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 
+import com.mysql.cj.jdbc.exceptions.MysqlDataTruncation;
+
 import common.JDBCUtil;
 
 public class ChatDAO {
@@ -55,19 +57,20 @@ public class ChatDAO {
 			pstmt.setString(5, cDto.getA());
 			int tem = pstmt.executeUpdate();
 			if(tem != 0) flag = true;
-			System.out.println("SQL: "+pstmt.toString());
 		}catch(SQLIntegrityConstraintViolationException e) { 
 			if (e.getMessage().contains("Duplicate entry")) {
 		        System.out.println("중복된 값이 이미 존재합니다. return flag=false;");
-		        return flag;
 			}
+		}catch(MysqlDataTruncation e){
+			System.out.println("저장할 값이 지정된 크기를 초과하였습니다. return flag=falsel;");
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
+			
 		} finally {
 			JDBCUtil.close(rs, pstmt, conn);
+			return flag;
 		}
-		return flag;
 	}
 	//delete
 	public boolean chatDelete(ChatDTO cDto) {

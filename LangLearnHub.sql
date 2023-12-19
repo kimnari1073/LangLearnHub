@@ -27,8 +27,8 @@ CREATE TABLE `bookmark` (
   `user_id` VARCHAR(45) NOT NULL,
   `bookmark_index` INT,
   `title` VARCHAR(45) NULL,
-  `q` VARCHAR(300) not null,
-  `a` VARCHAR(300) not null,
+  `q` VARCHAR(500) not null,
+  `a` VARCHAR(500) not null,
   PRIMARY KEY (`user_id`,`q`,`a`));
 
 create TABLE chatexam (
@@ -45,4 +45,5 @@ create TABLE chatexam (
 select * from users;
 select * from voca;
 select * from bookmark;
+select bookmark_index,title,q,a from bookmark where user_id="1" order by bookmark_index;
 select * from chatexam;

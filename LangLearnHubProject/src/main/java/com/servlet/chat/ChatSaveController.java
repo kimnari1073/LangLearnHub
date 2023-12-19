@@ -22,7 +22,6 @@ public class ChatSaveController extends HttpServlet {
 		cDto.setTitle(rq.getParameter("bookMarkTitle"));
 		cDto.setQ(rq.getParameter("Q"));
 		cDto.setA(rq.getParameter("A"));
-		
 		//DAO
 		ChatDAO cDao = new ChatDAO();
 		boolean saveCheck=cDao.chatSave(cDto);
