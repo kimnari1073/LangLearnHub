@@ -49,5 +49,4 @@ create TABLE chatexam (
 select * from users;
 select * from voca;
 select * from bookmark;
-select bookmark_index,title,q,a from bookmark where user_id="1" order by bookmark_index;
 select * from chatexam;
