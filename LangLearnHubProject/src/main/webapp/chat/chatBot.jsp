@@ -22,8 +22,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js
     <link rel="stylesheet" href="../css/chatBotTest.css">
   </head>
 <body>
-<header><%@ include file="../include/header.jsp" %></header>
-
+<%@include file="../include/header.jsp" %>
 <div class="chat_window">
         <div class="top_menu">
             <div class="title">English ChatBot</div>

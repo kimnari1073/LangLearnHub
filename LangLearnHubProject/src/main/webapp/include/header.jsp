@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 <style>
-*{
+/* *{
 	font-family: 'Noto Sans KR', sans-serif;
 	font-size: 16px;
 	font-weight: 400;
-}
+} */
 header .container{
     width: 1000px;
     min-width: 900px;
@@ -26,38 +26,49 @@ header .container{
 </head>
 
 <div class='hidden'></div>
+<%
+	String id =(String)session.getAttribute("id");
+	String log="";
+%>
 <header class="navbar fixed-top navbar-light bg-light">
    <div class="container">
       <div class="col-md-3 mb-2 mb-md-0">
+      <%if(id==null){ %>
         <a href="/LangLearnHubProject/index.jsp" class="d-inline-flex link-body-emphasis text-decoration-none">
         <h2>LangLearnHub</h2>
-        </a>
+        </a><%	
+			}else{
+			%>
+				<a href="/LangLearnHubProject/mainPage.jsp" class="d-inline-flex link-body-emphasis text-decoration-none">
+		        <h2>LangLearnHub</h2>
+			<%
+			}
+		%>
+		
       </div>
 
     <nav class="nav nav-underline justify-content-between">
       <a class="nav-item nav-link link-body-emphasis" href="#"></a>
       <a class="nav-item nav-link link-body-emphasis" href="/LangLearnHubProject/voca/VocaPage.jsp">개인 단어장</a>
       <a class="nav-item nav-link link-body-emphasis" href="/LangLearnHubProject/chat/chatBot.jsp">챗봇 학습</a>
+      <a class="nav-item nav-link link-body-emphasis" href="/LangLearnHubProject/chatExamList.do">영어 학습  </a>
       <a class="nav-item nav-link link-body-emphasis" href="#">스터디 그룹 </a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">과외 모집 </a>
+      
     </nav>
       <div class="col-md-3 text-end">
-      <%
-	       	String id =(String)session.getAttribute("id");
-	     	String log="";
+      
 	  
-		
-
+	     <%
 			if(id==null){
 		%>
 	
-		<a href="/LangLearnHubProject/user/login.jsp"><button class="btn btn-outline-dark">Login</button></a>
-    	<a href="/LangLearnHubProject/user/signup.jsp"><button class="btn btn-outline-dark">Sign up</button></a>	
+		<a href="/LangLearnHubProject/user/login.jsp"><button class="btn btn-outline-dark">LOGIN</button></a>
+    	<a href="/LangLearnHubProject/user/signup.jsp"><button class="btn btn-outline-dark">SIGN UP</button></a>	
 		<%	
 			}else{
 		%>
-		<a href="/LangLearnHubProject/logout.do"><button type="button" class="btn btn-outline-dark">Logout</button></a>
-    	<a href="/LangLearnHubProject/memselect.do"><button type="button" class="btn btn-outline-dark">Mypage</button></a>
+		<a href="/LangLearnHubProject/logout.do"><button type="button" class="btn btn-outline-dark">LOGOUT</button></a>
+    	<a href="/LangLearnHubProject/memselect.do"><button type="button" class="btn btn-outline-dark">MYPAGE</button></a>
 		<%
 			}
 		%>

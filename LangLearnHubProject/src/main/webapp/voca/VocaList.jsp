@@ -18,10 +18,10 @@ ArrayList<String[]> vocaList =(ArrayList)request.getAttribute("vocaList");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
     <style>
-		* {margin: 0;padding: 0;font-family: 'Noto Sans KR', sans-serif;font-size: 16px;font-weight: 400;box-sizing: border-box;box-sizing: border-box;}
+    container {margin: 0;padding: 0;font-family: 'Noto Sans KR', sans-serif;font-size: 16px;font-weight: 400;box-sizing: border-box;box-sizing: border-box;}
 		body { padding: 20px; background-color: #f5f5f5; } 
 		form { max-width: 1000px; min-width: 500px; 
-		margin: 50px auto; padding: 50px; background: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); } 
+		margin: 50px auto; padding: 50px; background: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
 		  #editForm {
     display: flex;
     flex-direction: column;
@@ -34,16 +34,11 @@ ArrayList<String[]> vocaList =(ArrayList)request.getAttribute("vocaList");
   .table {
     width: 80%;
   }
-   
-  
-	</style>
-
+</style>
 </head>
-<header>
-	<%@include file="../include/header.jsp" %>
-</header>
 <body>
-
+<%@include file="../include/header.jsp" %>
+<div class="container">
 <form id="editForm">
   <div>
     <h1 class="vocaListTitle">Voca List</h1>
@@ -68,6 +63,7 @@ ArrayList<String[]> vocaList =(ArrayList)request.getAttribute("vocaList");
 		</tbody>
 	</table>
 </form>
+</div>
 </body>
 </html>
 	<script>
