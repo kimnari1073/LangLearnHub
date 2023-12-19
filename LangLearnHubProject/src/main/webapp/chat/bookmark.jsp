@@ -66,40 +66,49 @@ ArrayList<String[]> bookList = (ArrayList)request.getAttribute("bookList");
   }
 </script>
 <style>
-.card-body{
-	/* border:10px solid black; */
-  height: 200px;
-  overflow: hidden;
-  overflow-y: auto;
-}
-.card-body::-webkit-scrollbar {
-  width: 10px;  /* 스크롤바의 너비 */
-}
-
-.card-body::-webkit-scrollbar-thumb {
-  height: 30%;
-  background: #b8b8b6;
-  border-radius: 10px;
-}
-
-.card-body::-webkit-scrollbar-track {
-  background: rgba(33, 122, 244, .1);
-}
-.card-header{
-  position: sticky;
-  top: 0;
-    /* z-index: 1000; */
-    padding-left: 10px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    background-color: rgb(238, 238, 238);
-}
-  button{
-    border:0px;
-    background-color: transparent;
+  body{
+    width: 1100px;
+    margin : auto;
+    
   }
-  button img{
-    /* border: 1px solid ; */
-    width: 20px;
+  .card{
+    width: 350px;
   }
-</style>
+  .card-body{
+    /* border:10px solid black; */
+    height: 200px;
+    overflow: hidden;
+  
+    overflow-y: auto;
+  }
+  .card-body::-webkit-scrollbar {
+    width: 10px;  /* 스크롤바의 너비 */
+  }
+  
+  .card-body::-webkit-scrollbar-thumb {
+    height: 30%;
+    background: #b8b8b6;
+    border-radius: 10px;
+  }
+  
+  .card-body::-webkit-scrollbar-track {
+    background: rgba(33, 122, 244, .1);
+  }
+  .card-header{
+    position: sticky;
+    top: 0;
+      /* z-index: 1000; */
+      padding-left: 10px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      background-color: rgb(238, 238, 238);
+  }
+    button{
+      border:0px;
+      background-color: transparent;
+    }
+    button img{
+      /* border: 1px solid ; */
+      width: 20px;
+    }
+  </style>
