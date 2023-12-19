@@ -98,7 +98,7 @@ public class VocaDAO {
 			pstmt.setString(1, vDto.getUserId());
 			pstmt.setString(2, vDto.getListName());
 			rs=pstmt.executeQuery();
-			int index=1;
+			int index=0;
 			if(rs.next()) {
 				index = rs.getInt(1);
 			}

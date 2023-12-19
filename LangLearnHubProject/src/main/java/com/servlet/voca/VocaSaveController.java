@@ -21,30 +21,41 @@ public class VocaSaveController extends HttpServlet {
 		if(userId == null) {
 			System.out.println("userId : null");
 			rp.sendRedirect("index.jsp");
-		}
-		
-		//값 get, Dto
-		String[] paramVoca1 = rq.getParameterValues("voca1");
-		String[] paramVoca2 = rq.getParameterValues("voca2");
-		
-		VocaDTO vDto = new VocaDTO();
-		vDto.setListName(rq.getParameter("title"));
-		vDto.setUserId(userId);
-		for(int i=0;i<paramVoca1.length;i++) vDto.setVocaHash(paramVoca1[i], paramVoca2[i]);
-	
-		
-		//DAO
-		VocaDAO vDao = new VocaDAO();
-		boolean saveCheck = vDao.vocaSave(vDto);
-		if(saveCheck) {
-			//rq.setAttribute("vocaList", vDao.getVocaList(vDto));
-			rp.sendRedirect("vocaselect");
-			
 		}else {
-			System.out.println("VocaSave : false");
-			rp.sendRedirect("mainPage.jsp");
+			//값 get, Dto
+			String[] paramVoca1 = rq.getParameterValues("voca1");
+			String[] paramVoca2 = rq.getParameterValues("voca2");
+			
+			VocaDTO vDto = new VocaDTO();
+			vDto.setListName(rq.getParameter("title"));
+			vDto.setUserId(userId);
+			
+			
+			for(int i=0;i<paramVoca1.length;i++) {
+				if(paramVoca1[i]!="") {
+					vDto.setVocaHash(paramVoca1[i], paramVoca2[i]);	
+				}
+							
+			}
+
+			
 		
+			
+			//DAO
+			VocaDAO vDao = new VocaDAO();
+			boolean saveCheck = vDao.vocaSave(vDto);
+			if(saveCheck) {
+				//rq.setAttribute("vocaList", vDao.getVocaList(vDto));
+				rp.sendRedirect("voca/VocaPage.jsp");
+				
+			}else {
+				System.out.println("VocaSave : false");
+				rp.sendRedirect("mainPage.jsp");
+			
+			}
 		}
+		
+
 		
 		//response
 		

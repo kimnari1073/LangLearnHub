@@ -19,15 +19,11 @@
 	<meta charset="UTF-8">
 	<link rel="shortcut icon" href="https://ctrlcccv.github.io/favicon.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 	<style>
-		* {margin: 0;padding: 0;font-family: 'Noto Sans KR', sans-serif;font-size: 16px;font-weight: 400;box-sizing: border-box;box-sizing: border-box;}
 		body { padding: 20px; background-color: #f5f5f5; } 
-		form { max-width: 1000px; min-width: 700px; margin: 50px auto; padding: 50px; background: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); } 
+		form { max-width: 1000px; min-width: 700px; margin: 50px auto; padding: 50px; background: #fff; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.2); } 
 		.input_wrap { margin-bottom: 20px; } 
 		.input_list { display: flex; align-items: center; margin-bottom: 10px; } 
 		.input_list input[type="text"] { padding:0 10px; height: 45px; border: 1px solid #ddd; border-radius: 4px; flex-grow: 1; } 
@@ -40,7 +36,8 @@
 <body>
 <header><%@include file="../include/header.jsp" %></header>
 <form method="get" action="/LangLearnHubProject/vocasave.do">
-	<input class="input_title" type="text" name="title" placeholder="단어장 이름">
+	<h1>Voca List Create</h1>
+	<input class="input_title" type="text" name="title" placeholder="Voca List Title">
     <div class="input_wrap">
 		<!-- insert -->
     </div>
@@ -64,8 +61,8 @@
 	    // 새 입력 필드 추가
 	    wrapper.append(`
 	        <div class="input_list">
-	            <input type="text" name="voca1" placeholder="입력해주세요." />
-	            <input type="text" name="voca2" placeholder="입력해주세요." />
+	            <input type="text" name="voca1" placeholder="input" />
+	            <input type="text" name="voca2" placeholder="input" />
 	            <a href="javascript:void(0);" class="remove_field" tabindex="-1">삭제</a>
 	        </div>
 	    `);
