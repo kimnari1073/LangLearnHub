@@ -162,7 +162,7 @@
 											</div>
 										</div>
 										<div class="d-flex justify-content-end pt-3">
-											<a href="../index.jsp"><button type="button" class="btn btn-light btn-lg" style="margin-left:-30px">뒤로가기</button></a>
+											<a href="../index.jsp"><button type="button" class="btn btn-light btn-lg" style="margin-right:10px">뒤로가기</button></a>
 											<button type="reset" class="btn btn-light btn-lg">초기화</button>
 											<button type="submit" name="action" value="sign" class="btn btn-warning btn-lg ms-2">회원가입</button>
 										</div>
