@@ -19,7 +19,6 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js
 "></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-
     <link rel="stylesheet" href="../css/chatBotTest.css">
   </head>
 <body>
@@ -57,6 +56,8 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js
   </div>
     <!-- <script type="text/javascript" src="../js/chatbot.js"></script> -->
 </body>
+
+</html>
 <script>
   var output_text = "테스트입니다";
   var Message;
@@ -157,4 +158,3 @@ $message_input.keyup(function (e) {
   }
 });	
 </script>
-</html>
