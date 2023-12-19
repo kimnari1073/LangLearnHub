@@ -48,7 +48,7 @@ public class SignController extends HttpServlet {
 
 		} else {
 			rq.setAttribute("joinResult", 0);
-			RequestDispatcher dispatcher = rq.getRequestDispatcher("user/SignUpFail.jsp");
+			RequestDispatcher dispatcher = rq.getRequestDispatcher("user/signup.jsp");
 			dispatcher.forward(rq, rp);
 		}
 	}
