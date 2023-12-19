@@ -77,7 +77,7 @@ height: 100%;
 	            <div class="pt-1 mb-4">
 	              <button class="btn btn-info btn-lg btn-block" type="submit">Login</button>
 	            </div>
-            <p>Don't have an account? <a href="signup.jsp" class="link-info">Register here</a></p>
+            <p>Don't have an account? <a href="/LangLearnHubProject/user/signup.jsp" class="link-info">Register here</a></p>
           </form>
 
         </div>
