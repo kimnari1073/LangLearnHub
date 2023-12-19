@@ -2,29 +2,20 @@
 <%@ page import ="java.util.ArrayList" %>
 <%
 request.setCharacterEncoding("utf-8");
-ArrayList<String[]> bookList = (ArrayList)request.getAttribute("bookList");
+ArrayList<String[]> bookList = (ArrayList<String[]>)request.getAttribute("bookList");
 %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   	<link rel="stylesheet" href="../css/bookmark.css">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 </head>
-
-<%@include file="../include/header.jsp" %>
-<body>
-    <div>
-        <div class="row row-cols-3">
-          <!-- insetTr -->
-        </div>
-    </div>
-</body>
-</html>
 <script>
-  window.onload = function(){
-	  bookMarkInsert();
-  }
+  window.onload = function(){bookMarkInsert();}
   const bookList = [];
   function bookMarkInsert(){
       <%
@@ -32,9 +23,7 @@ ArrayList<String[]> bookList = (ArrayList)request.getAttribute("bookList");
     		%>var jsonObject = {"idx":"<%=arr[0] %>", "title": "<%= arr[1] %>","Q":"<%= arr[2] %>",
     				"A":"<%= arr[3]%>"};
     		bookList.push(jsonObject);<%
-      }
-      %>
-      
+      }%>
      
 
       for(var i=0; i<bookList.length; i++){
@@ -43,6 +32,7 @@ ArrayList<String[]> bookList = (ArrayList)request.getAttribute("bookList");
         var title=json.title;
         var q=json.Q;
         var a=json.A;
+        console.log("Json: "+idx);
         var insertTr;
         insertTr = 
           '<div class="col">'+
@@ -61,54 +51,38 @@ ArrayList<String[]> bookList = (ArrayList)request.getAttribute("bookList");
               '</div>'+
             '</div>'+
           '</div>';
+        console.log(insertTr);
         $(".row").append(insertTr);
       }
   }
 </script>
 <style>
-  body{
-    width: 1100px;
-    margin : auto;
-    
+  button{
+    border:0px;
+    background-color: transparent;
   }
-  .card{
-    width: 350px;
-  }
-  .card-body{
-    /* border:10px solid black; */
-    height: 200px;
-    overflow: hidden;
-  
-    overflow-y: auto;
-  }
-  .card-body::-webkit-scrollbar {
-    width: 10px;  /* 스크롤바의 너비 */
-  }
-  
-  .card-body::-webkit-scrollbar-thumb {
-    height: 30%;
-    background: #b8b8b6;
-    border-radius: 10px;
-  }
-  
-  .card-body::-webkit-scrollbar-track {
-    background: rgba(33, 122, 244, .1);
+  button img{
+    /* border: 1px solid black; */
+    width: 20px;
   }
   .card-header{
-    position: sticky;
-    top: 0;
-      /* z-index: 1000; */
-      padding-left: 10px;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      background-color: rgb(238, 238, 238);
+    /* border: 1px solid black; */
+    padding-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-    button{
-      border:0px;
-      background-color: transparent;
-    }
-    button img{
-      /* border: 1px solid ; */
-      width: 20px;
-    }
-  </style>
+</style>
+<header>
+	<%@include file="../include/header.jsp" %>
+</header>
+<body>
+    <div class="container">
+        <div class="row row-cols-3">
+          
+          <!-- insetTr -->
+          
+        </div>
+      </div>
+</body>
+</html>

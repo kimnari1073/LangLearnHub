@@ -28,9 +28,7 @@ public class ChatSelectController extends HttpServlet {
 		ArrayList<String[]> bookList = cDao.chatSelect(cDto);
 		
 		rq.setAttribute("bookList",bookList);
-//		for(String[]arr:bookList) {
-//			System.out.println(arr[0]+", "+arr[1]+", "+arr[2]+", "+arr[3]);
-//		}
+		
 		
 		
 //		rp.sendRedirect("chat/bookmark.jsp");

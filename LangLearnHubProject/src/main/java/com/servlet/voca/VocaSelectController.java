@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/vocaselect")
 public class VocaSelectController extends HttpServlet {
 	protected void doGet(HttpServletRequest rq, HttpServletResponse rp) throws ServletException, IOException {
-		rq.setCharacterEncoding("UTF-8");
 		HttpSession session = rq.getSession();
 		String userId = (String)session.getAttribute("id");
 		if(userId == null) {

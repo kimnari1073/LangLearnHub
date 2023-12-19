@@ -19,10 +19,11 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js
 "></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="../css/chatBotTest.css">
   </head>
 <body>
-<header><%@ include file="../include/header.jsp" %></header>
+<!-- <%@ include file="../include/header.jsp" %>  -->
 
 <div class="chat_window">
         <div class="top_menu">
@@ -56,8 +57,6 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js
   </div>
     <!-- <script type="text/javascript" src="../js/chatbot.js"></script> -->
 </body>
-
-</html>
 <script>
   var output_text = "테스트입니다";
   var Message;
@@ -110,7 +109,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js
         $('.messages').append($message);
         return setTimeout(function () {
           return $message.addClass('appeared');
-        },100);
+        }, 100);
       };
     }(this);
   return this;
@@ -132,7 +131,7 @@ function sendMessage(text,index){
   	console.log("after: "+message.after);
     message_side = (message_side === 'left') ? 'right' : 'left';
     message.draw();
-    return $messages.scrollTop($messages.prop('scrollHeight'));
+    return $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
 }
 window.onload = function(){
   console.log("onload");
@@ -158,3 +157,4 @@ $message_input.keyup(function (e) {
   }
 });	
 </script>
+</html>

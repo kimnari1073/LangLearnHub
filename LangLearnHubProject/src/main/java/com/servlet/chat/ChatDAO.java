@@ -19,7 +19,7 @@ public class ChatDAO {
 		
 		try {
 			pstmt = conn.prepareStatement(
-					"select bookmark_index,title,q,a from bookmark where user_id=? order by bookmark_index");
+					"select bookmark_index,title,q,a from bookmark where user_id=?");
 			pstmt.setString(1,cDto.getUserId());
 			rs=pstmt.executeQuery();
 			while(rs.next()) {

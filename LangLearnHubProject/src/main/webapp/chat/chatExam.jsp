@@ -28,7 +28,6 @@
             padding: 1rem;
             padding-left : 1rem;
             background-color: rgb(244, 244, 244);
-
             height: 80vh;
             overflow: scroll;
         }
@@ -119,9 +118,9 @@
     <div class="title"> 문제 풀기 
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">문제 생성</button>
 	    <input type="radio" name="sortcolor" value="all" onclick="filterCards('all')"> 전체
-	    <input type="radio" name="sortcolor" value="lightgrey" onclick="filterCards('lightgrey')"> lightgrey
-	    <input type="radio" name="sortcolor" value="tomato" onclick="filterCards('tomato')"> tomato
-	    <input type="radio" name="sortcolor" value="aqua" onclick="filterCards('aqua')"> aqua
+	    <input type="radio" name="sortcolor" value="lightgrey" onclick="filterCards('lightgrey')"> 안품
+	    <input type="radio" name="sortcolor" value="tomato" onclick="filterCards('tomato')"> 틀림
+	    <input type="radio" name="sortcolor" value="aqua" onclick="filterCards('aqua')"> 맞음
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <form method="post" action="/LangLearnHubProject/chatExamSave.do">
             <div class="modal-dialog">
