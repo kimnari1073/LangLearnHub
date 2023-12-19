@@ -51,7 +51,7 @@ public class UploadServlet extends HttpServlet {
                 new DefaultFileRenamePolicy());
 
         String fileName = multi.getFilesystemName("file");
-        String picPath = path + "\\" + fileName;
+        String picPath = path + "/" + fileName;
 
         ByteString imgBytes = ByteString.readFrom(new FileInputStream(picPath));
 
