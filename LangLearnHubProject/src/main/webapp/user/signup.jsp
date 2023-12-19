@@ -37,33 +37,8 @@
             margin-top: 10px;
         }
 </style>
-<%-- <script>
-        function checkUsername() {
-            var username = document.getElementById("username").value;
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-            // AJAX를 사용하여 서버로 아이디 중복 확인 요청
-            // 실제로는 서버 측에서 데이터베이스 조회 등을 통해 중복 여부 확인
-            // 이 예제에서는 간단하게 "dummy" 값으로 확인
-            if (<%=idcheck%>) {
-                alert("이미 사용 중인 아이디입니다. 다른 아이디를 입력해주세요.");
-                return false;
-            } else {
-                return true;
-            }
-        }
-
-        function checkPassword() {
-            var password = document.getElementById("password").value;
-            var confirmPassword = document.getElementById("confirmPassword").value;
-
-            if (password !== confirmPassword) {
-                alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
-                return false;
-            } else {
-                return true;
-            }
-        }
-    </script> --%>
 </head>
 <body>
 	<section class="h-100 bg-dark">
@@ -76,32 +51,38 @@
 								<img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
 									 alt="Sample photo" class="img-fluid"
 									 style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+									 <form method="get" action="/LangLearnHubProject/sign.do">
 							</div>
-							
 							
 								<div class="col-xl-6">
 									<div class="card-body p-md-5 text-black">
-										<!-- <form method="get" action="/LangLearnHubProject/sign.do"> -->
+										
 										<h3 class="mb-5 text-uppercase">회원 가입</h3>
 										<div class="row">
 											<div class="col-md-6 mb-4">
 												<div class="form-outline">
-												<form method="get" action="/LangLearnHubProject/signidcheck.do">
+												<% 
+													String idcheck1=(String)request.getAttribute("idcheck");
+													String zid =(String)request.getAttribute("id");
+													if(zid==null) {
+														zid = "";
+													}
+													System.out.println(idcheck1);
+													%>
 												<label class="form-label">아이디 </label>
-													<input type="text" class="form-control form-control-lg border" name="id" />
+													<input type="text" class="form-control form-control-lg border" name="id" value="<%=zid %>" />
 													<!--  경고문 뚜둥! -->
 													<div class="warning-message" id="loginWarning">
-													<h7>이미 사용 중인 아이디입니다. 다른 아이디를 입력해주세요.</h7>
+													이미 사용 중인 아이디입니다. 다른 아이디를 입력해주세요.
 													</div>
 													<div class="warning-message" id="loginsafe">
-													<h7>사용 가능한 아이디입니다. </h7>
+													사용 가능한 아이디입니다.
 													</div>
-													<% String id=(String)request.getAttribute("idcheck");%>
 													 <script>
-        												var idcheck = "success";
-        												if(idcheck==="success") {
+        												var idcheck = "<%=idcheck1%>";
+        												if(idcheck==="warning") {
         													document.getElementById("loginWarning").style.display = "flex";
-        												}else if(idcheck==="warning"){
+        												}else if(idcheck==="success"){
         													document.getElementById("loginsafe").style.display = "flex";
         												}
     												</script>
@@ -110,8 +91,8 @@
 										<div class="col-md-6 mb-4">
 												<div class="form-outline">
 												<br>
-													<button type="submit" class="btn btn-light btn-lg" onclick="checkUsername()" style="margin-top:10px;">아이디 중복 확인</button>
-													</form>
+													<button type="submit" name="action" value="idcheck" class="btn btn-light btn-lg" onclick="checkUsername()" style="margin-top:10px;">아이디 중복 확인</button>
+													
 												</div>
 											</div>
 										</div>
@@ -120,15 +101,24 @@
 											<div class="col-md-6 mb-4">
 												<div class="form-outline">
 												<label class="form-label">비밀번호  </label>
-													<input type="text" class="form-control form-control-lg border"
-													name="password"/> 
+													<input type="text" id="pw1" oninput="pwCheck()" class="form-control form-control-lg border" name="password"/> 
+													<span id="pwConfirm"></span>
+													<script type="text/javascript">
+													function pwCheck(){
+													    if($('#pw1').val() == $('#pw2').val()){
+													        $('#pwConfirm').text('비밀번호 일치').css('color', 'green')
+													    }else{
+													        $('#pwConfirm').text('비밀번호 불일치').css('color', 'red')
+													    }
+													}
+													</script>
 												</div>
 											</div>
 											<div class="col-md-6 mb-4">
 												<div class="form-outline">
 												<label class="form-label">비밀번호 확인 </label>
-													<input type="text" class="form-control form-control-lg border"
-														name="confirmPassowrd"/> 
+													<input type="text" id="pw2" oninput="pwCheck()" class="form-control form-control-lg border" name="confirmPassowrd"/> 
+												
 												</div>
 											</div>
 										</div>
@@ -172,9 +162,9 @@
 											</div>
 										</div>
 										<div class="d-flex justify-content-end pt-3">
-											<a href="../index.jsp"><button type="button" class="btn btn-light btn-lg" style="margin-left:-30px">뒤로가기</button></a>
+											<a href="../index.jsp"><button type="button" class="btn btn-light btn-lg" style="margin-right:10px">뒤로가기</button></a>
 											<button type="reset" class="btn btn-light btn-lg">초기화</button>
-											<!-- <button type="submit" class="btn btn-warning btn-lg ms-2">회원가입</button> -->
+											<button type="submit" name="action" value="sign" class="btn btn-warning btn-lg ms-2">회원가입</button>
 										</div>
 									</div>
 								</div>

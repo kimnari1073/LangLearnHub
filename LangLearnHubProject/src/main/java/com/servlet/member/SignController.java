@@ -16,6 +16,10 @@ public class SignController extends HttpServlet {
 	protected void doGet(HttpServletRequest rq, HttpServletResponse rp) throws ServletException, IOException {
 		rq.setCharacterEncoding("UTF-8");
 		String id = rq.getParameter("id");
+
+		String action = rq.getParameter("action");
+        
+        if ("sign".equals(action)) {
 		String password = rq.getParameter("password");
 		String name = rq.getParameter("name");
 		String birth = rq.getParameter("birth");
@@ -51,5 +55,30 @@ public class SignController extends HttpServlet {
 			RequestDispatcher dispatcher = rq.getRequestDispatcher("user/signup.jsp");
 			dispatcher.forward(rq, rp);
 		}
+        }else if("idcheck".equals(action)){
+        	//값 저장하기
+			
+			MemberDTO mDto = new MemberDTO();
+			mDto.setId(id); 
+			
+			//DAO
+			MemberDAO mDao = new MemberDAO();		
+			boolean idcheck = mDao.idcheck(mDto);
+	
+    if(idcheck){
+		rq.setAttribute("idcheck", "warning"); 
+		System.out.println("idcheck value set to: warning");
+		RequestDispatcher dispatcher = rq.getRequestDispatcher("user/signup.jsp");
+        dispatcher.forward(rq, rp);
+    }
+    else {
+    	rq.setAttribute("id", rq.getParameter("id"));
+    	rq.setAttribute("idcheck", "success");
+    	System.out.println("idcheck value set to: success");
+    	RequestDispatcher dispatcher = rq.getRequestDispatcher("user/signup.jsp");
+        dispatcher.forward(rq, rp);
+    	
+    }
+        }
 	}
 }

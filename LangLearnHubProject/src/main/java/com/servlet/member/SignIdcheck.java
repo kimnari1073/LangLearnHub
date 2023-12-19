@@ -19,14 +19,10 @@ public class SignIdcheck extends HttpServlet {
 				String id=rq.getParameter("id");
 				MemberDTO mDto = new MemberDTO();
 				mDto.setId(id); 
-				mDto.setPassword(rq.getParameter("password"));
-				mDto.setRole(rq.getParameter("role"));
-
+				
 				//DAO
 				MemberDAO mDao = new MemberDAO();		
 				boolean idcheck = mDao.idcheck(mDto);
-				System.out.println(idcheck);
-				MemberDTO member = mDao.getMemberById(id);
 		
 	    if(idcheck){
 			rq.setAttribute("idcheck", "warning"); 
@@ -35,6 +31,7 @@ public class SignIdcheck extends HttpServlet {
 	        dispatcher.forward(rq, rp);
 	    }
 	    else {
+	    	rq.setAttribute("id", rq.getParameter("id"));
 	    	rq.setAttribute("idcheck", "success");
 	    	System.out.println("idcheck value set to: success");
 	    	RequestDispatcher dispatcher = rq.getRequestDispatcher("user/signup.jsp");
