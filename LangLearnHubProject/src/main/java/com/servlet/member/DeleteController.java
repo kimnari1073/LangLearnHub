@@ -25,7 +25,7 @@ public class DeleteController extends HttpServlet {
     	    MemberDAO memberDAO = new MemberDAO();
     	    memberDAO.memberDelete(memberDTO);
     	    
-    	    RequestDispatcher dispatcher = request.getRequestDispatcher("user/memberDelete.jsp");
+    	    RequestDispatcher dispatcher = request.getRequestDispatcher("logout.do");
     	    dispatcher.forward(request, response); 
     	  //response.sendRedirect("memberDelete.jsp");
     	    

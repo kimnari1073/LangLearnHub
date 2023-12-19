@@ -159,15 +159,33 @@ padding-right:550px;
         <small class="opacity-50 text-nowrap">></small>
       </div>
     </a>
-    <a href="/LangLearnHubProject/deleteMember.do" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
       <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
-      <div class="d-flex gap-2 w-100 justify-content-between">
+      <div class="d-flex gap-2 w-100 justify-content-between" data-bs-toggle="modal" data-bs-target="#exampleModal11">
         <div class="text">
           <h6 class="mb-0">회원 탈퇴  </h6>
         </div>
         <small class="opacity-50 text-nowrap">></small>
       </div>
     </a>
+  </div>
+</div>
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal11" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">탈퇴하시겠습니까? </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        '예'를 누르시면 바로 탈퇴됩니다.
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소 </button>
+        <a href="/LangLearnHubProject/deleteMember.do"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">예  </button></a>
+      </div>
+    </div>
   </div>
 </div>
 <%@include file="../include/footer.jsp" %>

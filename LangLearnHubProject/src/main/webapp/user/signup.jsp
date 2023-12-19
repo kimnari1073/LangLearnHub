@@ -73,7 +73,7 @@
 													<input type="text" class="form-control form-control-lg border" name="id" value="<%=zid %>" />
 													<!--  경고문 뚜둥! -->
 													<div class="warning-message" id="loginWarning">
-													이미 사용 중인 아이디입니다. 다른 아이디를 입력해주세요.
+													이미 존재하는 아이디입니다. <br>다른 아이디를 입력해주세요.
 													</div>
 													<div class="warning-message" id="loginsafe">
 													사용 가능한 아이디입니다.
