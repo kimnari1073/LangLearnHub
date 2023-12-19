@@ -17,6 +17,7 @@
 header .container{
     width: 1000px;
     min-width: 900px;
+    font-size: 17px;
 }
 
 .hidden{
@@ -24,7 +25,7 @@ header .container{
 }
 </style>
 </head>
-
+<body>
 <div class='hidden'></div>
 <%
 	String id =(String)session.getAttribute("id");
@@ -44,20 +45,16 @@ header .container{
 			<%
 			}
 		%>
-		
       </div>
 
     <nav class="nav nav-underline justify-content-between">
-      <a class="nav-item nav-link link-body-emphasis" href="#"></a>
       <a class="nav-item nav-link link-body-emphasis" href="/LangLearnHubProject/voca/VocaPage.jsp">개인 단어장</a>
       <a class="nav-item nav-link link-body-emphasis" href="/LangLearnHubProject/chat/chatBot.jsp">챗봇 학습</a>
-      <a class="nav-item nav-link link-body-emphasis" href="/LangLearnHubProject/chatExamList.do">영어 학습  </a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">스터디 그룹 </a>
+      <a class="nav-item nav-link link-body-emphasis" href="/LangLearnHubProject/chatExamList.do">AI 문제  </a>
+      <a class="nav-item nav-link link-body-emphasis" href="/LangLearnHubProject/chat/Ocr.jsp">AI 풀이   </a>
       
     </nav>
       <div class="col-md-3 text-end">
-      
-	  
 	     <%
 			if(id==null){
 		%>
@@ -75,5 +72,5 @@ header .container{
       </div>
   </div>
 </header>
-
+</body>
 </html>

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/chatExamSave.do")
 public class ChatExamSaveController extends HttpServlet {
@@ -16,6 +17,8 @@ public class ChatExamSaveController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session =request.getSession();
+		String id=(String)session.getAttribute("id");
 		request.setCharacterEncoding("utf-8");
 		ChatExamDTO eDTO = new ChatExamDTO();
 		ChatExamDAO eDAO = new ChatExamDAO();
@@ -26,7 +29,7 @@ public class ChatExamSaveController extends HttpServlet {
 		String examtype = request.getParameter("examtype");
 		String afterques = "";
 		
-		eDTO.setId("tester1");
+		eDTO.setId(id);
 		eDTO.setTitle(title);
 		eDTO.setQues(ques);
 		eDTO.setExamparse(examparse);

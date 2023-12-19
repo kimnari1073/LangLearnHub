@@ -22,9 +22,11 @@ public class ChatExamListController extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		ArrayList<ChatExamDTO> quesList = new ArrayList<>();
-		HttpSession session = request.getSession();	
+		HttpSession session = request.getSession();
+		
+		String id=(String)session.getAttribute("id");
 		ChatExamDAO edao = new ChatExamDAO();
-		quesList = edao.chatSelect("tester1");
+		quesList = edao.chatSelect(id);
 		session.setAttribute("quesList",quesList);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("chat/chatExam.jsp");

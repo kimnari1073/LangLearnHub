@@ -20,7 +20,8 @@ CREATE TABLE `users` (
   `voca_index` int NOT NULL,
   `voca_key` VARCHAR(45) NULL,
   `voca_val` VARCHAR(45) NULL,
-  PRIMARY KEY (`list_name`, `user_id`, `voca_index`));
+  PRIMARY KEY (`list_name`, `user_id`, `voca_index`),
+  FOREIGN KEY(`user_id`) REFERENCES `users` (`id`));
 
 drop table if exists bookmark;
 CREATE TABLE `bookmark` (
@@ -29,7 +30,8 @@ CREATE TABLE `bookmark` (
   `title` VARCHAR(45) NULL,
   `q` VARCHAR(500) not null,
   `a` VARCHAR(500) not null,
-  PRIMARY KEY (`user_id`,`q`,`a`));
+  PRIMARY KEY (`user_id`,`q`,`a`),
+  FOREIGN KEY(`user_id`) REFERENCES `users` (`id`));
 
 create TABLE chatexam (
     num INT NOT NULL AUTO_INCREMENT,
@@ -39,7 +41,8 @@ create TABLE chatexam (
     examparse varchar(5),
     examtype varchar(5),
     color varchar(9),
-    PRIMARY KEY (num, id)
+    PRIMARY KEY (num, id),
+    FOREIGN KEY(`user_id`) REFERENCES `users` (`id`)
 );
 
 select * from users;
