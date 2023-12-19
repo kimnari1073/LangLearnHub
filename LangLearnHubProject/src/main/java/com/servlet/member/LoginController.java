@@ -29,20 +29,13 @@ public class LoginController extends HttpServlet {
 		
 		 MemberDTO member = mDao.getMemberById(id);
 		 
-		
-
 
 	    if(loginCheck){
 			HttpSession session = rq.getSession();
 			session.setAttribute("user", mDto);
 			session.setAttribute("id",mDto.getId());
-//			session.setAttribute("id",mDto.getId());
-//			session.setAttribute("password", mDto.getPassword());
-//			session.setAttribute("name", mDto.getName());
-//			session.setAttribute("email", mDto.getEmail());
-//			session.setAttribute("birth", mDto.getBirth());
-//			session.setAttribute("gender", mDto.getGender());
-			
+     		session.setAttribute("password", mDto.getPassword());
+     		
 			String role=member.getRole();
 			if(role.equals("0")) {
 				RequestDispatcher dispatcher = rq.getRequestDispatcher("mainPage.jsp");
@@ -53,10 +46,10 @@ public class LoginController extends HttpServlet {
 				dispatcher.forward(rq, rp);
 			}
 		}else{
-		      rp.sendRedirect("user/SignUpFail.jsp");
+			  rq.setAttribute("isFailed", true);
+		      RequestDispatcher dispatcher = rq.getRequestDispatcher("user/login.jsp");
+			  dispatcher.forward(rq, rp);
 		}
-		   
-
-		  
+		     
 	}
 }
