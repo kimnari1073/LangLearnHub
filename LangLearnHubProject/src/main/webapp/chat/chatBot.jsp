@@ -23,7 +23,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js
     <link rel="stylesheet" href="../css/chatBotTest.css">
   </head>
 <body>
-<!-- <%@ include file="../include/header.jsp" %>  -->
+<header><%@ include file="../include/header.jsp" %></header>
 
 <div class="chat_window">
         <div class="top_menu">
@@ -109,7 +109,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js
         $('.messages').append($message);
         return setTimeout(function () {
           return $message.addClass('appeared');
-        }, 100);
+        },100);
       };
     }(this);
   return this;
@@ -131,7 +131,7 @@ function sendMessage(text,index){
   	console.log("after: "+message.after);
     message_side = (message_side === 'left') ? 'right' : 'left';
     message.draw();
-    return $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
+    return $messages.scrollTop($messages.prop('scrollHeight'));
 }
 window.onload = function(){
   console.log("onload");

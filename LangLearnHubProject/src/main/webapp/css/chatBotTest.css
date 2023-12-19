@@ -10,8 +10,8 @@
   .chat_window {
     position: absolute;
     width: calc(100% - 20px);
-    max-width: 800px;
-    height: 500px;
+    max-width: 1000px;
+    height: 700px;
     border-radius: 10px;
     background-color: #fff;
     left: 50%;
@@ -40,11 +40,27 @@
     list-style: none;
     padding: 20px 10px 0 10px;
     margin: 0;
-    height: 347px;
+    height: 540px;
     overflow: scroll;
     overflow-x: hidden;
-  /*  overflow-y: hidden;*/
+   /* overflow-y: hidden; */
   }
+.messages::-webkit-scrollbar {
+  width: 10px;  /* 스크롤바의 너비 */
+}
+
+.messages::-webkit-scrollbar-thumb {
+  height: 30%;
+  background: #a3d063;
+  border-radius: 10px;
+}
+
+.messages::-webkit-scrollbar-track {
+  background: rgba(33, 122, 244, .1);
+}
+
+
+
   .messages .message {
     clear: both;
     overflow: hidden;
@@ -59,6 +75,8 @@
   .messages .message.left .text_wrapper {
     background-color: #ffe6cb;
     margin-left: 20px;
+    width: fit-content;
+    max-width: 640px;
   }
   .messages .message.left .text_wrapper::after, .messages .message.left .text_wrapper::before {
     right: 100%;
@@ -75,6 +93,8 @@
     background-color: #c7eafc;
     margin-right: 20px;
     float: right;
+    width: fit-content;
+    max-width: 640px;
   }
   .messages .message.right .text_wrapper::after, .messages .message.right .text_wrapper::before {
     left: 100%;
