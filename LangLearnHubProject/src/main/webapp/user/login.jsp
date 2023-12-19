@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +15,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.0.0/mdb.min.css" rel="stylesheet" />
 <title>loginForm</title>
 <style>
+.warning-message {
+            display:none; /* 기본적으로 숨김 처리 */
+            color: red;
+            margin-top: 10px;
+        }
 .bg-image-vertical {
 position: relative;
 overflow: hidden;
@@ -21,18 +27,16 @@ background-repeat: no-repeat;
 background-position: right center;
 background-size: auto 100%;
 }
-
 @media (min-width: 1025px) {
 .h-custom-2 {
 height: 100%;
 }
 }
 </style>
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
-integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
 </head>
 <body>
-<section class="vh-100"  style="background-color:#ececec;">
+
+<section class="vh-100"  style="background-color:#F4FFFF;">
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-6 text-black">
@@ -57,18 +61,26 @@ integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2
 	            <div class="form-outline mb-4">
 	            <label class="form-label">PASSWORD</label>
 	              <input type="password" class="form-control form-control-lg border border-success p-2 border-opacity-25" name="password"/>
-	              
 	            </div>
-	
+	            
+				<!--  경고문 뚜둥! -->
+				<div class="warning-message" id="loginWarning">
+				<h7>아이디 비밀번호가 일치하지 않습니다.</h7>
+				</div>
+				 <script>
+        			var isFailed = <%= request.getAttribute("isFailed") %>;
+        			if (isFailed) {
+            		document.getElementById("loginWarning").style.display = "flex";
+        			}
+    			</script>
+    			
 	            <div class="pt-1 mb-4">
 	              <button class="btn btn-info btn-lg btn-block" type="submit">Login</button>
 	            </div>
             <p>Don't have an account? <a href="signup.jsp" class="link-info">Register here</a></p>
-
           </form>
 
         </div>
-
       </div>
       <div class="col-sm-6 px-0 d-none d-sm-block">
         <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img3.webp"
