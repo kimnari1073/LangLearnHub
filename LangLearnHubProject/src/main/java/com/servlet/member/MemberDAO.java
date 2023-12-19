@@ -122,7 +122,24 @@ public class MemberDAO {
         } catch (Exception ex) {System.out.println("Exception" + ex);
         } finally { JDBCUtil.close(pstmt, conn);}
         return flag;
-    }		
+    }
+    //회원가입 아이디 중복 확인 
+    public boolean idcheck(MemberDTO mDto) {
+    	Connection conn = JDBCUtil.getConnection();
+        PreparedStatement pstmt =null;
+        ResultSet rs = null;
+        boolean flag = false;
+		try {
+			pstmt = conn.prepareStatement("select id from users where id = ?");
+			pstmt.setString(1, mDto.getId());
+	        rs = pstmt.executeQuery();
+	        flag = rs.next();
+	        System.out.println("SQL Query: " + pstmt.toString());
+	        System.out.println("flag: " + flag);
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { JDBCUtil.close(rs, pstmt, conn); }
+        return flag;
+    }
     
     //로그인
     public boolean loginCheck(MemberDTO mDto) {
@@ -137,6 +154,7 @@ public class MemberDAO {
 	        rs = pstmt.executeQuery();
 	        flag = rs.next();
 	        System.out.println("SQL Query: " + pstmt.toString());
+	        System.out.println("flag: " + flag);
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { JDBCUtil.close(rs, pstmt, conn); }
         return flag;

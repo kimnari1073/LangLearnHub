@@ -27,7 +27,7 @@ public class LoginController extends HttpServlet {
 		MemberDAO mDao = new MemberDAO();		
 		boolean loginCheck = mDao.loginCheck(mDto);
 		
-		 MemberDTO member = mDao.getMemberById(id);
+		MemberDTO member = mDao.getMemberById(id);
 		 
 
 	    if(loginCheck){
