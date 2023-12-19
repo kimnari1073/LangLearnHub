@@ -7,7 +7,6 @@
 	ArrayList<ChatExamDTO> eDTO = (ArrayList<ChatExamDTO>)session.getAttribute("quesList");
 
     String answer = (String)request.getAttribute("answer");
-    
 %>
 <head>
     <meta charset="UTF-8">
@@ -28,7 +27,6 @@
             padding: 1rem;
             padding-left : 1rem;
             background-color: rgb(244, 244, 244);
-
             height: 80vh;
             overflow: scroll;
         }
@@ -60,30 +58,40 @@
 
 	    var chatExamRes = "<%= answer %>";
 	    if (chatExamRes !== "null") {
-	      showAnswerModal();
+	    	showAnswerModal();
 	    }
 	  });
 	
+
 	  function showAnswerModal() {
-	    var modal = new bootstrap.Modal(document.getElementById('exampleModalAnswer'));
-	    modal.show();
-	  }
+		    var modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
+		    modal.show();
+		  }
+	  function hideAnswerModal() {
+		    
+		    var modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
+		    modal.hide();
+		}
+
 	</script>
 </head>
 <body >
     <%@ include file="../include/header.jsp" %>
-    <div class="modal fade" id="exampleModalAnswer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h1 class="modal-title fs-5" id="exampleModalLabel">답안</h1>
-	        <form method="post" action="/LangLearnHubProject/chatExamList.do">
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">답안</h1>
+        	<form method="post" action="/LangLearnHubProject/chatExamList.do">
 	        <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 	        </form>
-	      </div>
+      </div>
 	      <div class="modal-body">
-	        <form>
-	          <div class="mb-3">
+
+	          <div >
 	          <%
 	          	if(answer != null && answer.equals("O")){
 	          %>
@@ -105,23 +113,22 @@
 	          <h1 style="text-align : center; font-weight : bold;"> 틀렸습니다! </h1>
 	          <%} %>
 	          </div>
-	        </form>
-	      </div>
-	      <div class="modal-footer">
-	      <form method="post" action="/LangLearnHubProject/chatExamList.do">
+	      	</div>
+      		<div class="modal-footer">
+        	      <form method="post" action="/LangLearnHubProject/chatExamList.do">
 	        <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
 		  </form>
-	      </div>
-	    </div>
-	  </div>
-	</div>
+      </div>
+    </div>
+  </div>
+</div>
     <div class="chat_exams" style="float: left;">
     <div class="title"> 문제 풀기 
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">문제 생성</button>
 	    <input type="radio" name="sortcolor" value="all" onclick="filterCards('all')"> 전체
-	    <input type="radio" name="sortcolor" value="lightgrey" onclick="filterCards('lightgrey')"> lightgrey
-	    <input type="radio" name="sortcolor" value="tomato" onclick="filterCards('tomato')"> tomato
-	    <input type="radio" name="sortcolor" value="aqua" onclick="filterCards('aqua')"> aqua
+	    <input type="radio" name="sortcolor" value="lightgrey" onclick="filterCards('lightgrey')"> 안품
+	    <input type="radio" name="sortcolor" value="tomato" onclick="filterCards('tomato')"> 틀림
+	    <input type="radio" name="sortcolor" value="aqua" onclick="filterCards('aqua')"> 맞음
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <form method="post" action="/LangLearnHubProject/chatExamSave.do">
             <div class="modal-dialog">
