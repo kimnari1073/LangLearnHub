@@ -13,9 +13,11 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class ChatConnect {
+	// 요청 보낼 URL/API KEY 
 	private static final String URL = "https://api.openai.com/v1/chat/completions";
-	private static final String KEY = "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";
+	private static final String KEY = "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";
 	public static String chatConnect(String examtype, String ques) throws IOException {
+		// HTTP 연결 설정
 		String res = "";
 	    URL url = new URL(URL);
 	    HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
@@ -24,6 +26,7 @@ public class ChatConnect {
 	    urlConn.setRequestProperty("Content-Type", "application/json");
 	    urlConn.setDoOutput(true);
 
+	    // 요청 본문 생성 
 	    JSONObject body = new JSONObject();
 	    body.put("model", "gpt-4");
 
@@ -38,14 +41,17 @@ public class ChatConnect {
 	    userMessage.put("role", "user");
 	    userMessage.put("content", ques);
 	    messages.add(userMessage);
-
+	    
 	    body.put("messages", messages);
 	    System.out.println(messages);
+
+	    // 본문 내용으로 요청 보내기 
 	    try (OutputStream os = urlConn.getOutputStream()) {
 	        byte[] input = body.toString().getBytes("utf-8");
 	        os.write(input, 0, input.length);  
 	    }
 
+	    // 응답 읽기 
 	    try (BufferedReader br = new BufferedReader(
 	            new InputStreamReader(urlConn.getInputStream(), "utf-8"))) {
 	        StringBuilder responseLine = new StringBuilder();
@@ -54,6 +60,7 @@ public class ChatConnect {
 	            responseLine.append(responseLineOne.trim());
 	        }
 	        try {
+	        	// JSON 응답 파싱 
 	        	JSONParser parser = new JSONParser();
 	            JSONObject jsonObject = (JSONObject) parser.parse(responseLine.toString());
 
@@ -64,7 +71,8 @@ public class ChatConnect {
 	            JSONObject messageObject = (JSONObject) firstChoice.get("message");
 
 	            res = (String) messageObject.get("content");
-
+	            
+	            // 문자열 처리 
 		        if (res.startsWith("<br><br>")) res = res.replaceFirst("<br><br>", "");
 	            res=res.replace("<br><br>", "<br>");
 	            res=res.replace("\n", "<br>");

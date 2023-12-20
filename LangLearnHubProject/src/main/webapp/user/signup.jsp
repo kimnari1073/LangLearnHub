@@ -101,7 +101,7 @@
 											<div class="col-md-6 mb-4">
 												<div class="form-outline">
 												<label class="form-label">비밀번호  </label>
-													<input type="text" id="pw1" oninput="pwCheck()" class="form-control form-control-lg border" name="password"/> 
+													<input type="password" id="pw1" oninput="pwCheck()" class="form-control form-control-lg border" name="password"/> 
 													<span id="pwConfirm"></span>
 													<script type="text/javascript">
 													function pwCheck(){
@@ -117,7 +117,7 @@
 											<div class="col-md-6 mb-4">
 												<div class="form-outline">
 												<label class="form-label">비밀번호 확인 </label>
-													<input type="text" id="pw2" oninput="pwCheck()" class="form-control form-control-lg border" name="confirmPassowrd"/> 
+													<input type="password" id="pw2" oninput="pwCheck()" class="form-control form-control-lg border" name="confirmPassowrd"/> 
 												
 												</div>
 											</div>

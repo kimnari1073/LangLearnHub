@@ -37,6 +37,7 @@ public class UploadServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
+        // 파일 업로드 
         String name = request.getParameter("file");
         ServletContext application = getServletContext();
         String path = application.getRealPath("/upload");
@@ -53,6 +54,7 @@ public class UploadServlet extends HttpServlet {
         String fileName = multi.getFilesystemName("file");
         String picPath = path + "/" + fileName;
 
+        // 이미지 파일 및 경로 관련 처리 
         ByteString imgBytes = ByteString.readFrom(new FileInputStream(picPath));
 
         List<AnnotateImageRequest> requests = new ArrayList<>();
@@ -74,11 +76,12 @@ public class UploadServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        // chatGPT에게 요청 봬기 
         chatResult = ChatConnect.chatConnect("너는 영어문제를 풀어주는 선생님이야.", textResult+"이 문제에 대한 답에 대한 설명을 한글로 간단히 해줘, 필요하다면 영어도 써도 돼");
         
         
         
-        
+        // 간단한 문자열 처리 
         textResult = textResult.replace("\n", "<br>");
         request.setAttribute("chatResult", chatResult);
         request.setAttribute("textResult", textResult);
