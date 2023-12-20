@@ -12,7 +12,6 @@ public class ChatDTO {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	
 	public int getBookmarkIndex() {
 		return bookmarkIndex;
 	}

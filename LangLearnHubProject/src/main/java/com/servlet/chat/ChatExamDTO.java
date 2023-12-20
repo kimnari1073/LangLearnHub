@@ -9,50 +9,32 @@ public class ChatExamDTO {
 	private String examtype;
 	private String color; 
 	
-	
 	public String getId() {
-		return id;
-	}
-
+		return id;}
 	public void setId(String id) {
-		this.id = id;
-	}
+		this.id = id;}
 	public int getNum() {
-		return num;
-	}
+		return num;}
 	public void setNum(int num) {
-		this.num = num;
-	}
+		this.num = num;}
 	public String getTitle() {
-		return title;
-	}
+		return title;}
 	public void setTitle(String title) {
-		this.title = title;
-	}
+		this.title = title;}
 	public String getQues() {
-		return ques;
-	}
+		return ques;}
 	public void setQues(String ques) {
-		this.ques = ques;
-	}
-	 
+		this.ques = ques;} 
 	public String getExamparse() {
-		return examparse;
-	}
+		return examparse;}
 	public void setExamparse(String examparse) {
-		this.examparse = examparse;
-	}
+		this.examparse = examparse;}
 	public String getExamtype() {
-		return examtype;
-	}
+		return examtype;}
 	public void setExamtype(String examtype) {
-		this.examtype = examtype;
-	}
+		this.examtype = examtype;}
 	public String getColor() {
-		return color;
-	}
+		return color;}
 	public void setColor(String color) {
-		this.color = color;
-	}
-	
+		this.color = color;}
 }

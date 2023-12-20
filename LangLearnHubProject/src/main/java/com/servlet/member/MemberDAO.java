@@ -13,100 +13,83 @@ import common.JDBCUtil;
 
 public class MemberDAO {
 	 // 회원 삭제 
-	   public void memberDelete(MemberDTO mDTO) {
-	      Connection conn = null;
-	      PreparedStatement pstmt = null;
-	      conn = JDBCUtil.getConnection();
-	      String query = "delete from users where id = ?";
-	      try {
-	         pstmt = conn.prepareStatement(query);
-	         pstmt.setString(1, mDTO.getId());
-	         pstmt.executeUpdate();
-	      } catch (SQLException e) {
-	         // TODO Auto-generated catch block
-	         e.printStackTrace();
-	      }finally {
+	public void memberDelete(MemberDTO mDTO) {
+		Connection conn = JDBCUtil.getConnection();
+	    PreparedStatement pstmt = null;
+	    String query = "delete from users where id = ?";
+	    try {
+	    	pstmt = conn.prepareStatement(query);
+	        pstmt.setString(1, mDTO.getId());
+	        pstmt.executeUpdate();
+	     } catch (SQLException e) {
+	    	 e.printStackTrace();
+	     } finally {
 	         JDBCUtil.close(pstmt, conn);
-	         
-	      }
-	   }
-
-	   // 회원 수정 
-	   public void memberUpdate(MemberDTO mDTO) {
-	       Connection conn = null;
-	       PreparedStatement pstmt = null;
-	       
-	       try {
-	    	   conn = JDBCUtil.getConnection();
-		       conn.setAutoCommit(true); // Auto-commit mode로 설정
-		       String query = "update users set password=?, email=?, name=?, gender=?, birth=? where id = ?";
-		       
-	           pstmt = conn.prepareStatement(query);
-	           pstmt.setString(1, mDTO.getPassword());
-	           pstmt.setString(2, mDTO.getEmail());
-	           pstmt.setString(3, mDTO.getName());
-	           String temGender="";
-	           if(mDTO.getGender().equals("여")) temGender="1";
-	           else if(mDTO.getGender().equals("남")) temGender="0";
-	           pstmt.setString(4, temGender);
-	           pstmt.setString(5, mDTO.getBirth());
-	           pstmt.setString(6, mDTO.getId());
-	           pstmt.executeUpdate();
-	           System.out.println("SQL Query: " + pstmt.toString());
-	       } catch (SQLException e) {
-	           e.printStackTrace();
-	       } finally {
-	           JDBCUtil.close(pstmt, conn);
-	       }
-	   }
+	     }
+	}
+	// 회원 수정 
+	public void memberUpdate(MemberDTO mDTO) {
+		Connection conn = JDBCUtil.getConnection();
+		PreparedStatement pstmt = null; 
+		String query = 
+				"update users set password=?, email=?, name=?, gender=?, birth=? where id = ?"; 
+	    try {
+		    conn.setAutoCommit(true); // Auto-commit mode로 설정
+	        pstmt = conn.prepareStatement(query);
+	        pstmt.setString(1, mDTO.getPassword());
+	        pstmt.setString(2, mDTO.getEmail());
+	        pstmt.setString(3, mDTO.getName());
+	        String temGender="";
+	        if(mDTO.getGender().equals("여")) temGender="1";
+	        else if(mDTO.getGender().equals("남")) temGender="0";
+	        pstmt.setString(4, temGender);
+	        pstmt.setString(5, mDTO.getBirth());
+	        pstmt.setString(6, mDTO.getId());
+	        pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	    	e.printStackTrace();
+	    } finally {
+	        JDBCUtil.close(pstmt, conn);
+	    }
+	}
 	// 관리자 부여 
-	   public void adminUpdate(MemberDTO mDTO) {
-	       Connection conn = null;
-	       PreparedStatement pstmt = null;
-	       
-	       try {
-	    	   conn = JDBCUtil.getConnection();
-		       conn.setAutoCommit(true); // Auto-commit mode로 설정
-		       String query = "update users set role='1' where id = ?";
-		       
-	           pstmt = conn.prepareStatement(query);
-	           pstmt.setString(1, mDTO.getId());
-	           pstmt.executeUpdate();
-	           System.out.println("SQL Query: " + pstmt.toString());
-	       } catch (SQLException e) {
-	           e.printStackTrace();
-	       } finally {
-	           JDBCUtil.close(pstmt, conn);
-	       }
-	   }
+	public void adminUpdate(MemberDTO mDTO) {
+		Connection conn = JDBCUtil.getConnection();
+	    PreparedStatement pstmt = null;  
+	    try {
+		    conn.setAutoCommit(true); // Auto-commit mode로 설정
+		    String query = "update users set role='1' where id = ?";
+	        pstmt = conn.prepareStatement(query);
+	        pstmt.setString(1, mDTO.getId());
+	        pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        JDBCUtil.close(pstmt, conn);
+	    }
+	}
 	   //관리자 신청 
-	   public void approveUpdate(MemberDTO mDTO) {
-	       Connection conn = null;
-	       PreparedStatement pstmt = null;
-	       
-	       try {
-	    	   conn = JDBCUtil.getConnection();
-		       conn.setAutoCommit(true); // Auto-commit mode로 설정
-		       String query = "update users set approve='1' where id = ?";
-		       
-	           pstmt = conn.prepareStatement(query);
-	           pstmt.setString(1, mDTO.getId());
-	           pstmt.executeUpdate();
-	           System.out.println("SQL Query: " + pstmt.toString());
-	       } catch (SQLException e) {
-	           e.printStackTrace();
-	       } finally {
-	           JDBCUtil.close(pstmt, conn);
-	       }
-	   }
-
+	public void approveUpdate(MemberDTO mDTO) {
+	    Connection conn = JDBCUtil.getConnection();
+	    PreparedStatement pstmt = null;
+	    String query = "update users set approve='1' where id = ?";
+	    try {
+		    conn.setAutoCommit(true); // Auto-commit mode로 설정
+	        pstmt = conn.prepareStatement(query);
+	        pstmt.setString(1, mDTO.getId());
+	        pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        JDBCUtil.close(pstmt, conn);
+	    }
+	}
 
 	//회원가입
     public boolean memberInsert(MemberDTO mDTO) {
     	Connection conn = JDBCUtil.getConnection();
         PreparedStatement pstmt = null;
         boolean flag = false;
-
         try {
             pstmt = conn.prepareStatement("insert into users(id,password,name,birth,email,gender)"
             		+ " values(?,?,?,?,?,?);");
@@ -166,13 +149,11 @@ public class MemberDAO {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         MemberDTO member = null;
-
         try {
             conn = JDBCUtil.getConnection();
             pstmt = conn.prepareStatement("SELECT * FROM users WHERE id = ?");
             pstmt.setString(1, memberId);
             rs = pstmt.executeQuery();
-
             if (rs.next()) {
                 member = new MemberDTO();
                 member.setId(rs.getString("id"));
@@ -188,10 +169,8 @@ public class MemberDAO {
         } finally {
             JDBCUtil.close(rs, pstmt, conn);
         }
-
         return member;
     }
-
 
     //회원 전체 목록 조회
     public ArrayList<MemberDTO> selectMemberList() throws SQLException {
@@ -199,7 +178,6 @@ public class MemberDAO {
     	Connection conn = JDBCUtil.getConnection();
         PreparedStatement pstmt = conn.prepareStatement(strQuery);     
         ResultSet rs = pstmt.executeQuery();
-        
         ArrayList<MemberDTO> aList = new ArrayList<MemberDTO>();
         while(rs.next()) {
         	MemberDTO rd = new MemberDTO();
@@ -213,16 +191,15 @@ public class MemberDAO {
         	rd.setApprove(rs.getString("approve"));
         	aList.add(rd);
         }
-
     	return aList;
     }
-  //관리자 신청 목록 조회
+    
+    //관리자 신청 목록 조회
     public ArrayList<MemberDTO> approverList() throws SQLException {
     	String strQuery = "select * from users where approve='1' AND NOT role='1'";
     	Connection conn = JDBCUtil.getConnection();
         PreparedStatement pstmt = conn.prepareStatement(strQuery);     
         ResultSet rs = pstmt.executeQuery();
-        
         ArrayList<MemberDTO> aList = new ArrayList<MemberDTO>();
         while(rs.next()) {
         	MemberDTO rd = new MemberDTO();
@@ -236,8 +213,6 @@ public class MemberDAO {
         	rd.setApprove(rs.getString("approve"));
         	aList.add(rd);
         }
-
     	return aList;
     }
-
 }
