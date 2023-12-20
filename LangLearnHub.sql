@@ -45,7 +45,7 @@ create TABLE chatexam (
     PRIMARY KEY (num, id),
     FOREIGN KEY (`id`) REFERENCES `users`(`id`)
 );
-
+insert users values("admin","admin","관리자","20000101","admin@gmail.com","1","1","0");
 select * from users;
 select * from voca;
 select * from bookmark;
